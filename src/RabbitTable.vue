@@ -2,7 +2,7 @@
 import Checkmark from './components/custom/Checkmark.vue';
 import { Progress } from './components/ui/progress';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from './components/ui/table';
-import { data } from './data';
+import { data, rabbitPercent, rabbitPercentAll } from './data';
 import { RABBITS } from './data/constants';
 </script>
 
@@ -12,7 +12,7 @@ import { RABBITS } from './data/constants';
             <TableRow>
                 <TableHead>
                     Rabbits
-                    <Progress :model-value="data.ultraRabbitMath()"
+                    <Progress :model-value="rabbitPercentAll()"
                 /></TableHead>
                 <TableHead v-for="rabbit of RABBITS" :key="rabbit.key">
                     <img :src="rabbit.icon" :alt="rabbit.name" />
@@ -23,7 +23,7 @@ import { RABBITS } from './data/constants';
             <TableRow>
                 <TableHead>
                     Unlocked
-                    <Progress :model-value="data.rabbitMath((r) => r.unlocked)" />
+                    <Progress :model-value="rabbitPercent((r) => r.unlocked)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                     <Checkmark :checked="data.rabbits[rabbit.key]!.unlocked" />
@@ -32,7 +32,7 @@ import { RABBITS } from './data/constants';
             <TableRow>
                 <TableHead>
                     Adept Palette
-                    <Progress :model-value="data.rabbitMath((r) => r.palettes.adept)" />
+                    <Progress :model-value="rabbitPercent((r) => r.palettes.adept)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                     <Checkmark :checked="data.rabbits[rabbit.key]!.palettes.adept" />
@@ -41,7 +41,7 @@ import { RABBITS } from './data/constants';
             <TableRow>
                 <TableHead>
                     Challenger Palette
-                    <Progress :model-value="data.rabbitMath((r) => r.palettes.challenger)" />
+                    <Progress :model-value="rabbitPercent((r) => r.palettes.challenger)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                     <Checkmark :checked="data.rabbits[rabbit.key]!.palettes.challenger" />
@@ -50,7 +50,7 @@ import { RABBITS } from './data/constants';
             <TableRow>
                 <TableHead>
                     Master Palette
-                    <Progress :model-value="data.rabbitMath((r) => r.palettes.master)" />
+                    <Progress :model-value="rabbitPercent((r) => r.palettes.master)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                     <Checkmark :checked="data.rabbits[rabbit.key]!.palettes.master" />
@@ -59,7 +59,7 @@ import { RABBITS } from './data/constants';
             <TableRow>
                 <TableHead>
                     Spellbound Palette
-                    <Progress :model-value="data.rabbitMath((r) => r.palettes.spellbound)" />
+                    <Progress :model-value="rabbitPercent((r) => r.palettes.spellbound)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                     <Checkmark :checked="data.rabbits[rabbit.key]!.palettes.spellbound" />
@@ -68,7 +68,7 @@ import { RABBITS } from './data/constants';
             <TableRow>
                 <TableHead>
                     Flower Ring
-                    <Progress :model-value="data.rabbitMath((r) => r.rings.flower)" />
+                    <Progress :model-value="rabbitPercent((r) => r.rings.flower)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                     <Checkmark :checked="data.rabbits[rabbit.key]!.rings.flower" />
@@ -77,7 +77,7 @@ import { RABBITS } from './data/constants';
             <TableRow>
                 <TableHead>
                     Star Ring
-                    <Progress :model-value="data.rabbitMath((r) => r.rings.star)" />
+                    <Progress :model-value="rabbitPercent((r) => r.rings.star)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                     <Checkmark :checked="data.rabbits[rabbit.key]!.rings.star" />
@@ -86,7 +86,7 @@ import { RABBITS } from './data/constants';
             <TableRow>
                 <TableHead>
                     Lunar Ring
-                    <Progress :model-value="data.rabbitMath((r) => r.rings.lunar)" />
+                    <Progress :model-value="rabbitPercent((r) => r.rings.lunar)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                     <Checkmark :checked="data.rabbits[rabbit.key]!.rings.lunar" />

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { cacheData } from './data';
 import { loadSavedata } from './data/loadSavedata';
 import { loadUnlockdata } from './data/loadUnlockdata';
 import RabbitTable from './RabbitTable.vue';
@@ -25,6 +26,8 @@ const fileUpload = async (e: Event) => {
             loadUnlockdata(parseINI(await readFileAsText(file)));
         }
     }
+
+    cacheData();
 };
 </script>
 

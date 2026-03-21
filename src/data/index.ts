@@ -1,7 +1,7 @@
 import { reactive } from 'vue';
 import { RABBITS } from './constants';
 
-export const data = reactive({
+const defaultData = () => ({
     rabbits: Object.fromEntries(
         RABBITS.map((rabbit) => [
             rabbit.key,
@@ -21,24 +21,32 @@ export const data = reactive({
             },
         ]),
     ),
-
-    rabbitMath(cond: (rabbit: (typeof data)['rabbits'][string]) => boolean) {
-        const count = Object.values(this.rabbits).filter(cond).length;
-        return Math.floor((count / RABBITS.length) * 100);
-    },
-
-    ultraRabbitMath() {
-        let count = 0;
-        for (const rabbit of Object.values(this.rabbits)) {
-            if (rabbit.unlocked) count++;
-            if (rabbit.palettes.adept) count++;
-            if (rabbit.palettes.challenger) count++;
-            if (rabbit.palettes.master) count++;
-            if (rabbit.palettes.spellbound) count++;
-            if (rabbit.rings.flower) count++;
-            if (rabbit.rings.star) count++;
-            if (rabbit.rings.lunar) count++;
-        }
-        return Math.floor((count / 8 / RABBITS.length) * 100);
-    },
 });
+
+export const data = reactive(
+    (JSON.parse(localStorage.getItem('data-cache') ?? 'null') as ReturnType<typeof defaultData>) ?? defaultData(),
+);
+
+export const cacheData = () => localStorage.setItem('data-cache', JSON.stringify(data));
+
+export const rabbitPercent = (cond: (rabbit: (typeof data)['rabbits'][string]) => boolean) => {
+    const count = Object.values(data.rabbits).filter(cond).length;
+    return Math.floor((count / RABBITS.length) * 100);
+};
+
+export const rabbitPercentAll = () => {
+    let count = 0;
+    for (const rabbit of Object.values(data.rabbits)) {
+        if (rabbit.unlocked) count++;
+        if (rabbit.palettes.adept) count++;
+        if (rabbit.palettes.challenger) count++;
+        if (rabbit.palettes.master) count++;
+        if (rabbit.palettes.spellbound) count++;
+        if (rabbit.rings.flower) count++;
+        if (rabbit.rings.star) count++;
+        if (rabbit.rings.lunar) count++;
+    }
+    return Math.floor((count / 8 / RABBITS.length) * 100);
+};
+
+export const uppercaseFirstLetter = (input: string) => input.charAt(0).toUpperCase() + input.slice(1);

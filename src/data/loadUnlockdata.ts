@@ -7,15 +7,16 @@ export const loadUnlockdata = (raw: any) => {
     // Collect data for every rabbit
     for (let index = 0; index < RABBITS.length; index++) {
         const rabbit = RABBITS[index]!;
+        const rabbitData = data.rabbits[rabbit.key]!;
 
         // See if character is unlocked in general
-        data.rabbits[rabbit.key]!.unlocked =
+        rabbitData.unlocked =
             DEFAULT_RABBITS.includes(rabbit.key) || raw?.UnlockOther?.['char' + uppercaseFirstLetter(rabbit.key)] === 1;
 
         // Gather all palette unlock data
-        data.rabbits[rabbit.key]!.palettes.kingdomHard = raw?.UnlockOther?.['paletteHard' + index] === 1;
-        data.rabbits[rabbit.key]!.palettes.extraHard = raw?.UnlockOther?.['paletteDlcHard' + index] === 1;
-        data.rabbits[rabbit.key]!.palettes.kingdomLunar = raw?.UnlockOther?.['paletteLunar' + index] === 1;
-        data.rabbits[rabbit.key]!.palettes.extraLunar = raw?.UnlockOther?.['paletteDlcLunar' + index] === 1;
+        rabbitData.palettes.adept = raw?.UnlockOther?.['paletteHard' + index] === 1;
+        rabbitData.palettes.challenger = raw?.UnlockOther?.['paletteDlcHard' + index] === 1;
+        rabbitData.palettes.master = raw?.UnlockOther?.['paletteLunar' + index] === 1;
+        rabbitData.palettes.spellbound = raw?.UnlockOther?.['paletteDlcLunar' + index] === 1;
     }
 };

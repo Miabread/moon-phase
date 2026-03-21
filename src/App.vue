@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Input } from './components/ui/input';
 import { cacheData } from './data';
 import { loadSavedata } from './data/loadSavedata';
 import { loadUnlockdata } from './data/loadUnlockdata';
@@ -32,8 +33,7 @@ const fileUpload = async (e: Event) => {
 </script>
 
 <template>
-    <input type="file" multiple accept=".ini" @change="fileUpload" />
-
+    <Input type="file" multiple accept=".ini" @change="fileUpload" />
     <br />
     <br />
     <br />

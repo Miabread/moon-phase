@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
 
-const props = defineProps({
-    checked: Boolean,
-});
+const props = defineProps<{
+    checked?: boolean;
+}>();
 </script>
 
 <template>

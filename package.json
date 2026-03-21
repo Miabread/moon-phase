@@ -19,12 +19,14 @@
         "@vueuse/core": "^14.2.1",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
+        "confbox": "^0.2.4",
         "lucide-vue-next": "^0.577.0",
         "reka-ui": "^2.9.2",
         "tailwind-merge": "^3.5.0",
         "vue": "^3.5.29"
     },
     "devDependencies": {
+        "@iconify/vue": "^5.0.0",
         "@tailwindcss/vite": "^4.2.2",
         "@tsconfig/node24": "^24.0.4",
         "@types/node": "^24.11.0",

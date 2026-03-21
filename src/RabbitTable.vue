@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Checkmark from './components/custom/Checkmark.vue';
 import { Progress } from './components/ui/progress';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from './components/ui/table';
 import { data } from './data';
@@ -25,7 +26,7 @@ import { RABBITS } from './data/constants';
                     <Progress :model-value="data.rabbitMath((r) => r.unlocked)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
-                    {{ data.rabbits[rabbit.key]!.unlocked }}
+                    <Checkmark :checked="data.rabbits[rabbit.key]!.unlocked" />
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -34,7 +35,7 @@ import { RABBITS } from './data/constants';
                     <Progress :model-value="data.rabbitMath((r) => r.palettes.adept)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
-                    {{ data.rabbits[rabbit.key]!.palettes.adept }}
+                    <Checkmark :checked="data.rabbits[rabbit.key]!.palettes.adept" />
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -43,7 +44,7 @@ import { RABBITS } from './data/constants';
                     <Progress :model-value="data.rabbitMath((r) => r.palettes.challenger)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
-                    {{ data.rabbits[rabbit.key]!.palettes.challenger }}
+                    <Checkmark :checked="data.rabbits[rabbit.key]!.palettes.challenger" />
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -52,7 +53,7 @@ import { RABBITS } from './data/constants';
                     <Progress :model-value="data.rabbitMath((r) => r.palettes.master)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
-                    {{ data.rabbits[rabbit.key]!.palettes.master }}
+                    <Checkmark :checked="data.rabbits[rabbit.key]!.palettes.master" />
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -61,7 +62,7 @@ import { RABBITS } from './data/constants';
                     <Progress :model-value="data.rabbitMath((r) => r.palettes.spellbound)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
-                    {{ data.rabbits[rabbit.key]!.palettes.spellbound }}
+                    <Checkmark :checked="data.rabbits[rabbit.key]!.palettes.spellbound" />
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -70,7 +71,7 @@ import { RABBITS } from './data/constants';
                     <Progress :model-value="data.rabbitMath((r) => r.rings.flower)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
-                    {{ data.rabbits[rabbit.key]!.rings.flower }}
+                    <Checkmark :checked="data.rabbits[rabbit.key]!.rings.flower" />
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -79,7 +80,7 @@ import { RABBITS } from './data/constants';
                     <Progress :model-value="data.rabbitMath((r) => r.rings.star)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
-                    {{ data.rabbits[rabbit.key]!.rings.star }}
+                    <Checkmark :checked="data.rabbits[rabbit.key]!.rings.star" />
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -88,7 +89,7 @@ import { RABBITS } from './data/constants';
                     <Progress :model-value="data.rabbitMath((r) => r.rings.lunar)" />
                 </TableHead>
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
-                    {{ data.rabbits[rabbit.key]!.rings.lunar }}
+                    <Checkmark :checked="data.rabbits[rabbit.key]!.rings.lunar" />
                 </TableCell>
             </TableRow>
         </TableBody>

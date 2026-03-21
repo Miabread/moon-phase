@@ -10,8 +10,8 @@ export const loadSavedata = (raw: any) => {
 
     for (let index = 0; index < RABBITS.length; index++) {
         const rings = data.rabbits[RABBITS[index]!.key]!.rings;
-        rings.flower = flowerRing << index === 1;
-        rings.star = starRing << index === 1;
-        rings.lunar = lunarRing << index === 1;
+        rings.flower = ((1 << index) & flowerRing) !== 0;
+        rings.star = ((1 << index) & starRing) !== 0;
+        rings.lunar = ((1 << index) & lunarRing) !== 0;
     }
 };

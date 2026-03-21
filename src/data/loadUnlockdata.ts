@@ -11,12 +11,17 @@ export const loadUnlockdata = (raw: any) => {
 
         // See if character is unlocked in general
         rabbitData.unlocked =
-            DEFAULT_RABBITS.includes(rabbit.key) || raw?.UnlockOther?.['char' + uppercaseFirstLetter(rabbit.key)] === 1;
+            DEFAULT_RABBITS.includes(rabbit.key) ||
+            parseFloat(raw?.UnlockOther?.['char' + uppercaseFirstLetter(rabbit.key)]) === 1;
+
+        if (rabbit.key === 'spellsword') {
+            rabbitData.unlocked = parseFloat(raw?.UnlockOther?.charSpBlade) === 1;
+        }
 
         // Gather all palette unlock data
-        rabbitData.palettes.adept = raw?.UnlockOther?.['paletteHard' + index] === 1;
-        rabbitData.palettes.challenger = raw?.UnlockOther?.['paletteDlcHard' + index] === 1;
-        rabbitData.palettes.master = raw?.UnlockOther?.['paletteLunar' + index] === 1;
-        rabbitData.palettes.spellbound = raw?.UnlockOther?.['paletteDlcLunar' + index] === 1;
+        rabbitData.palettes.adept = parseFloat(raw?.UnlockOther?.['paletteHard' + index]) === 1;
+        rabbitData.palettes.challenger = parseFloat(raw?.UnlockOther?.['paletteDlcHard' + index]) === 1;
+        rabbitData.palettes.master = parseFloat(raw?.UnlockOther?.['paletteLunar' + index]) === 1;
+        rabbitData.palettes.spellbound = parseFloat(raw?.UnlockOther?.['paletteDlcLunar' + index]) === 1;
     }
 };

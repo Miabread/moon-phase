@@ -1,7 +1,19 @@
 import { reactive } from 'vue';
-import { RABBITS } from '../constants';
+import { BUNDLES, RABBITS } from '../constants';
+
+export { loadSavedata } from './loadSavedata';
+export { loadUnlockdata } from './loadUnlockdata';
 
 const defaultData = () => ({
+    bundles: Object.fromEntries(
+        BUNDLES.map((bundle) => [
+            bundle,
+            {
+                lastUploaded: 0,
+            },
+        ]),
+    ),
+
     rabbits: Object.fromEntries(
         RABBITS.map((rabbit) => [
             rabbit.key,

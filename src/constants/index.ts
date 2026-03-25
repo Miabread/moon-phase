@@ -1,3 +1,3 @@
 export * from './rabbits.ts';
 
-export const BUNDLES = ['savedata', 'unlockdata'];
+export const BUNDLES = ['savedata', 'unlockdata'] as const;

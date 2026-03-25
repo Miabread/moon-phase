@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue';
+import { Lock, LockOpen } from 'lucide-vue-next';
 
 const props = defineProps<{
     checked?: boolean;
@@ -8,7 +8,7 @@ const props = defineProps<{
 
 <template>
     <span class="flex justify-center items-center">
-        <Icon v-if="props.checked" icon="mdi:unlocked-variant" class="text-primary" />
-        <Icon v-else icon="mdi:lock" class="text-destructive" />
+        <LockOpen v-if="props.checked" class="text-primary" />
+        <Lock v-else class="text-destructive" />
     </span>
 </template>

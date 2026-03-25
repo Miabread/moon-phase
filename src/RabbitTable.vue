@@ -3,7 +3,7 @@ import Checkmark from './components/custom/Checkmark.vue';
 import { Progress } from './components/ui/progress';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from './components/ui/table';
 import { data, rabbitPercent, rabbitPercentAll } from './data';
-import { RABBITS } from './data/constants';
+import { RABBITS } from './constants';
 </script>
 
 <template>

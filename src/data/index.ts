@@ -1,5 +1,5 @@
 import { reactive } from 'vue';
-import { RABBITS } from './constants';
+import { RABBITS } from '../constants';
 
 const defaultData = () => ({
     rabbits: Object.fromEntries(
@@ -48,5 +48,3 @@ export const rabbitPercentAll = () => {
     }
     return Math.floor((count / 8 / RABBITS.length) * 100);
 };
-
-export const uppercaseFirstLetter = (input: string) => input.charAt(0).toUpperCase() + input.slice(1);

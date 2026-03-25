@@ -1,5 +1,3 @@
-export const BUNDLES = ['savedata', 'unlockdata'];
-
 export const DEFAULT_RABBITS = ['wizard', 'assassin', 'hblade', 'dancer', 'druid'];
 
 export const RABBITS = [

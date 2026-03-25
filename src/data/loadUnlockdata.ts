@@ -1,6 +1,6 @@
+import { uppercaseFirstLetter } from '@/lib/utils';
 import { data } from '.';
-import { DEFAULT_RABBITS, RABBITS } from './constants';
-import { uppercaseFirstLetter } from './';
+import { DEFAULT_RABBITS, RABBITS } from '../constants';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const loadUnlockdata = (raw: any) => {

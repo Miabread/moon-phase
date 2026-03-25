@@ -5,6 +5,7 @@ import { loadSavedata } from './data/loadSavedata';
 import { loadUnlockdata } from './data/loadUnlockdata';
 import RabbitTable from './RabbitTable.vue';
 import { parseINI } from 'confbox';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from './components/ui/tabs';
 
 const readFileAsText = (file: File): Promise<string> =>
     new Promise((resolve, reject) => {
@@ -37,5 +38,12 @@ const fileUpload = async (e: Event) => {
     <br />
     <br />
     <br />
-    <RabbitTable />
+    <Tabs default-value="rabbits">
+        <TabsList>
+            <TabsTrigger value="rabbits"> Rabbits </TabsTrigger>
+            <TabsTrigger value="testing"> Testing </TabsTrigger>
+        </TabsList>
+        <TabsContent value="rabbits"> <RabbitTable /> </TabsContent>
+        <TabsContent value="testing"> meow meow </TabsContent>
+    </Tabs>
 </template>

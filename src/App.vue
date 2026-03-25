@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Input } from './components/ui/input';
+import { Input } from './components/shadcn/input';
 import { cacheData } from './data';
 import { loadSavedata } from './data/loadSavedata';
 import { loadUnlockdata } from './data/loadUnlockdata';
 import RabbitTable from './RabbitTable.vue';
 import { parseINI } from 'confbox';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from './components/ui/tabs';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from './components/shadcn/tabs';
 
 const readFileAsText = (file: File): Promise<string> =>
     new Promise((resolve, reject) => {

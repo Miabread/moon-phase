@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import Checkmark from './components/custom/Checkmark.vue';
-import { Progress } from './components/ui/progress';
-import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from './components/ui/table';
+import { Progress } from './components/shadcn/progress';
+import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from './components/shadcn/table';
 import { data, rabbitPercent, rabbitPercentAll } from './data';
 import { RABBITS } from './constants';
-import { Card, CardContent } from './components/ui/card';
+import { Card, CardContent } from './components/shadcn/card';
 </script>
 
 <template>

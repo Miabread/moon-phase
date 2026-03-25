@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Calendar, Home, Inbox, Search, Settings } from 'lucide-vue-next';
+import { Github, MoonStar, Music, Rabbit, ScanHeart, Swords, Trophy } from 'lucide-vue-next';
 import {
     Sidebar,
     SidebarContent,
@@ -11,33 +11,49 @@ import {
     SidebarMenuItem,
 } from '@/components/shadcn/sidebar';
 import AppSidebarHeader from './AppSidebarHeader.vue';
+import Progress from '@/components/shadcn/progress/Progress.vue';
+import { rabbitPercentAll } from '@/data';
+import SidebarFooter from '@/components/shadcn/sidebar/SidebarFooter.vue';
 
 // Menu items.
 const items = [
     {
-        title: 'Home',
+        title: 'Completion',
         url: '#',
-        icon: Home,
+        icon: MoonStar,
     },
     {
-        title: 'Inbox',
+        title: 'Achievements',
         url: '#',
-        icon: Inbox,
+        icon: Trophy,
     },
     {
-        title: 'Calendar',
+        title: 'Rabbits',
         url: '#',
-        icon: Calendar,
+        icon: Rabbit,
     },
     {
-        title: 'Search',
+        title: 'Loot',
         url: '#',
-        icon: Search,
+        icon: Swords,
     },
     {
-        title: 'Settings',
+        title: 'Trinkets',
         url: '#',
-        icon: Settings,
+        icon: ScanHeart,
+    },
+    {
+        title: 'Music',
+        url: '#',
+        icon: Music,
+    },
+];
+
+const footerItems = [
+    {
+        title: 'Source Code',
+        url: 'https://github.com/Miabread/moon-phase',
+        icon: Github,
     },
 ];
 </script>
@@ -47,10 +63,28 @@ const items = [
         <AppSidebarHeader />
         <SidebarContent>
             <SidebarGroup>
-                <SidebarGroupLabel>Application</SidebarGroupLabel>
+                <SidebarGroupLabel>Overview</SidebarGroupLabel>
                 <SidebarGroupContent>
                     <SidebarMenu>
                         <SidebarMenuItem v-for="item in items" :key="item.title">
+                            <SidebarMenuButton as-child>
+                                <a :href="item.url">
+                                    <component :is="item.icon" />
+                                    <span>{{ item.title }}</span>
+                                    <Progress :model-value="rabbitPercentAll()" />
+                                </a>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    </SidebarMenu>
+                </SidebarGroupContent>
+            </SidebarGroup>
+        </SidebarContent>
+        <SidebarFooter>
+            <SidebarGroup>
+                <SidebarGroupLabel>About</SidebarGroupLabel>
+                <SidebarGroupContent>
+                    <SidebarMenu>
+                        <SidebarMenuItem v-for="item in footerItems" :key="item.title">
                             <SidebarMenuButton as-child>
                                 <a :href="item.url">
                                     <component :is="item.icon" />
@@ -61,6 +95,6 @@ const items = [
                     </SidebarMenu>
                 </SidebarGroupContent>
             </SidebarGroup>
-        </SidebarContent>
+        </SidebarFooter>
     </Sidebar>
 </template>

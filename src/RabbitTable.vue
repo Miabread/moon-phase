@@ -4,11 +4,17 @@ import { Progress } from './components/shadcn/progress';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from './components/shadcn/table';
 import { data, rabbitPercent, rabbitPercentAll } from './data';
 import { RABBITS } from './constants';
-import { Card, CardContent } from './components/shadcn/card';
+import { Card, CardContent, CardHeader, CardTitle } from './components/shadcn/card';
+import { Rabbit } from 'lucide-vue-next';
 </script>
 
 <template>
     <Card class="w-full">
+        <CardHeader>
+            <CardTitle>
+                <span class="flex flex-row items-center gap-1"> <Rabbit /> Rabbits </span>
+            </CardTitle>
+        </CardHeader>
         <CardContent>
             <Table>
                 <TableHeader>

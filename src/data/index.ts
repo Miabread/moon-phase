@@ -1,10 +1,12 @@
 import { reactive } from 'vue';
-import { BUNDLES, RABBITS } from '../constants';
+import { BUNDLES, RABBITS, VERSION } from '../constants';
 
 export { loadSavedata } from './loadSavedata';
 export { loadUnlockdata } from './loadUnlockdata';
 
 const defaultData = () => ({
+    version: VERSION,
+
     bundles: Object.fromEntries(
         BUNDLES.map((bundle) => [
             bundle,
@@ -35,9 +37,11 @@ const defaultData = () => ({
     ),
 });
 
-export const data = reactive(
-    (JSON.parse(localStorage.getItem('data-cache') ?? 'null') as ReturnType<typeof defaultData>) ?? defaultData(),
-);
+const retrievedData = JSON.parse(localStorage.getItem('data-cache') ?? 'null') as ReturnType<typeof defaultData> | null;
+
+const validatedData = !retrievedData || retrievedData.version !== VERSION ? defaultData() : retrievedData;
+
+export const data = reactive(validatedData);
 
 export const cacheData = () => localStorage.setItem('data-cache', JSON.stringify(data));
 

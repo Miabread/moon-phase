@@ -7,7 +7,7 @@ import AppSidebar from './components/custom/sidebar/AppSidebar.vue';
 <template>
     <SidebarProvider open default-open>
         <AppSidebar />
-        <main>
+        <main class="mt-16 flex flex-1 flex-col gap-4 p-4 pt-0">
             <RabbitTable />
         </main>
     </SidebarProvider>

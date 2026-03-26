@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import RabbitTable from './RabbitTable.vue';
+import RabbitClears from './components/custom/rabbitClears/RabbitClears.vue';
 import { SidebarProvider } from './components/shadcn/sidebar';
 import AppSidebar from './components/custom/sidebar/AppSidebar.vue';
 </script>
@@ -8,7 +8,7 @@ import AppSidebar from './components/custom/sidebar/AppSidebar.vue';
     <SidebarProvider open default-open>
         <AppSidebar />
         <main class="mt-16 flex flex-1 flex-col gap-4 p-4 pt-0">
-            <RabbitTable />
+            <RabbitClears />
         </main>
     </SidebarProvider>
 </template>

@@ -44,23 +44,3 @@ const validatedData = !retrievedData || retrievedData.version !== VERSION ? defa
 export const data = reactive(validatedData);
 
 export const cacheData = () => localStorage.setItem('data-cache', JSON.stringify(data));
-
-export const rabbitPercent = (cond: (rabbit: (typeof data)['rabbits'][string]) => boolean) => {
-    const count = Object.values(data.rabbits).filter(cond).length;
-    return Math.floor((count / RABBITS.length) * 100);
-};
-
-export const rabbitPercentAll = () => {
-    let count = 0;
-    for (const rabbit of Object.values(data.rabbits)) {
-        if (rabbit.unlocked) count++;
-        if (rabbit.palettes.adept) count++;
-        if (rabbit.palettes.challenger) count++;
-        if (rabbit.palettes.master) count++;
-        if (rabbit.palettes.spellbound) count++;
-        if (rabbit.rings.flower) count++;
-        if (rabbit.rings.star) count++;
-        if (rabbit.rings.lunar) count++;
-    }
-    return Math.floor((count / 8 / RABBITS.length) * 100);
-};

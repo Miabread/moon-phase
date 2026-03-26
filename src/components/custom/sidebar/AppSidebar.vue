@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Github, MoonStar, Music, Rabbit, ScanHeart, Swords, Trophy } from 'lucide-vue-next';
+import { Github, Music, Rabbit } from 'lucide-vue-next';
 import {
     Sidebar,
     SidebarContent,
@@ -12,41 +12,40 @@ import {
 } from '@/components/shadcn/sidebar';
 import AppSidebarHeader from './AppSidebarHeader.vue';
 import Progress from '@/components/shadcn/progress/Progress.vue';
-import { rabbitPercentAll } from '@/data';
+import { rabbitClearPercent } from '@/components/custom/rabbitClears/calc';
 import SidebarFooter from '@/components/shadcn/sidebar/SidebarFooter.vue';
 
-// Menu items.
 const items = [
+    // {
+    //     title: 'Completion',
+    //     url: '#',
+    //     icon: MoonStar,
+    // },
+    // {
+    //     title: 'Achievements',
+    //     url: '#',
+    //     icon: Trophy,
+    // },
     {
-        title: 'Completion',
-        url: '#',
-        icon: MoonStar,
-    },
-    {
-        title: 'Achievements',
-        url: '#',
-        icon: Trophy,
-    },
-    {
-        title: 'Rabbits',
+        title: 'Rabbit Clears',
         url: '#',
         icon: Rabbit,
     },
-    {
-        title: 'Loot',
-        url: '#',
-        icon: Swords,
-    },
-    {
-        title: 'Trinkets',
-        url: '#',
-        icon: ScanHeart,
-    },
+    // {
+    //     title: 'Trinkets',
+    //     url: '#',
+    //     icon: ScanHeart,
+    // },
     {
         title: 'Music',
         url: '#',
         icon: Music,
     },
+    // {
+    //     title: 'Loot',
+    //     url: '#',
+    //     icon: Swords,
+    // },
 ];
 
 const footerItems = [
@@ -68,10 +67,10 @@ const footerItems = [
                     <SidebarMenu>
                         <SidebarMenuItem v-for="item in items" :key="item.title">
                             <SidebarMenuButton as-child>
-                                <a :href="item.url">
+                                <a :href="item.url" class="text-nowrap">
                                     <component :is="item.icon" />
                                     <span>{{ item.title }}</span>
-                                    <Progress :model-value="rabbitPercentAll()" />
+                                    <Progress :model-value="rabbitClearPercent" />
                                 </a>
                             </SidebarMenuButton>
                         </SidebarMenuItem>

@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import Checkmark from './components/custom/Checkmark.vue';
-import { Progress } from './components/shadcn/progress';
-import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from './components/shadcn/table';
-import { data, rabbitPercent, rabbitPercentAll } from './data';
-import { RABBITS } from './constants';
-import { Card, CardContent, CardHeader, CardTitle } from './components/shadcn/card';
+import Checkmark from '@/components/custom/Checkmark.vue';
+import { Progress } from '@/components/shadcn/progress';
+import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/shadcn/table';
+import { data } from '@/data';
+import { RABBITS } from '@/constants';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/shadcn/card';
 import { Rabbit } from 'lucide-vue-next';
+import { rabbitClearPercent, rabbitClearPercents } from './calc';
 </script>
 
 <template>
     <Card class="w-full">
         <CardHeader>
             <CardTitle>
-                <span class="flex flex-row items-center gap-1"> <Rabbit /> Rabbits </span>
+                <span class="flex flex-row items-center gap-1"> <Rabbit /> Rabbit Clears </span>
             </CardTitle>
         </CardHeader>
         <CardContent>
@@ -20,9 +21,9 @@ import { Rabbit } from 'lucide-vue-next';
                 <TableHeader>
                     <TableRow>
                         <TableHead>
-                            Rabbits
-                            <Progress :model-value="rabbitPercentAll()"
-                        /></TableHead>
+                            Rabbits {{ Math.floor(rabbitClearPercent) }}%
+                            <Progress :model-value="rabbitClearPercent" />
+                        </TableHead>
                         <TableHead v-for="rabbit of RABBITS" :key="rabbit.key">
                             <div class="flex justify-center items-center">
                                 <img :src="rabbit.icon" :alt="rabbit.name" />
@@ -33,8 +34,8 @@ import { Rabbit } from 'lucide-vue-next';
                 <TableBody>
                     <TableRow>
                         <TableHead>
-                            Unlocked
-                            <Progress :model-value="rabbitPercent((r) => r.unlocked)" />
+                            Class Unlocked
+                            <Progress :model-value="rabbitClearPercents.unlocked.value" />
                         </TableHead>
                         <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                             <Checkmark :checked="data.rabbits[rabbit.key]!.unlocked" />
@@ -43,7 +44,7 @@ import { Rabbit } from 'lucide-vue-next';
                     <TableRow>
                         <TableHead>
                             Adept Palette
-                            <Progress :model-value="rabbitPercent((r) => r.palettes.adept)" />
+                            <Progress :model-value="rabbitClearPercents.palettes.adept.value" />
                         </TableHead>
                         <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                             <Checkmark :checked="data.rabbits[rabbit.key]!.palettes.adept" />
@@ -52,7 +53,7 @@ import { Rabbit } from 'lucide-vue-next';
                     <TableRow>
                         <TableHead>
                             Challenger Palette
-                            <Progress :model-value="rabbitPercent((r) => r.palettes.challenger)" />
+                            <Progress :model-value="rabbitClearPercents.palettes.challenger.value" />
                         </TableHead>
                         <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                             <Checkmark :checked="data.rabbits[rabbit.key]!.palettes.challenger" />
@@ -61,7 +62,7 @@ import { Rabbit } from 'lucide-vue-next';
                     <TableRow>
                         <TableHead>
                             Master Palette
-                            <Progress :model-value="rabbitPercent((r) => r.palettes.master)" />
+                            <Progress :model-value="rabbitClearPercents.palettes.master.value" />
                         </TableHead>
                         <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                             <Checkmark :checked="data.rabbits[rabbit.key]!.palettes.master" />
@@ -70,7 +71,7 @@ import { Rabbit } from 'lucide-vue-next';
                     <TableRow>
                         <TableHead>
                             Spellbound Palette
-                            <Progress :model-value="rabbitPercent((r) => r.palettes.spellbound)" />
+                            <Progress :model-value="rabbitClearPercents.palettes.spellbound.value" />
                         </TableHead>
                         <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                             <Checkmark :checked="data.rabbits[rabbit.key]!.palettes.spellbound" />
@@ -79,7 +80,7 @@ import { Rabbit } from 'lucide-vue-next';
                     <TableRow>
                         <TableHead>
                             Flower Ring
-                            <Progress :model-value="rabbitPercent((r) => r.rings.flower)" />
+                            <Progress :model-value="rabbitClearPercents.rings.flower.value" />
                         </TableHead>
                         <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                             <Checkmark :checked="data.rabbits[rabbit.key]!.rings.flower" />
@@ -88,7 +89,7 @@ import { Rabbit } from 'lucide-vue-next';
                     <TableRow>
                         <TableHead>
                             Star Ring
-                            <Progress :model-value="rabbitPercent((r) => r.rings.star)" />
+                            <Progress :model-value="rabbitClearPercents.rings.star.value" />
                         </TableHead>
                         <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                             <Checkmark :checked="data.rabbits[rabbit.key]!.rings.star" />
@@ -97,7 +98,7 @@ import { Rabbit } from 'lucide-vue-next';
                     <TableRow>
                         <TableHead>
                             Lunar Ring
-                            <Progress :model-value="rabbitPercent((r) => r.rings.lunar)" />
+                            <Progress :model-value="rabbitClearPercents.rings.lunar.value" />
                         </TableHead>
                         <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
                             <Checkmark :checked="data.rabbits[rabbit.key]!.rings.lunar" />

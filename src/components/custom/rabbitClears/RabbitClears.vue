@@ -26,7 +26,7 @@ import { rabbitClearPercent } from './calc';
                         <TableHead />
                         <TableHead v-for="rabbit of RABBITS" :key="rabbit.key">
                             <div class="flex justify-center items-center">
-                                <img :src="rabbit.icon" :alt="rabbit.name" />
+                                <img :src="rabbit.icon" :alt="rabbit.name" class="h-10 w-10" />
                             </div>
                         </TableHead>
                     </TableRow>

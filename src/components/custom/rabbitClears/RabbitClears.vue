@@ -10,7 +10,7 @@ import { rabbitClearPercent, rabbitClearPercents } from './calc';
 </script>
 
 <template>
-    <Card class="w-full">
+    <Card class="w-full" id="rabbitClears">
         <CardHeader>
             <CardTitle>
                 <span class="flex flex-row items-center gap-1"> <Rabbit /> Rabbit Clears </span>

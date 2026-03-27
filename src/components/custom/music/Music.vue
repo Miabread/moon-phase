@@ -13,7 +13,7 @@ const sortedMUSIC = computed(() =>
 </script>
 
 <template>
-    <Card class="w-full">
+    <Card class="w-full" id="music">
         <CardHeader>
             <CardTitle>
                 <span class="flex flex-row items-center gap-1"> <Music /> Music Unlocks </span>

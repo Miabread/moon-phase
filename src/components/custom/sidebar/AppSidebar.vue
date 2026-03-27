@@ -28,7 +28,7 @@ const items = [
     // },
     {
         title: 'Rabbit Clears',
-        url: '#',
+        url: '#rabbitClears',
         icon: Rabbit,
     },
     // {
@@ -38,7 +38,7 @@ const items = [
     // },
     {
         title: 'Music',
-        url: '#',
+        url: '#music',
         icon: Music,
     },
     // {

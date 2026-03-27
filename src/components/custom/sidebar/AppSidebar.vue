@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Github, Moon, Music, Rabbit } from 'lucide-vue-next';
+import { Github } from 'lucide-vue-next';
 import {
     Sidebar,
     SidebarContent,
@@ -12,46 +12,8 @@ import {
 } from '@/components/shadcn/sidebar';
 import AppSidebarHeader from './AppSidebarHeader.vue';
 import Progress from '@/components/shadcn/progress/Progress.vue';
-import { rabbitClearPercent } from '@/components/custom/rabbitClears/calc';
 import SidebarFooter from '@/components/shadcn/sidebar/SidebarFooter.vue';
-import { musicUnlockPercent } from '../musicUnlocks/calc';
-import { totalCompletion } from '../completion/calc';
-
-const items = [
-    {
-        title: 'Completion',
-        url: '#completion',
-        icon: Moon,
-        progress: totalCompletion,
-    },
-    // {
-    //     title: 'Achievements',
-    //     url: '#',
-    //     icon: Trophy,
-    // },
-    {
-        title: 'Rabbits',
-        url: '#rabbitClears',
-        icon: Rabbit,
-        progress: rabbitClearPercent,
-    },
-    // {
-    //     title: 'Trinkets',
-    //     url: '#',
-    //     icon: ScanHeart,
-    // },
-    {
-        title: 'Music',
-        url: '#musicUnlocks',
-        icon: Music,
-        progress: musicUnlockPercent,
-    },
-    // {
-    //     title: 'Loot',
-    //     url: '#',
-    //     icon: Swords,
-    // },
-];
+import { NAV_ITEMS_ARRAY } from '@/constants/nav';
 
 const footerItems = [
     {
@@ -70,9 +32,9 @@ const footerItems = [
                 <SidebarGroupLabel>Overview</SidebarGroupLabel>
                 <SidebarGroupContent>
                     <SidebarMenu>
-                        <SidebarMenuItem v-for="item in items" :key="item.title">
+                        <SidebarMenuItem v-for="item in NAV_ITEMS_ARRAY" :key="item.title">
                             <SidebarMenuButton as-child>
-                                <a :href="item.url" class="text-nowrap">
+                                <a :href="'#' + item.url" class="text-nowrap">
                                     <component :is="item.icon" />
                                     <span>{{ item.title }}</span>
                                     <Progress :model-value="item.progress.value" />

@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import Lock from '@/components/custom/Lock.vue';
-import { Progress } from '@/components/shadcn/progress';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/shadcn/table';
 import { data } from '@/data';
 import { RABBITS } from '@/constants';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/shadcn/card';
 import { Rabbit } from 'lucide-vue-next';
-import { rabbitClearPercent } from './calc';
 
 type Rabbit = (typeof data)['rabbits'][string];
 
@@ -70,54 +67,42 @@ const rows = [
 </script>
 
 <template>
-    <Card class="w-full" id="rabbitClears">
-        <CardHeader>
-            <CardTitle>
-                <span class="flex flex-row items-center gap-5 text-nowrap">
-                    <Rabbit /> Rabbit Clears
-                    <Progress :model-value="rabbitClearPercent" />
-                </span>
-            </CardTitle>
-        </CardHeader>
-        <CardContent>
-            <Table>
-                <TableHeader>
-                    <TableRow>
-                        <!-- Three empty rows for the two icons and title -->
-                        <TableHead />
-                        <TableHead />
-                        <TableHead />
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <!-- Three empty rows for the two icons and title -->
+                <TableHead />
+                <TableHead />
+                <TableHead />
 
-                        <!-- And now one for each rabbit -->
-                        <TableHead v-for="rabbit of RABBITS" :key="rabbit.key">
-                            <div class="flex justify-center items-center">
-                                <img :src="rabbit.icon" :alt="rabbit.name" class="h-10 w-10" />
-                            </div>
-                        </TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    <TableRow v-for="row of rows" :key="row.title">
-                        <!-- The following three cells have no header -->
-                        <TableCell>
-                            <div class="flex justify-center items-center">
-                                <img :src="row.icons[0]" class="h-5 w-5" />
-                            </div>
-                        </TableCell>
-                        <TableCell>
-                            <div class="flex justify-center items-center">
-                                <img :src="row.icons[1]" class="h-10 w-10" />
-                            </div>
-                        </TableCell>
-                        <TableHead> {{ row.title }} </TableHead>
+                <!-- And now one for each rabbit -->
+                <TableHead v-for="rabbit of RABBITS" :key="rabbit.key">
+                    <div class="flex justify-center items-center">
+                        <img :src="rabbit.icon" :alt="rabbit.name" class="h-10 w-10" />
+                    </div>
+                </TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow v-for="row of rows" :key="row.title">
+                <!-- The following three cells have no header -->
+                <TableCell>
+                    <div class="flex justify-center items-center">
+                        <img :src="row.icons[0]" class="h-5 w-5" />
+                    </div>
+                </TableCell>
+                <TableCell>
+                    <div class="flex justify-center items-center">
+                        <img :src="row.icons[1]" class="h-10 w-10" />
+                    </div>
+                </TableCell>
+                <TableHead> {{ row.title }} </TableHead>
 
-                        <!-- And now one for each rabbit -->
-                        <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
-                            <Lock :unlocked="row.checked(data.rabbits[rabbit.key]!)" />
-                        </TableCell>
-                    </TableRow>
-                </TableBody>
-            </Table>
-        </CardContent>
-    </Card>
+                <!-- And now one for each rabbit -->
+                <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
+                    <Lock :unlocked="row.checked(data.rabbits[rabbit.key]!)" />
+                </TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </template>

@@ -14,6 +14,7 @@ import AppSidebarHeader from './AppSidebarHeader.vue';
 import Progress from '@/components/shadcn/progress/Progress.vue';
 import { rabbitClearPercent } from '@/components/custom/rabbitClears/calc';
 import SidebarFooter from '@/components/shadcn/sidebar/SidebarFooter.vue';
+import { musicPercent } from '../music/calc';
 
 const items = [
     // {
@@ -27,9 +28,10 @@ const items = [
     //     icon: Trophy,
     // },
     {
-        title: 'Rabbit Clears',
+        title: 'Rabbits',
         url: '#rabbitClears',
         icon: Rabbit,
+        progress: rabbitClearPercent,
     },
     // {
     //     title: 'Trinkets',
@@ -40,6 +42,7 @@ const items = [
         title: 'Music',
         url: '#music',
         icon: Music,
+        progress: musicPercent,
     },
     // {
     //     title: 'Loot',
@@ -70,7 +73,7 @@ const footerItems = [
                                 <a :href="item.url" class="text-nowrap">
                                     <component :is="item.icon" />
                                     <span>{{ item.title }}</span>
-                                    <Progress :model-value="rabbitClearPercent" />
+                                    <Progress :model-value="item.progress.value" />
                                 </a>
                             </SidebarMenuButton>
                         </SidebarMenuItem>

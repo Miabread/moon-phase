@@ -1,26 +1,18 @@
-import { RABBITS } from '@/constants';
 import { data } from '@/data';
-import { computedSumPercent } from '@/lib/utils';
-import { computed } from 'vue';
-
-export const bunnyMath = (cond: (rabbit: (typeof data)['rabbits'][string]) => boolean) =>
-    computed(() => {
-        const count = Object.values(data.rabbits).filter(cond).length;
-        return Math.floor((count / RABBITS.length) * 100);
-    });
+import { computedEntriesPercent, computedSumPercent } from '@/lib/utils';
 
 export const rabbitClearPercents = {
-    unlocked: bunnyMath((r) => r.unlocked),
+    unlocked: computedEntriesPercent(data.rabbits, (r) => r.unlocked),
     palettes: {
-        adept: bunnyMath((r) => r.palettes.adept),
-        challenger: bunnyMath((r) => r.palettes.challenger),
-        master: bunnyMath((r) => r.palettes.master),
-        spellbound: bunnyMath((r) => r.palettes.spellbound),
+        adept: computedEntriesPercent(data.rabbits, (r) => r.palettes.adept),
+        challenger: computedEntriesPercent(data.rabbits, (r) => r.palettes.challenger),
+        master: computedEntriesPercent(data.rabbits, (r) => r.palettes.master),
+        spellbound: computedEntriesPercent(data.rabbits, (r) => r.palettes.spellbound),
     },
     rings: {
-        flower: bunnyMath((r) => r.rings.flower),
-        star: bunnyMath((r) => r.rings.star),
-        lunar: bunnyMath((r) => r.rings.lunar),
+        flower: computedEntriesPercent(data.rabbits, (r) => r.rings.flower),
+        star: computedEntriesPercent(data.rabbits, (r) => r.rings.star),
+        lunar: computedEntriesPercent(data.rabbits, (r) => r.rings.lunar),
     },
 };
 

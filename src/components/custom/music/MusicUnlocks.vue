@@ -5,18 +5,17 @@ import { Music } from 'lucide-vue-next';
 import { MUSIC } from '@/constants/music';
 import Checkmark from '../Checkmark.vue';
 import { data } from '@/data';
-// import { computed } from 'vue';
+import { computed } from 'vue';
 import { Progress } from '@/components/shadcn/progress';
 import { musicPercent } from './calc';
 
-// const sortedMUSIC = computed(() =>
-//     MUSIC.sort((a, b) => Number(data.music[a.key]!.unlocked) - Number(data.music[b.key]!.unlocked)),
-// );
-const sortedMUSIC = MUSIC;
+const sortedMUSIC = computed(() =>
+    MUSIC.sort((a, b) => Number(data.music[a.key]!.unlocked) - Number(data.music[b.key]!.unlocked)),
+);
 </script>
 
 <template>
-    <Card class="w-full" id="music">
+    <Card class="w-full" id="musicUnlocks">
         <CardHeader>
             <CardTitle>
                 <span class="flex flex-row items-center gap-5 text-nowrap">

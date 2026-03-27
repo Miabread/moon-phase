@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Github, Music, Rabbit } from 'lucide-vue-next';
+import { Github, Moon, Music, Rabbit } from 'lucide-vue-next';
 import {
     Sidebar,
     SidebarContent,
@@ -17,11 +17,12 @@ import SidebarFooter from '@/components/shadcn/sidebar/SidebarFooter.vue';
 import { musicPercent } from '../music/calc';
 
 const items = [
-    // {
-    //     title: 'Completion',
-    //     url: '#',
-    //     icon: MoonStar,
-    // },
+    {
+        title: 'Completion',
+        url: '#completion',
+        icon: Moon,
+        progress: rabbitClearPercent,
+    },
     // {
     //     title: 'Achievements',
     //     url: '#',
@@ -40,7 +41,7 @@ const items = [
     // },
     {
         title: 'Music',
-        url: '#music',
+        url: '#musicUnlocks',
         icon: Music,
         progress: musicPercent,
     },

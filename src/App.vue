@@ -2,6 +2,7 @@
 import RabbitClears from './components/custom/rabbitClears/RabbitClears.vue';
 import { SidebarProvider } from './components/shadcn/sidebar';
 import AppSidebar from './components/custom/sidebar/AppSidebar.vue';
+import Music from './components/custom/music/Music.vue';
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import AppSidebar from './components/custom/sidebar/AppSidebar.vue';
         <AppSidebar />
         <main class="mt-16 flex flex-1 flex-col gap-4 p-4 pt-0">
             <RabbitClears />
+            <Music />
         </main>
     </SidebarProvider>
 </template>

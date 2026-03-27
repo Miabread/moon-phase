@@ -1,5 +1,6 @@
 import { reactive } from 'vue';
 import { BUNDLES, RABBITS, VERSION } from '../constants';
+import { MUSIC } from '@/constants/music';
 
 export { loadSavedata } from './loadSavedata';
 export { loadUnlockdata } from './loadUnlockdata';
@@ -32,6 +33,15 @@ const defaultData = () => ({
                     star: false,
                     lunar: false,
                 },
+            },
+        ]),
+    ),
+
+    music: Object.fromEntries(
+        MUSIC.map((music) => [
+            music.key,
+            {
+                unlocked: false,
             },
         ]),
     ),

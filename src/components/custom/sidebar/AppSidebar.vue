@@ -14,14 +14,15 @@ import AppSidebarHeader from './AppSidebarHeader.vue';
 import Progress from '@/components/shadcn/progress/Progress.vue';
 import { rabbitClearPercent } from '@/components/custom/rabbitClears/calc';
 import SidebarFooter from '@/components/shadcn/sidebar/SidebarFooter.vue';
-import { musicPercent } from '../music/calc';
+import { musicUnlockPercent } from '../musicUnlocks/calc';
+import { totalCompletion } from '../completion/calc';
 
 const items = [
     {
         title: 'Completion',
         url: '#completion',
         icon: Moon,
-        progress: rabbitClearPercent,
+        progress: totalCompletion,
     },
     // {
     //     title: 'Achievements',
@@ -43,7 +44,7 @@ const items = [
         title: 'Music',
         url: '#musicUnlocks',
         icon: Music,
-        progress: musicPercent,
+        progress: musicUnlockPercent,
     },
     // {
     //     title: 'Loot',

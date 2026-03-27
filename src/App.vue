@@ -2,7 +2,7 @@
 import RabbitClears from './components/custom/rabbitClears/RabbitClears.vue';
 import { SidebarProvider } from './components/shadcn/sidebar';
 import AppSidebar from './components/custom/sidebar/AppSidebar.vue';
-import MusicUnlocks from './components/custom/music/MusicUnlocks.vue';
+import MusicUnlocks from './components/custom/musicUnlocks/MusicUnlocks.vue';
 import Completion from './components/custom/completion/Completion.vue';
 </script>
 

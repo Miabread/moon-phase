@@ -7,7 +7,7 @@ import Checkmark from '../Checkmark.vue';
 import { data } from '@/data';
 import { computed } from 'vue';
 import { Progress } from '@/components/shadcn/progress';
-import { musicPercent } from './calc';
+import { musicUnlockPercent } from './calc';
 
 const sortedMUSIC = computed(() =>
     MUSIC.sort((a, b) => Number(data.music[a.key]!.unlocked) - Number(data.music[b.key]!.unlocked)),
@@ -19,7 +19,7 @@ const sortedMUSIC = computed(() =>
         <CardHeader>
             <CardTitle>
                 <span class="flex flex-row items-center gap-5 text-nowrap">
-                    <Music /> Music Unlocks <Progress :model-value="musicPercent" />
+                    <Music /> Music Unlocks <Progress :model-value="musicUnlockPercent" />
                 </span>
             </CardTitle>
         </CardHeader>

@@ -1,6 +1,7 @@
 import type { ClassValue } from 'clsx';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { computed, type ComputedRef } from 'vue';
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
@@ -37,3 +38,6 @@ export const readFileAsText = (file: File): Promise<string> =>
         reader.onerror = (error) => reject(error);
         reader.readAsText(file);
     });
+
+export const computedSumPercent = (inputs: ComputedRef<number>[]) =>
+    computed(() => inputs.reduce((a, b) => a + b.value, 0) / inputs.length);

@@ -1,5 +1,6 @@
 import { RABBITS } from '@/constants';
 import { data } from '@/data';
+import { computedSumPercent } from '@/lib/utils';
 import { computed } from 'vue';
 
 export const bunnyMath = (cond: (rabbit: (typeof data)['rabbits'][string]) => boolean) =>
@@ -23,17 +24,13 @@ export const rabbitClearPercents = {
     },
 };
 
-export const rabbitClearPercent = computed(() => {
-    const rows = [
-        rabbitClearPercents.unlocked,
-        rabbitClearPercents.palettes.adept,
-        rabbitClearPercents.palettes.challenger,
-        rabbitClearPercents.palettes.master,
-        rabbitClearPercents.palettes.spellbound,
-        rabbitClearPercents.rings.flower,
-        rabbitClearPercents.rings.star,
-        rabbitClearPercents.rings.lunar,
-    ];
-
-    return rows.reduce((a, b) => a + b.value, 0) / rows.length;
-});
+export const rabbitClearPercent = computedSumPercent([
+    rabbitClearPercents.unlocked,
+    rabbitClearPercents.palettes.adept,
+    rabbitClearPercents.palettes.challenger,
+    rabbitClearPercents.palettes.master,
+    rabbitClearPercents.palettes.spellbound,
+    rabbitClearPercents.rings.flower,
+    rabbitClearPercents.rings.star,
+    rabbitClearPercents.rings.lunar,
+]);

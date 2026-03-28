@@ -13,7 +13,7 @@ import {
 import AppSidebarHeader from './AppSidebarHeader.vue';
 import Progress from '@/components/shadcn/progress/Progress.vue';
 import SidebarFooter from '@/components/shadcn/sidebar/SidebarFooter.vue';
-import { NAV_ITEMS_ARRAY } from '@/constants/nav';
+import { NAVIGATION } from '@/constants/navigation';
 
 const footerItems = [
     {
@@ -32,7 +32,7 @@ const footerItems = [
                 <SidebarGroupLabel>Overview</SidebarGroupLabel>
                 <SidebarGroupContent>
                     <SidebarMenu>
-                        <SidebarMenuItem v-for="item in NAV_ITEMS_ARRAY" :key="item.title">
+                        <SidebarMenuItem v-for="item in NAVIGATION" :key="item.title">
                             <SidebarMenuButton as-child>
                                 <a :href="'#' + item.url" class="text-nowrap">
                                     <component :is="item.icon" :style="{ color: item.color }" />

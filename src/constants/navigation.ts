@@ -10,9 +10,8 @@ import { computed } from 'vue';
 
 const dummyProgress = computed(() => 15);
 
-export const NAV_ITEMS = {
-    completion: {
-        order: 0,
+export const NAVIGATION = [
+    {
         title: 'Completion',
         url: 'completion',
         icon: Moon,
@@ -20,8 +19,7 @@ export const NAV_ITEMS = {
         card: Completion,
         color: '#eef0d7',
     },
-    achievements: {
-        order: 1,
+    {
         title: 'Achievements',
         url: 'achievements',
         icon: Trophy,
@@ -29,8 +27,7 @@ export const NAV_ITEMS = {
         card: DummyCard,
         color: '#ff4b67',
     },
-    rabbits: {
-        order: 2,
+    {
         title: 'Rabbit Clears',
         url: 'rabbits',
         icon: Rabbit,
@@ -38,8 +35,7 @@ export const NAV_ITEMS = {
         card: RabbitClears,
         color: '#555aac',
     },
-    trinkets: {
-        order: 3,
+    {
         title: 'Trinket Unlocks',
         url: 'trinkets',
         icon: ScanHeart,
@@ -47,8 +43,7 @@ export const NAV_ITEMS = {
         card: DummyCard,
         color: '#8d45ff',
     },
-    loot: {
-        order: 4,
+    {
         title: 'Loot Clears',
         url: 'loot',
         icon: Swords,
@@ -56,8 +51,7 @@ export const NAV_ITEMS = {
         card: DummyCard,
         color: '#ffe2b3',
     },
-    music: {
-        order: 5,
+    {
         title: 'Music Unlocks',
         url: 'music',
         icon: Music,
@@ -65,6 +59,4 @@ export const NAV_ITEMS = {
         card: MusicUnlocks,
         color: '#77ffbb',
     },
-};
-
-export const NAV_ITEMS_ARRAY = Object.values(NAV_ITEMS).sort((a, b) => a.order - b.order);
+];

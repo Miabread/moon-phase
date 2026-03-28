@@ -17,7 +17,7 @@ const unitCutoffs = [
     [86400, 'days'],
     [3600, 'hours'],
     [60, 'minutes'],
-    [0, 'seconds'],
+    [1, 'seconds'],
 ] as const;
 
 // I hate js why do I gotta implement this myself

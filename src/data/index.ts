@@ -1,4 +1,4 @@
-import { reactive } from 'vue';
+import { reactive, watchEffect } from 'vue';
 import { BUNDLES, RABBITS, VERSION } from '../constants';
 import { MUSIC } from '@/constants/music';
 
@@ -53,4 +53,9 @@ const validatedData = !retrievedData || retrievedData.version !== VERSION ? defa
 
 export const data = reactive(validatedData);
 
-export const cacheData = () => localStorage.setItem('data-cache', JSON.stringify(data));
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(window as any)._devdata = data;
+
+watchEffect(() => {
+    localStorage.setItem('data-cache', JSON.stringify(data));
+});

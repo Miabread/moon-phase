@@ -2,7 +2,7 @@
 import { Check, History, X } from 'lucide-vue-next';
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader } from '@/components/shadcn/sidebar';
 import { Input } from '@/components/shadcn/input';
-import { cacheData, data, loadSavedata, loadUnlockdata } from '@/data';
+import { data, loadSavedata, loadUnlockdata } from '@/data';
 import { parseINI } from 'confbox';
 import { BUNDLES } from '@/constants';
 import { formatDate, readFileAsText } from '@/lib/utils';
@@ -27,8 +27,6 @@ const fileUpload = async (e: Event) => {
             fresh.unlockdata = true;
         }
     }
-
-    cacheData();
 };
 </script>
 

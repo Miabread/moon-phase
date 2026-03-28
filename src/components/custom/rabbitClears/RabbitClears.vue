@@ -78,7 +78,11 @@ const rows = [
                 <!-- And now one for each rabbit -->
                 <TableHead v-for="rabbit of RABBITS" :key="rabbit.key">
                     <div class="flex justify-center items-center">
-                        <img :src="rabbit.icon" :alt="rabbit.name" class="h-10 w-10" />
+                        <img
+                            :src="rabbit.icon"
+                            :alt="rabbit.name"
+                            class="h-10 w-10 rounded-full border border-zinc-400 dark:border-zinc-500"
+                        />
                     </div>
                 </TableHead>
             </TableRow>

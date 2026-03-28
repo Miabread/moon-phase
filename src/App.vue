@@ -13,9 +13,9 @@ import { Progress } from './components/shadcn/progress';
             <Card v-for="item in NAV_ITEMS_ARRAY" :key="item.title" :id="item.url" class="w-full">
                 <CardHeader>
                     <CardTitle>
-                        <span class="flex flex-row items-center gap-5 text-nowrap">
-                            <component :is="item.icon" /> {{ item.title }}
-                            <Progress :model-value="item.progress.value" />
+                        <span class="flex flex-row items-center gap-5 text-nowrap text-lg">
+                            <component :is="item.icon" :style="{ color: item.color }" /> {{ item.title }}
+                            <Progress :model-value="item.progress.value" :color="item.color" />
                         </span>
                     </CardTitle>
                 </CardHeader>

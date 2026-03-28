@@ -35,9 +35,13 @@ const footerItems = [
                         <SidebarMenuItem v-for="item in NAV_ITEMS_ARRAY" :key="item.title">
                             <SidebarMenuButton as-child>
                                 <a :href="'#' + item.url" class="text-nowrap">
-                                    <component :is="item.icon" />
+                                    <component :is="item.icon" :style="{ color: item.color }" />
                                     <span>{{ item.title }}</span>
-                                    <Progress :model-value="item.progress.value" />
+                                    <Progress
+                                        :model-value="item.progress.value"
+                                        :color="item.color"
+                                        class="ml-auto w-20"
+                                    />
                                 </a>
                             </SidebarMenuButton>
                         </SidebarMenuItem>

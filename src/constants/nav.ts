@@ -8,7 +8,7 @@ import RabbitClears from '@/components/custom/rabbitClears/RabbitClears.vue';
 import { Moon, Music, Rabbit, ScanHeart, Swords, Trophy } from 'lucide-vue-next';
 import { computed } from 'vue';
 
-const dummyProgress = computed(() => 0);
+const dummyProgress = computed(() => 15);
 
 export const NAV_ITEMS = {
     completion: {
@@ -18,6 +18,7 @@ export const NAV_ITEMS = {
         icon: Moon,
         progress: totalCompletion,
         card: Completion,
+        color: '#eef0d7',
     },
     achievements: {
         order: 1,
@@ -26,6 +27,7 @@ export const NAV_ITEMS = {
         icon: Trophy,
         progress: dummyProgress,
         card: DummyCard,
+        color: '#ff4b67',
     },
     rabbits: {
         order: 2,
@@ -34,6 +36,7 @@ export const NAV_ITEMS = {
         icon: Rabbit,
         progress: rabbitClearPercent,
         card: RabbitClears,
+        color: '#555aac',
     },
     trinkets: {
         order: 3,
@@ -42,6 +45,7 @@ export const NAV_ITEMS = {
         icon: ScanHeart,
         progress: dummyProgress,
         card: DummyCard,
+        color: '#8d45ff',
     },
     loot: {
         order: 4,
@@ -50,6 +54,7 @@ export const NAV_ITEMS = {
         icon: Swords,
         progress: dummyProgress,
         card: DummyCard,
+        color: '#ffe2b3',
     },
     music: {
         order: 5,
@@ -58,6 +63,7 @@ export const NAV_ITEMS = {
         icon: Music,
         progress: musicUnlockPercent,
         card: MusicUnlocks,
+        color: '#77ffbb',
     },
 };
 

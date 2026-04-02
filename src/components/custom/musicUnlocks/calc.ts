@@ -1,4 +1,5 @@
 import { data } from '@/data';
-import { computedEntriesPercent } from '@/lib/utils';
+import { Percent } from '@/lib/Percent';
+import { computed } from 'vue';
 
-export const musicUnlockPercent = computedEntriesPercent(data.music, (m) => m.unlocked);
+export const musicUnlockPercent = computed(() => Percent.count(data.music, (m) => m.unlocked));

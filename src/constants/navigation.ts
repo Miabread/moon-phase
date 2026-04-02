@@ -5,10 +5,11 @@ import { musicUnlockPercent } from '@/components/custom/musicUnlocks/calc';
 import MusicUnlocks from '@/components/custom/musicUnlocks/MusicUnlocks.vue';
 import { rabbitClearPercent } from '@/components/custom/rabbitClears/calc';
 import RabbitClears from '@/components/custom/rabbitClears/RabbitClears.vue';
+import { Percent } from '@/lib/Percent';
 import { Moon, Music, Rabbit, ScanHeart, Swords, Trophy } from 'lucide-vue-next';
 import { computed } from 'vue';
 
-const dummyProgress = computed(() => 15);
+const dummyProgress = computed(() => new Percent(15, 100));
 
 export const NAVIGATION = [
     {

@@ -1,7 +1,6 @@
 import type { ClassValue } from 'clsx';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { computed, type ComputedRef } from 'vue';
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
@@ -38,24 +37,3 @@ export const readFileAsText = (file: File): Promise<string> =>
         reader.onerror = (error) => reject(error);
         reader.readAsText(file);
     });
-
-/**
- * Calculate the percentage a particular `data` object passes a condition
- * @param input The object from `data` to loop over
- * @param condition The condition to check on each entry
- * @returns A Vue computed property, holding a number 0 to 100, representing the percent that those objects passed the condition
- */
-export const computedEntriesPercent = <T>(input: T[] | Record<string, T>, condition: (item: T) => boolean) =>
-    computed(() => {
-        const inputArray = input instanceof Array ? input : Object.values(input);
-        const count = inputArray.filter(condition).length;
-        return Math.floor((count / inputArray.length) * 100);
-    });
-
-/**
- * Calculate the overall percent from multiple sub-percents
- * @param percents A list of each sub-percent, each a number 0 to 100
- * @returns A Vue computed property, holding a number 0 to 100, representing the total percent
- */
-export const computedSumPercent = (percents: ComputedRef<number>[]) =>
-    computed(() => percents.reduce((a, b) => a + b.value, 0) / percents.length);

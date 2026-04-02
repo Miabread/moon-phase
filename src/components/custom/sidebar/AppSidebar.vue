@@ -38,7 +38,7 @@ const footerItems = [
                                     <component :is="item.icon" :style="{ color: item.color }" />
                                     <span>{{ item.title }}</span>
                                     <Progress
-                                        :model-value="item.progress.value"
+                                        :model-value="item.progress.value.percent"
                                         :color="item.color"
                                         class="ml-auto w-20"
                                     />

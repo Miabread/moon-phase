@@ -1,6 +1,9 @@
-import { isRef, type ComputedRef } from 'vue';
+import { type ComputedRef } from 'vue';
+import { resolve } from './utils';
 
 export class Percent {
+    public label = '';
+
     constructor(
         public current: number,
         public total: number,
@@ -31,10 +34,9 @@ export class Percent {
     static compound(children: (Percent | ComputedRef<Percent>)[]): Percent {
         let current = 0;
         let total = 0;
-        for (const childRef of children) {
-            const child = isRef(childRef) ? childRef.value : childRef;
-            current += child.current;
-            total += child.total;
+        for (const child of children) {
+            current += resolve(child).current;
+            total += resolve(child).total;
         }
         return new Percent(current, total);
     }
@@ -45,7 +47,13 @@ export class Percent {
         return this;
     }
 
+    labeled(label: string): Percent {
+        this.label = label;
+        return this;
+    }
+
     get percent(): number {
+        if (this.total === 0) return 0;
         return Math.floor((this.current / this.total) * 100);
     }
 

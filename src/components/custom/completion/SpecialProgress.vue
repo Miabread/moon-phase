@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { Progress } from '@/components/shadcn/progress';
 import { totalCompletion } from './calc';
 import { Archive, Crown, Handbag, Swords } from 'lucide-vue-next';
 import { NAVIGATION } from '@/constants/navigation';
 import { Card } from '@/components/shadcn/card';
+import PercentProgress from '../PercentProgress.vue';
 
 const icons = [Handbag, Swords, Swords, Swords, Archive, Crown];
 
@@ -13,7 +13,7 @@ const color = NAVIGATION[0]!.color;
 <template>
     <Card class="grid grid-cols-1 grid-rows-1 p-1 w-full">
         <div class="col-start-1 row-start-1 flex items-center justify-center">
-            <Progress :model-value="totalCompletion.percent" :color="color" />
+            <PercentProgress :percent="totalCompletion" :color="color" />
         </div>
         <div class="col-start-1 row-start-1 flex justify-between z-10">
             <div v-for="(icon, i) in icons" :key="i" class="bg-card w-10 h-10 flex items-center justify-center">

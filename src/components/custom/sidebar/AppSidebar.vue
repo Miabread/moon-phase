@@ -11,9 +11,9 @@ import {
     SidebarMenuItem,
 } from '@/components/shadcn/sidebar';
 import AppSidebarHeader from './AppSidebarHeader.vue';
-import Progress from '@/components/shadcn/progress/Progress.vue';
 import SidebarFooter from '@/components/shadcn/sidebar/SidebarFooter.vue';
 import { NAVIGATION } from '@/constants/navigation';
+import PercentProgress from '../PercentProgress.vue';
 
 const footerItems = [
     {
@@ -37,8 +37,8 @@ const footerItems = [
                                 <a :href="'#' + item.url" class="text-nowrap">
                                     <component :is="item.icon" :style="{ color: item.color }" />
                                     <span>{{ item.title }}</span>
-                                    <Progress
-                                        :model-value="item.progress.value.percent"
+                                    <PercentProgress
+                                        :percent="item.progress"
                                         :color="item.color"
                                         class="ml-auto w-20"
                                     />

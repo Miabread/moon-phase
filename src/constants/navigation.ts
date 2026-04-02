@@ -9,7 +9,7 @@ import { Percent } from '@/lib/Percent';
 import { Moon, Music, Rabbit, ScanHeart, Swords, Trophy } from 'lucide-vue-next';
 import { computed } from 'vue';
 
-const dummyProgress = computed(() => new Percent(15, 100));
+const dummyProgress = computed(() => new Percent(0, 0));
 
 export const NAVIGATION = [
     {

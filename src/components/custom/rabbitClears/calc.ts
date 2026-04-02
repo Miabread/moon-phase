@@ -27,5 +27,5 @@ export const rabbitClearPercent = computed(() =>
         rabbitClearPercents.rings.flower,
         rabbitClearPercents.rings.star,
         rabbitClearPercents.rings.lunar,
-    ]),
+    ]).labeled('clears'),
 );

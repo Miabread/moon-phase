@@ -1,6 +1,7 @@
 import type { ClassValue } from 'clsx';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { isRef, type ComputedRef } from 'vue';
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
@@ -37,3 +38,5 @@ export const readFileAsText = (file: File): Promise<string> =>
         reader.onerror = (error) => reject(error);
         reader.readAsText(file);
     });
+
+export const resolve = <T>(ref: T | ComputedRef<T>) => (isRef(ref) ? ref.value : ref);

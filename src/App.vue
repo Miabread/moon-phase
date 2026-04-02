@@ -3,8 +3,8 @@ import { SidebarProvider } from './components/shadcn/sidebar';
 import AppSidebar from './components/custom/sidebar/AppSidebar.vue';
 import { Card, CardContent, CardHeader, CardTitle } from './components/shadcn/card';
 import { NAVIGATION } from './constants/navigation';
-import { Progress } from './components/shadcn/progress';
 import SpecialProgress from './components/custom/completion/SpecialProgress.vue';
+import PercentProgress from './components/custom/PercentProgress.vue';
 </script>
 
 <template>
@@ -17,7 +17,7 @@ import SpecialProgress from './components/custom/completion/SpecialProgress.vue'
                         <span class="flex flex-row items-center gap-5 text-nowrap text-lg">
                             <component :is="item.icon" :style="{ color: item.color }" /> {{ item.title }}
                             <SpecialProgress v-if="i === 0" />
-                            <Progress v-else :model-value="item.progress.value.percent" :color="item.color" />
+                            <PercentProgress v-else :percent="item.progress" :color="item.color" />
                         </span>
                     </CardTitle>
                 </CardHeader>

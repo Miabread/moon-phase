@@ -15,15 +15,20 @@ export class Percent {
      * @param condition The condition to check on each entry
      * @returns The percent of the entries that passed the condition
      */
-    static count<T>(input: T[] | Record<string, T>, condition: (item: T) => boolean): Percent {
+    static count<T>(input: T[] | Record<string, T>, condition: (item: T) => boolean | null): Percent {
         const inputArray = input instanceof Array ? input : Object.values(input);
         let current = 0;
+        let total = 0;
         for (const item of inputArray) {
-            if (condition(item)) {
-                current += 1;
-            }
+            const check = condition(item);
+
+            // Ignore this entry
+            if (check === null) continue;
+
+            if (check) current++;
+            total++;
         }
-        return new Percent(current, inputArray.length);
+        return new Percent(current, total);
     }
 
     /**

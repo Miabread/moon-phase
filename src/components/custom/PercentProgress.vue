@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Percent } from '@/lib/Percent';
-import type { ComputedRef, HTMLAttributes } from 'vue';
+import { type ComputedRef, type HTMLAttributes } from 'vue';
 import Progress from '../shadcn/progress/Progress.vue';
 import { resolve } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/shadcn/tooltip';

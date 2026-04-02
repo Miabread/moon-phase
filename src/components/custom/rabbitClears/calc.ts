@@ -3,17 +3,18 @@ import { Percent } from '@/lib/Percent';
 import { computed } from 'vue';
 
 export const rabbitClearPercents = {
-    unlocked: computed(() => Percent.count(data.rabbits, (r) => r.unlocked)),
+    // TODO have this ignore default unlocked rabbits
+    unlocked: computed(() => Percent.count(data.rabbits, (r) => r.unlocked).labeled('unlocked')),
     palettes: {
-        adept: computed(() => Percent.count(data.rabbits, (r) => r.palettes.adept)),
-        challenger: computed(() => Percent.count(data.rabbits, (r) => r.palettes.challenger)),
-        master: computed(() => Percent.count(data.rabbits, (r) => r.palettes.master)),
-        spellbound: computed(() => Percent.count(data.rabbits, (r) => r.palettes.spellbound)),
+        adept: computed(() => Percent.count(data.rabbits, (r) => r.palettes.adept).labeled('palettes')),
+        challenger: computed(() => Percent.count(data.rabbits, (r) => r.palettes.challenger).labeled('palettes')),
+        master: computed(() => Percent.count(data.rabbits, (r) => r.palettes.master).labeled('palettes')),
+        spellbound: computed(() => Percent.count(data.rabbits, (r) => r.palettes.spellbound).labeled('palettes')),
     },
     rings: {
-        flower: computed(() => Percent.count(data.rabbits, (r) => r.rings.flower)),
-        star: computed(() => Percent.count(data.rabbits, (r) => r.rings.star)),
-        lunar: computed(() => Percent.count(data.rabbits, (r) => r.rings.lunar)),
+        flower: computed(() => Percent.count(data.rabbits, (r) => r.rings.flower).labeled('clears')),
+        star: computed(() => Percent.count(data.rabbits, (r) => r.rings.star).labeled('clears')),
+        lunar: computed(() => Percent.count(data.rabbits, (r) => r.rings.lunar).labeled('clears')),
     },
 };
 

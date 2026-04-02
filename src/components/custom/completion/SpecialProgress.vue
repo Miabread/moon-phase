@@ -19,7 +19,7 @@ const color = NAVIGATION[0]!.color;
             <div v-for="(icon, i) in icons" :key="i" class="bg-card w-10 h-10 flex items-center justify-center">
                 <component v-if="totalCompletion.percent > i * 20" :style="{ color }" :is="icon" />
                 <!-- Manual color to match with the <Progress/> bar, because it uses transparency to compute it's color which fucks with the icons -->
-                <component v-else class="text-[#404040]" :is="icon" />
+                <component v-else :style="`color: color-mix(in srgb, ${color}, black 60%)`" :is="icon" />
             </div>
         </div>
     </Card>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Check, History, X } from 'lucide-vue-next';
+import { Check, History, Upload, X } from 'lucide-vue-next';
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader } from '@/components/shadcn/sidebar';
 import { Input } from '@/components/shadcn/input';
 import { data, loadSavedata, loadUnlockdata } from '@/data';
@@ -7,7 +7,7 @@ import { parseINI } from 'confbox';
 import { BUNDLES, DIFFICULTIES } from '@/constants';
 import { formatDate, readFileAsText } from '@/lib/utils';
 import { reactive } from 'vue';
-import Tutorial from '@/layout/meta/Tutorial.vue';
+import { Button } from '@/components/shadcn/button';
 
 const fresh = reactive(Object.fromEntries(BUNDLES.map((bundle) => [bundle, false])));
 
@@ -35,7 +35,10 @@ const fileUpload = async (e: Event) => {
     <SidebarHeader>
         <SidebarMenu>
             <SidebarMenuItem>
-                <Input type="file" multiple accept=".ini" @change="fileUpload" />
+                <Button as-child size="lg" variant="outline" class="w-full font-bold">
+                    <label for="file"><Upload /> Upload Save Files </label>
+                </Button>
+                <Input id="file" type="file" multiple accept=".ini" @change="fileUpload" class="hidden" />
             </SidebarMenuItem>
             <SidebarMenuItem v-for="bundle of BUNDLES" :key="bundle">
                 <SidebarMenuButton size="lg">
@@ -68,7 +71,6 @@ const fileUpload = async (e: Event) => {
                     </div>
                 </SidebarMenuButton>
             </SidebarMenuItem>
-            <Tutorial />
         </SidebarMenu>
     </SidebarHeader>
 </template>

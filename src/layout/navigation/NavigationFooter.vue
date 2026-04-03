@@ -12,6 +12,7 @@ import SidebarFooter from '@/components/shadcn/sidebar/SidebarFooter.vue';
 import { resetData } from '@/data';
 import { VERSION } from '@/constants';
 import Changelog from '../meta/Changelog.vue';
+import Tutorial from '../meta/Tutorial.vue';
 </script>
 
 <template>
@@ -20,6 +21,8 @@ import Changelog from '../meta/Changelog.vue';
             <SidebarGroupLabel>Moon Phase v{{ VERSION }}</SidebarGroupLabel>
             <SidebarGroupContent>
                 <SidebarMenu>
+                    <Tutorial />
+                    <Changelog />
                     <SidebarMenuItem>
                         <SidebarMenuButton as-child>
                             <a @click="resetData" href="#">
@@ -28,7 +31,6 @@ import Changelog from '../meta/Changelog.vue';
                             </a>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
-                    <Changelog />
                     <SidebarMenuItem>
                         <SidebarMenuButton as-child>
                             <a href="https://github.com/Miabread/moon-phase">

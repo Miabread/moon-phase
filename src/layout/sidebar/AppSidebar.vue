@@ -11,7 +11,7 @@ import {
 } from '@/components/shadcn/sidebar';
 import AppSidebarHeader from './AppSidebarHeader.vue';
 import { NAVIGATION } from '@/constants/navigation';
-import PercentProgress from '../PercentProgress.vue';
+import PercentProgress from '@/components/custom/PercentProgress.vue';
 import AppSidebarFooter from './AppSidebarFooter.vue';
 </script>
 

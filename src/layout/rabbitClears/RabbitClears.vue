@@ -5,9 +5,9 @@ import { data } from '@/data';
 import { DEFAULT_RABBITS, DIFFICULTIES, RABBITS } from '@/constants';
 import { Rabbit } from 'lucide-vue-next';
 import { rabbitClearPercents } from './calc';
-import PercentProgress from '../PercentProgress.vue';
+import PercentProgress from '@/components/custom/PercentProgress.vue';
 import { NAVIGATION } from '@/constants/navigation';
-import Tooltip from '../Tooltip.vue';
+import Tooltip from '@/components/custom/Tooltip.vue';
 
 type Rabbit = (typeof data)['rabbits'][string];
 

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { SidebarProvider } from './components/shadcn/sidebar';
-import AppSidebar from './components/custom/sidebar/AppSidebar.vue';
-import { Card, CardContent, CardHeader, CardTitle } from './components/shadcn/card';
-import { NAVIGATION } from './constants/navigation';
-import SpecialProgress from './components/custom/completion/SpecialProgress.vue';
-import PercentProgress from './components/custom/PercentProgress.vue';
+import { SidebarProvider } from '@/components/shadcn/sidebar';
+import AppSidebar from '@/layout/sidebar/AppSidebar.vue';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/shadcn/card';
+import { NAVIGATION } from '@/constants/navigation';
+import SpecialProgress from '@/layout//completion/SpecialProgress.vue';
+import PercentProgress from '@/components/custom/PercentProgress.vue';
 </script>
 
 <template>

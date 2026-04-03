@@ -1,11 +1,11 @@
-import { totalCompletion } from '@/components/custom/completion/calc';
-import Completion from '@/components/custom/completion/Completion.vue';
+import { totalCompletion } from '@/layout/completion/calc';
+import Completion from '@/layout/completion/Completion.vue';
 import DummyCard from '@/components/custom/DummyCard.vue';
 import EasterEgg from '@/components/custom/EasterEgg.vue';
-import { musicUnlockPercent } from '@/components/custom/musicUnlocks/calc';
-import MusicUnlocks from '@/components/custom/musicUnlocks/MusicUnlocks.vue';
-import { rabbitClearPercent } from '@/components/custom/rabbitClears/calc';
-import RabbitClears from '@/components/custom/rabbitClears/RabbitClears.vue';
+import { musicUnlockPercent } from '@/layout/musicUnlocks/calc';
+import MusicUnlocks from '@/layout/musicUnlocks/MusicUnlocks.vue';
+import { rabbitClearPercent } from '@/layout/rabbitClears/calc';
+import RabbitClears from '@/layout/rabbitClears/RabbitClears.vue';
 import { Percent } from '@/lib/Percent';
 import { Moon, Music, ScanHeart, Swords, Trophy } from 'lucide-vue-next';
 import { computed } from 'vue';

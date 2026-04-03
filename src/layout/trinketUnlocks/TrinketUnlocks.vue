@@ -9,14 +9,14 @@ import TableRow from '@/components/shadcn/table/TableRow.vue';
 import { NAVIGATION } from '@/constants/navigation';
 import { TRINKETS_PAGES } from '@/constants/trinkets';
 import { data } from '@/data';
-import { Percent } from '@/lib/Percent';
+import { trinketUnlockPercents } from './calc';
 </script>
 
 <template>
     <section v-for="(page, page_i) in TRINKETS_PAGES.slice(0, 2)" :key="page_i" class="mt-5">
         <span class="flex flex-row items-center gap-5 text-nowrap text-xl">
             <h2>Page {{ page_i + 1 }}</h2>
-            <PercentProgress :percent="new Percent(50, 100)" :color="NAVIGATION[3]!.color" />
+            <PercentProgress :percent="trinketUnlockPercents[page_i]!" :color="NAVIGATION[3]!.color" />
         </span>
         <Table class="max-w-2/3 mx-auto">
             <TableBody>

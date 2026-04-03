@@ -10,6 +10,7 @@ import { Percent } from '@/lib/Percent';
 import { Moon, Music, ScanHeart, Swords, Trophy } from 'lucide-vue-next';
 import { computed } from 'vue';
 import TrinketUnlocks from '@/layout/trinketUnlocks/TrinketUnlocks.vue';
+import { trinketUnlockPercent } from '@/layout/trinketUnlocks/calc';
 
 const dummyProgress = computed(() => new Percent(0, 0));
 
@@ -42,7 +43,7 @@ export const NAVIGATION = [
         title: 'Trinket Unlocks',
         url: 'trinkets',
         icon: ScanHeart,
-        progress: dummyProgress,
+        progress: trinketUnlockPercent,
         card: TrinketUnlocks,
         color: '#8d45ff',
     },

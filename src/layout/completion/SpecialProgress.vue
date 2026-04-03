@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { totalCompletion } from './calc';
 import { Archive, Crown, Handbag, Swords } from 'lucide-vue-next';
-import { NAVIGATION } from '@/constants/navigation';
+import { NAVIGATION } from '@/layout/navigation/constants';
 import { Card } from '@/components/shadcn/card';
 import PercentProgress from '@/components/custom/PercentProgress.vue';
 

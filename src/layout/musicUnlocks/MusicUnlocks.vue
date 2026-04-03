@@ -4,7 +4,7 @@ import { MUSIC } from '@/constants/music';
 import Lock from '@/components/custom/Lock.vue';
 import { data } from '@/data';
 import { computed } from 'vue';
-import { NAVIGATION } from '@/constants/navigation';
+import { NAVIGATION } from '@/layout/navigation/constants';
 
 const sortedMUSIC = computed(() =>
     MUSIC.sort((a, b) => Number(data.music[a.key]!.unlocked) - Number(data.music[b.key]!.unlocked)),

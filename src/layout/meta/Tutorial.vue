@@ -7,6 +7,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/shadcn/dialog';
+import Kbd from '@/components/shadcn/kbd/Kbd.vue';
 import { SidebarMenuItem } from '@/components/shadcn/sidebar';
 import SidebarMenuButton from '@/components/shadcn/sidebar/SidebarMenuButton.vue';
 import { CircleQuestionMark } from 'lucide-vue-next';
@@ -35,10 +36,8 @@ import { CircleQuestionMark } from 'lucide-vue-next';
                 <DialogDescription class="gap-5 flex flex-col p-5">
                     <p>
                         Use the button on the top of the sidebar to upload your
-                        <code class="text-primary">savefile.ini</code> and
-                        <code class="text-primary">unlockdata.ini</code> files. These can be located at
-                        <code class="text-primary">C:\Users\$USER\AppData\Local\RabbitSteel\SaveFile</code> if using
-                        Windows.
+                        <Kbd>savefile.ini</Kbd> and <Kbd>unlockdata.ini</Kbd> files. If using Windows, these are located
+                        at <Kbd>C:\Users\$USER\AppData\Local\RabbitSteel\SaveFile</Kbd>.
                     </p>
                     <p>
                         All data is stored purely local and is not sent anywhere. You can also reset this data by using

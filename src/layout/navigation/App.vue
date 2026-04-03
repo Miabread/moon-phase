@@ -14,9 +14,9 @@ import PercentProgress from '@/components/custom/PercentProgress.vue';
             <Card v-for="(item, i) in NAVIGATION" :key="item.title" :id="item.url" class="w-full">
                 <CardHeader>
                     <CardTitle>
-                        <span class="flex flex-row items-center gap-5 text-nowrap text-lg">
+                        <span class="flex flex-row items-center gap-5 text-nowrap text-xl">
                             <component :is="item.icon" :style="{ color: item.color }" />
-                            {{ item.title }}
+                            <h1>{{ item.title }}</h1>
                             <SpecialProgress v-if="i === 0" />
                             <PercentProgress v-else :percent="item.progress" :color="item.color" />
                         </span>

@@ -9,6 +9,7 @@ import RabbitClears from '@/layout/rabbitClears/RabbitClears.vue';
 import { Percent } from '@/lib/Percent';
 import { Moon, Music, ScanHeart, Swords, Trophy } from 'lucide-vue-next';
 import { computed } from 'vue';
+import TrinketUnlocks from '@/layout/trinketUnlocks/TrinketUnlocks.vue';
 
 const dummyProgress = computed(() => new Percent(0, 0));
 
@@ -42,7 +43,7 @@ export const NAVIGATION = [
         url: 'trinkets',
         icon: ScanHeart,
         progress: dummyProgress,
-        card: DummyCard,
+        card: TrinketUnlocks,
         color: '#8d45ff',
     },
     {

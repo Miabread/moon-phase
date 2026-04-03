@@ -1,9 +1,12 @@
 import { reactive, watchEffect } from 'vue';
-import { BUNDLES, RABBITS, VERSION } from '../constants';
+import { BUNDLES, RABBITS } from '../constants';
 import { MUSIC } from '@/constants/music';
+import { TRINKETS_LIST } from '@/constants/trinkets';
 
 export { loadSavedata } from './loadSavedata';
 export { loadUnlockdata } from './loadUnlockdata';
+
+const INCREMENT_EVERY_TIME_DEFAULT_DATA_CHANGES = 0;
 
 const LOCAL_STORAGE_KEY = 'data-cache';
 
@@ -16,7 +19,7 @@ const LOCAL_STORAGE_KEY = 'data-cache';
 };
 
 const defaultData = () => ({
-    version: VERSION,
+    increment: INCREMENT_EVERY_TIME_DEFAULT_DATA_CHANGES,
 
     bundles: Object.fromEntries(
         BUNDLES.map((bundle) => [
@@ -47,6 +50,15 @@ const defaultData = () => ({
         ]),
     ),
 
+    trinkets: Object.fromEntries(
+        TRINKETS_LIST.map((trinket) => [
+            trinket.key,
+            {
+                unlocked: false,
+            },
+        ]),
+    ),
+
     music: Object.fromEntries(
         MUSIC.map((music) => [
             music.key,
@@ -61,7 +73,10 @@ const retrievedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) ?? 'nul
     typeof defaultData
 > | null;
 
-const validatedData = !retrievedData || retrievedData.version !== VERSION ? defaultData() : retrievedData;
+const validatedData =
+    !retrievedData || retrievedData.increment !== INCREMENT_EVERY_TIME_DEFAULT_DATA_CHANGES
+        ? defaultData()
+        : retrievedData;
 
 export const data = reactive(validatedData);
 

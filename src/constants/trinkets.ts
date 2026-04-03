@@ -1,4 +1,4 @@
-export const TRINKETS = [
+export const TRINKETS_PAGES = [
     [
         [
             null,
@@ -519,30 +519,37 @@ export const TRINKETS = [
         ],
     ],
     [
-        null,
-        {
-            key: 'magic_ring',
-            condition: 'Win a True Random or Chaotic Random run on Hard difficulty or above with every Magicklock.',
-            title: 'Alt Levitation Ring',
-            icon: '//static.wikitide.net/rnswiki/7/71/Spr_trinket_magic_circle_0.png',
-        },
-        {
-            key: 'magic_ring_n',
-            condition: 'Win a True Random or Chaotic Random run on Normal difficulty or above with every rabbit.',
-            title: 'Flower Levitation Ring',
-            icon: '//static.wikitide.net/rnswiki/8/8d/Spr_trinket_magic_circle_n_0.png',
-        },
-        {
-            key: 'magic_ring_h',
-            condition: 'Win a True Random or Chaotic Random run on Hard difficulty or above with every rabbit.',
-            title: 'Star Levitation Ring',
-            icon: '//static.wikitide.net/rnswiki/3/3a/Spr_trinket_magic_circle_h_0.png',
-        },
-        {
-            key: 'magic_ring_l',
-            condition: 'Win a True Random or Chaotic Random run on Lunar difficulty with every rabbit.',
-            title: 'Lunar Levitation Ring',
-            icon: '//static.wikitide.net/rnswiki/4/42/Spr_trinket_magic_circle_l_0.png',
-        },
+        [
+            null,
+            {
+                key: 'magic_ring',
+                condition: 'Win a True Random or Chaotic Random run on Hard difficulty or above with every Magicklock.',
+                title: 'Alt Levitation Ring',
+                icon: '//static.wikitide.net/rnswiki/7/71/Spr_trinket_magic_circle_0.png',
+            },
+            {
+                key: 'magic_ring_n',
+                condition: 'Win a True Random or Chaotic Random run on Normal difficulty or above with every rabbit.',
+                title: 'Flower Levitation Ring',
+                icon: '//static.wikitide.net/rnswiki/8/8d/Spr_trinket_magic_circle_n_0.png',
+            },
+            {
+                key: 'magic_ring_h',
+                condition: 'Win a True Random or Chaotic Random run on Hard difficulty or above with every rabbit.',
+                title: 'Star Levitation Ring',
+                icon: '//static.wikitide.net/rnswiki/3/3a/Spr_trinket_magic_circle_h_0.png',
+            },
+            {
+                key: 'magic_ring_l',
+                condition: 'Win a True Random or Chaotic Random run on Lunar difficulty with every rabbit.',
+                title: 'Lunar Levitation Ring',
+                icon: '//static.wikitide.net/rnswiki/4/42/Spr_trinket_magic_circle_l_0.png',
+            },
+        ],
     ],
-];
+] as const;
+
+// Ignore 3rd page for now
+export const TRINKETS_LIST = TRINKETS_PAGES.slice(0, 2)
+    .flat(2)
+    .filter((t) => t !== null);

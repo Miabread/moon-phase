@@ -2,6 +2,7 @@ import { uppercaseFirstLetter } from '@/lib/utils';
 import { data } from '.';
 import { DEFAULT_RABBITS, RABBITS } from '../constants';
 import { MUSIC } from '@/constants/music';
+import { TRINKETS_LIST } from '@/constants/trinkets';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const loadUnlockdata = (raw: any) => {
@@ -26,13 +27,13 @@ export const loadUnlockdata = (raw: any) => {
         rabbitData.palettes.spellbound = parseFloat(raw?.UnlockOther?.['paletteDlcLunar' + index]) === 1;
     }
 
+    // Collect data for each trinket
+    for (const { key } of TRINKETS_LIST) {
+        data.trinkets[key]!.unlocked = parseFloat(raw?.UnlockTrinket?.['tr_' + key]) === 1;
+    }
+
     // Collect data for each music
-    for (let index = 0; index < MUSIC.length; index++) {
-        const key = MUSIC[index]!.key;
-        try {
-            data.music[key]!.unlocked = parseFloat(raw?.UnlockOther?.[key]) === 1;
-        } catch {
-            console.log({ key });
-        }
+    for (const { key } of MUSIC) {
+        data.music[key]!.unlocked = parseFloat(raw?.UnlockOther?.[key]) === 1;
     }
 };

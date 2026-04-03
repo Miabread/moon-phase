@@ -2,10 +2,11 @@
 import Lock from '@/components/custom/Lock.vue';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/shadcn/table';
 import { data } from '@/data';
-import { RABBITS } from '@/constants';
+import { DEFAULT_RABBITS, RABBITS } from '@/constants';
 import { Rabbit } from 'lucide-vue-next';
 import { rabbitClearPercents } from './calc';
 import PercentProgress from '../PercentProgress.vue';
+import { NAVIGATION } from '@/constants/navigation';
 
 type Rabbit = (typeof data)['rabbits'][string];
 
@@ -37,6 +38,7 @@ const rows = [
         icons: [TEMP_ICONS.rabbit],
         progress: rabbitClearPercents.unlocked,
         color: TEMP_COLORS.hard,
+        checkDefaultRabbits: true,
     },
     {
         title: 'Adept Palette',
@@ -104,7 +106,8 @@ const rows = [
                         <img
                             :src="rabbit.icon"
                             :alt="rabbit.name"
-                            class="h-10 w-10 rounded-full border border-zinc-400 dark:border-zinc-500"
+                            class="h-10 w-10 rounded-full border"
+                            :style="{ borderColor: NAVIGATION[2]!.color }"
                         />
                     </div>
                 </TableHead>
@@ -128,7 +131,11 @@ const rows = [
 
                 <!-- And now one for each rabbit -->
                 <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
-                    <Lock :unlocked="row.checked(data.rabbits[rabbit.key]!)" />
+                    <Lock
+                        :unlocked="row.checked(data.rabbits[rabbit.key]!)"
+                        :always-unlocked="row.checkDefaultRabbits && DEFAULT_RABBITS.includes(rabbit.key)"
+                        :color="NAVIGATION[2]!.color"
+                    />
                 </TableCell>
             </TableRow>
         </TableBody>

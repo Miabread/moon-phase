@@ -10,17 +10,37 @@ export class Percent {
     ) {}
 
     /**
-     * Calculate the percentage of the items of a object or array that pass a condition
-     * @param input The object or array to loop over
-     * @param condition The condition to check on each entry
-     * @returns The percent of the entries that passed the condition
+     * Calculate the percentage of items in an array that pass a condition
+     * @param input The array to loop over
+     * @param condition The condition to check on each item
+     * @returns The percent of items that pass the condition
      */
-    static count<T>(input: T[] | Record<string, T>, condition: (item: T) => boolean | null): Percent {
-        const inputArray = input instanceof Array ? input : Object.values(input);
+    static array<T>(input: T[], condition: (item: T) => boolean | null): Percent {
         let current = 0;
         let total = 0;
-        for (const item of inputArray) {
+        for (const item of input) {
             const check = condition(item);
+
+            // Ignore this entry
+            if (check === null) continue;
+
+            if (check) current++;
+            total++;
+        }
+        return new Percent(current, total);
+    }
+
+    /**
+     * Calculate the percentage of entries in an object that pass a condition
+     * @param input The object to loop over
+     * @param condition The condition to check on each entry
+     * @returns The percent of entries that pass the condition
+     */
+    static object<T>(input: Record<string, T>, condition: (item: T, key: string) => boolean | null): Percent {
+        let current = 0;
+        let total = 0;
+        for (const [key, item] of Object.entries(input)) {
+            const check = condition(item, key);
 
             // Ignore this entry
             if (check === null) continue;

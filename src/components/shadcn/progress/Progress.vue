@@ -18,7 +18,7 @@ const delegatedProps = reactiveOmit(props, 'class', 'color');
         v-bind="delegatedProps"
         :class="cn('bg-primary/20 relative h-2 w-full overflow-hidden rounded-full', props.class)"
         :style="{
-            backgroundColor: props.color ? `color-mix(in srgb, ${props.color}, black 60%)` : undefined,
+            backgroundColor: props.color && `color-mix(in srgb, ${props.color}, black 60%)`,
         }"
     >
         <ProgressIndicator

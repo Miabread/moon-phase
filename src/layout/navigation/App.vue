@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { SidebarProvider } from '@/components/shadcn/sidebar';
-import AppSidebar from '@/layout/sidebar/AppSidebar.vue';
+import Navigation from '@/layout/navigation/Navigation.vue';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/shadcn/card';
 import { NAVIGATION } from '@/constants/navigation';
 import SpecialProgress from '@/layout//completion/SpecialProgress.vue';
@@ -9,7 +9,7 @@ import PercentProgress from '@/components/custom/PercentProgress.vue';
 
 <template>
     <SidebarProvider open default-open>
-        <AppSidebar />
+        <Navigation />
         <main class="mt-2 flex flex-1 flex-col gap-4 p-4 pt-0 pb-2">
             <Card v-for="(item, i) in NAVIGATION" :key="item.title" :id="item.url" class="w-full">
                 <CardHeader>

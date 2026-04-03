@@ -9,15 +9,15 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/shadcn/sidebar';
-import AppSidebarHeader from './AppSidebarHeader.vue';
+import NavigationHeader from './NavigationHeader.vue';
 import { NAVIGATION } from '@/constants/navigation';
 import PercentProgress from '@/components/custom/PercentProgress.vue';
-import AppSidebarFooter from './AppSidebarFooter.vue';
+import NavigationFooter from './NavigationFooter.vue';
 </script>
 
 <template>
     <Sidebar variant="floating">
-        <AppSidebarHeader />
+        <NavigationHeader />
         <SidebarContent>
             <SidebarGroup>
                 <SidebarGroupLabel>Navigation</SidebarGroupLabel>
@@ -40,6 +40,6 @@ import AppSidebarFooter from './AppSidebarFooter.vue';
                 </SidebarGroupContent>
             </SidebarGroup>
         </SidebarContent>
-        <AppSidebarFooter />
+        <NavigationFooter />
     </Sidebar>
 </template>

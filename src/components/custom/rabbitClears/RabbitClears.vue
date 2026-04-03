@@ -2,7 +2,7 @@
 import Lock from '@/components/custom/Lock.vue';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/shadcn/table';
 import { data } from '@/data';
-import { DEFAULT_RABBITS, RABBITS } from '@/constants';
+import { DEFAULT_RABBITS, DIFFICULTIES, RABBITS } from '@/constants';
 import { Rabbit } from 'lucide-vue-next';
 import { rabbitClearPercents } from './calc';
 import PercentProgress from '../PercentProgress.vue';
@@ -12,10 +12,6 @@ import Tooltip from '../Tooltip.vue';
 type Rabbit = (typeof data)['rabbits'][string];
 
 const TEMP_ICONS = {
-    normal: '//static.wikitide.net/rnswiki/b/b2/Difficulty_Normal.png',
-    hard: '//static.wikitide.net/rnswiki/a/a2/Difficulty_Hard.png',
-    lunar: '//static.wikitide.net/rnswiki/a/af/Difficulty_Lunar.png',
-
     rabbit: '//static.wikitide.net/rnswiki/5/56/Spr_trinket_small_rabbit_6.png',
 
     kingdom: '//static.wikitide.net/rnswiki/1/11/Area_The_Pale_Keep.png',
@@ -26,75 +22,69 @@ const TEMP_ICONS = {
     lunarRing: '//static.wikitide.net/rnswiki/4/42/Spr_trinket_magic_circle_l_0.png',
 };
 
-const TEMP_COLORS = {
-    normal: '#fddfa9',
-    hard: '#ff6576',
-    lunar: '#a372f1',
-};
-
 const rows = [
     {
         title: 'Class Unlocked',
         checked: (r: Rabbit) => r.unlocked,
-        icons: [TEMP_ICONS.rabbit],
+        icon: TEMP_ICONS.rabbit,
         progress: rabbitClearPercents.unlocked,
-        color: TEMP_COLORS.hard,
+        color: DIFFICULTIES.hard.color,
         tooltip: null,
     },
     {
         title: 'Adept Palette',
         checked: (r: Rabbit) => r.palettes.adept,
-        icons: [TEMP_ICONS.kingdom],
+        icon: TEMP_ICONS.kingdom,
         progress: rabbitClearPercents.palettes.adept,
-        color: TEMP_COLORS.hard,
+        color: DIFFICULTIES.hard.color,
         tooltip: 'Complete a Kingdom run on Hard',
     },
     {
         title: 'Challenger Palette',
         checked: (r: Rabbit) => r.palettes.challenger,
-        icons: [TEMP_ICONS.extra],
+        icon: TEMP_ICONS.extra,
         progress: rabbitClearPercents.palettes.challenger,
-        color: TEMP_COLORS.hard,
+        color: DIFFICULTIES.hard.color,
         tooltip: 'Complete a Extra run on Hard',
     },
     {
         title: 'Master Palette',
         checked: (r: Rabbit) => r.palettes.master,
-        icons: [TEMP_ICONS.kingdom],
+        icon: TEMP_ICONS.kingdom,
         progress: rabbitClearPercents.palettes.master,
-        color: TEMP_COLORS.lunar,
+        color: DIFFICULTIES.lunar.color,
         tooltip: 'Complete a Kingdom run on Lunar',
     },
     {
         title: 'Spellbound Palette',
         checked: (r: Rabbit) => r.palettes.spellbound,
-        icons: [TEMP_ICONS.extra],
+        icon: TEMP_ICONS.extra,
         progress: rabbitClearPercents.palettes.spellbound,
-        color: TEMP_COLORS.lunar,
+        color: DIFFICULTIES.lunar.color,
         tooltip: 'Complete a Extra run on Lunar',
     },
     {
         title: 'Flower Ring',
         checked: (r: Rabbit) => r.rings.flower,
-        icons: [TEMP_ICONS.flowerRing],
+        icon: TEMP_ICONS.flowerRing,
         progress: rabbitClearPercents.rings.flower,
-        color: TEMP_COLORS.normal,
+        color: DIFFICULTIES.normal.color,
         tooltip: 'Complete a True Random or Chaotic Random run on Normal',
     },
     {
         title: 'Star Ring',
         checked: (r: Rabbit) => r.rings.star,
-        icons: [TEMP_ICONS.starRing],
+        icon: TEMP_ICONS.starRing,
         progress: rabbitClearPercents.rings.star,
-        color: TEMP_COLORS.hard,
+        color: DIFFICULTIES.hard.color,
         tooltip: 'Complete a True Random or Chaotic Random run on Hard',
     },
     {
         title: 'Lunar Ring',
         checked: (r: Rabbit) => r.rings.lunar,
-        icons: [TEMP_ICONS.lunarRing],
+        icon: TEMP_ICONS.lunarRing,
         progress: rabbitClearPercents.rings.lunar,
-        color: TEMP_COLORS.lunar,
+        color: DIFFICULTIES.lunar.color,
         tooltip: 'Complete a True Random or Chaotic Random run on Lunar',
     },
 ];
@@ -130,7 +120,7 @@ const rows = [
                 <!-- The following three cells have no header -->
                 <TableCell>
                     <div class="flex flex-col justify-center items-center">
-                        <img :src="row.icons[0]" class="h-10 w-10" />
+                        <img :src="row.icon" class="h-10 w-10" />
                         <PercentProgress :percent="row.progress" :color="row.color" />
                     </div>
                 </TableCell>

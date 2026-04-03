@@ -5,6 +5,16 @@ import { MUSIC } from '@/constants/music';
 export { loadSavedata } from './loadSavedata';
 export { loadUnlockdata } from './loadUnlockdata';
 
+const LOCAL_STORAGE_KEY = 'data-cache';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(window as any).dev = {
+    reset() {
+        localStorage.removeItem(LOCAL_STORAGE_KEY);
+        location.reload();
+    },
+};
+
 const defaultData = () => ({
     version: VERSION,
 
@@ -47,15 +57,21 @@ const defaultData = () => ({
     ),
 });
 
-const retrievedData = JSON.parse(localStorage.getItem('data-cache') ?? 'null') as ReturnType<typeof defaultData> | null;
+const retrievedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) ?? 'null') as ReturnType<
+    typeof defaultData
+> | null;
 
 const validatedData = !retrievedData || retrievedData.version !== VERSION ? defaultData() : retrievedData;
 
 export const data = reactive(validatedData);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-(window as any)._devdata = data;
+(window as any).dev.data = data;
 
 watchEffect(() => {
-    localStorage.setItem('data-cache', JSON.stringify(data));
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
 });
+
+export const resetData = () => {
+    Object.assign(data, defaultData());
+};

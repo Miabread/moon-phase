@@ -79,7 +79,7 @@ export class Percent {
 
     get percent(): number {
         if (this.total === 0) return 0;
-        return Math.floor((this.current / this.total) * 100);
+        return (this.current / this.total) * 100;
     }
 
     [Symbol.toPrimitive](): number {

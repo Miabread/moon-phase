@@ -11,13 +11,13 @@ import PercentProgress from '@/components/custom/PercentProgress.vue';
     <SidebarProvider open default-open>
         <Navigation />
         <main class="mt-2 flex flex-1 flex-col gap-4 p-4 pt-0 pb-2">
-            <Card v-for="(item, i) in NAVIGATION" :key="item.title" :id="item.url" class="w-full">
+            <Card v-for="item in NAVIGATION" :key="item.title" :id="item.url" class="w-full">
                 <CardHeader>
                     <CardTitle>
                         <span class="flex flex-row items-center gap-5 text-nowrap text-xl">
                             <component :is="item.icon" :style="{ color: item.color }" />
                             <h1>{{ item.title }}</h1>
-                            <SpecialProgress v-if="i === 0" />
+                            <SpecialProgress v-if="item.specialProgressBar" />
                             <PercentProgress v-else :percent="item.progress" :color="item.color" />
                         </span>
                     </CardTitle>

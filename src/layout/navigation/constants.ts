@@ -21,8 +21,10 @@ export const NAVIGATION = [
         url: 'completion',
         icon: Moon,
         progress: totalCompletion,
+        specialProgressBar: true,
         card: Completion,
         color: AREAS.keep.color,
+        hideProd: true,
     },
     {
         title: 'Achievements',
@@ -31,6 +33,7 @@ export const NAVIGATION = [
         progress: dummyProgress,
         card: DummyCard,
         color: AREAS.darkhouse.color,
+        hideProd: true,
     },
     {
         title: 'Rabbit Clears',
@@ -55,6 +58,7 @@ export const NAVIGATION = [
         progress: dummyProgress,
         card: DummyCard,
         color: AREAS.streets.color,
+        hideProd: true,
     },
     {
         title: 'Music Unlocks',
@@ -64,4 +68,4 @@ export const NAVIGATION = [
         card: MusicUnlocks,
         color: AREAS.lakeside.color,
     },
-];
+].filter((n) => !n.hideProd || import.meta.env.DEV);

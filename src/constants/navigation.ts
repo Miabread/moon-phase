@@ -1,12 +1,13 @@
 import { totalCompletion } from '@/components/custom/completion/calc';
 import Completion from '@/components/custom/completion/Completion.vue';
 import DummyCard from '@/components/custom/DummyCard.vue';
+import EasterEgg from '@/components/custom/EasterEgg.vue';
 import { musicUnlockPercent } from '@/components/custom/musicUnlocks/calc';
 import MusicUnlocks from '@/components/custom/musicUnlocks/MusicUnlocks.vue';
 import { rabbitClearPercent } from '@/components/custom/rabbitClears/calc';
 import RabbitClears from '@/components/custom/rabbitClears/RabbitClears.vue';
 import { Percent } from '@/lib/Percent';
-import { Moon, Music, Rabbit, ScanHeart, Swords, Trophy } from 'lucide-vue-next';
+import { Moon, Music, ScanHeart, Swords, Trophy } from 'lucide-vue-next';
 import { computed } from 'vue';
 
 const dummyProgress = computed(() => new Percent(0, 0));
@@ -31,7 +32,7 @@ export const NAVIGATION = [
     {
         title: 'Rabbit Clears',
         url: 'rabbits',
-        icon: Rabbit,
+        icon: EasterEgg,
         progress: rabbitClearPercent,
         card: RabbitClears,
         color: '#555aac',

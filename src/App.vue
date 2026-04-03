@@ -15,7 +15,8 @@ import PercentProgress from './components/custom/PercentProgress.vue';
                 <CardHeader>
                     <CardTitle>
                         <span class="flex flex-row items-center gap-5 text-nowrap text-lg">
-                            <component :is="item.icon" :style="{ color: item.color }" /> {{ item.title }}
+                            <component :is="item.icon" :style="{ color: item.color }" />
+                            {{ item.title }}
                             <SpecialProgress v-if="i === 0" />
                             <PercentProgress v-else :percent="item.progress" :color="item.color" />
                         </span>

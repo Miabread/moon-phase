@@ -4,11 +4,13 @@ import { MUSIC } from '@/constants/music';
 import Lock from '@/components/custom/Lock.vue';
 import { data } from '@/data';
 import { computed } from 'vue';
-import { NAVIGATION } from '@/layout/navigation/constants';
+import { AREAS } from '@/constants';
 
 const sortedMUSIC = computed(() =>
     MUSIC.sort((a, b) => Number(data.music[a.key]!.unlocked) - Number(data.music[b.key]!.unlocked)),
 );
+
+const color = AREAS.lakeside.color;
 </script>
 
 <template>
@@ -21,9 +23,7 @@ const sortedMUSIC = computed(() =>
                     </div>
                 </TableCell>
                 <TableCell>{{ music.title }}</TableCell>
-                <TableCell
-                    ><Lock :unlocked="data.music[music.key]!.unlocked" :color="NAVIGATION[5]!.color"
-                /></TableCell>
+                <TableCell><Lock :unlocked="data.music[music.key]!.unlocked" :color="color" /></TableCell>
                 <TableCell>{{ music.condition }}</TableCell>
             </TableRow>
         </TableBody>

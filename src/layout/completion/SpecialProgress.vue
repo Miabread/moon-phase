@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { totalCompletion } from './calc';
 import { Archive, Crown, Handbag, Swords } from 'lucide-vue-next';
-import { NAVIGATION } from '@/layout/navigation/constants';
 import { Card } from '@/components/shadcn/card';
 import PercentProgress from '@/components/custom/PercentProgress.vue';
+import { AREAS } from '@/constants';
 
 const icons = [Handbag, Swords, Swords, Swords, Archive, Crown];
 
-const color = NAVIGATION[0]!.color;
+const color = AREAS.keep.color;
 </script>
 
 <template>

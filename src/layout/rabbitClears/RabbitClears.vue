@@ -2,11 +2,12 @@
 import Lock from '@/components/custom/Lock.vue';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/shadcn/table';
 import { data } from '@/data';
-import { DEFAULT_RABBITS, RABBITS } from '@/constants';
+import { AREAS, DEFAULT_RABBITS, RABBITS } from '@/constants';
 import PercentProgress from '@/components/custom/PercentProgress.vue';
-import { NAVIGATION } from '@/layout/navigation/constants';
 import Tooltip from '@/components/custom/Tooltip.vue';
 import { ROWS } from './constants';
+
+const color = AREAS.arsenal.color;
 </script>
 
 <template>
@@ -25,7 +26,7 @@ import { ROWS } from './constants';
                                 :src="rabbit.icon"
                                 :alt="rabbit.name"
                                 class="h-10 w-10 rounded-full border"
-                                :style="{ borderColor: NAVIGATION[2]!.color }"
+                                :style="{ borderColor: color }"
                             />
                         </Tooltip>
                     </div>
@@ -54,7 +55,7 @@ import { ROWS } from './constants';
                         <Lock
                             :unlocked="row.checked(data.rabbits[rabbit.key]!)"
                             :always-unlocked="row.tooltip === null && DEFAULT_RABBITS.includes(rabbit.key)"
-                            :color="NAVIGATION[2]!.color"
+                            :color="color"
                         />
                     </Tooltip>
                 </TableCell>

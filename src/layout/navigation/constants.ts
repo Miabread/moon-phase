@@ -11,6 +11,7 @@ import { Moon, Music, ScanHeart, Swords, Trophy } from 'lucide-vue-next';
 import { computed } from 'vue';
 import TrinketUnlocks from '@/layout/trinketUnlocks/TrinketUnlocks.vue';
 import { trinketUnlockPercent } from '@/layout/trinketUnlocks/calc';
+import { AREAS } from '@/constants';
 
 const dummyProgress = computed(() => new Percent(0, 0));
 
@@ -21,7 +22,7 @@ export const NAVIGATION = [
         icon: Moon,
         progress: totalCompletion,
         card: Completion,
-        color: '#eef0d7',
+        color: AREAS.keep.color,
     },
     {
         title: 'Achievements',
@@ -29,7 +30,7 @@ export const NAVIGATION = [
         icon: Trophy,
         progress: dummyProgress,
         card: DummyCard,
-        color: '#ff4b67',
+        color: AREAS.darkhouse.color,
     },
     {
         title: 'Rabbit Clears',
@@ -37,7 +38,7 @@ export const NAVIGATION = [
         icon: EasterEgg,
         progress: rabbitClearPercent,
         card: RabbitClears,
-        color: '#555aac',
+        color: AREAS.arsenal.color,
     },
     {
         title: 'Trinket Unlocks',
@@ -45,7 +46,7 @@ export const NAVIGATION = [
         icon: ScanHeart,
         progress: trinketUnlockPercent,
         card: TrinketUnlocks,
-        color: '#8d45ff',
+        color: AREAS.nest.color,
     },
     {
         title: 'Loot Clears',
@@ -53,7 +54,7 @@ export const NAVIGATION = [
         icon: Swords,
         progress: dummyProgress,
         card: DummyCard,
-        color: '#ffe2b3',
+        color: AREAS.streets.color,
     },
     {
         title: 'Music Unlocks',
@@ -61,6 +62,6 @@ export const NAVIGATION = [
         icon: Music,
         progress: musicUnlockPercent,
         card: MusicUnlocks,
-        color: '#77ffbb',
+        color: AREAS.lakeside.color,
     },
 ];

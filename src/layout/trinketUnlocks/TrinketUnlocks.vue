@@ -6,17 +6,19 @@ import Table from '@/components/shadcn/table/Table.vue';
 import TableBody from '@/components/shadcn/table/TableBody.vue';
 import TableCell from '@/components/shadcn/table/TableCell.vue';
 import TableRow from '@/components/shadcn/table/TableRow.vue';
-import { NAVIGATION } from '@/layout/navigation/constants';
 import { TRINKETS_PAGES } from '@/constants/trinkets';
 import { data } from '@/data';
 import { trinketUnlockPercents } from './calc';
+import { AREAS } from '@/constants';
+
+const color = AREAS.nest.color;
 </script>
 
 <template>
     <section v-for="(page, page_i) in TRINKETS_PAGES.slice(0, 2)" :key="page_i" class="mt-5">
         <span class="flex flex-row items-center gap-5 text-nowrap text-xl">
             <h2>Page {{ page_i + 1 }}</h2>
-            <PercentProgress :percent="trinketUnlockPercents[page_i]!" :color="NAVIGATION[3]!.color" />
+            <PercentProgress :percent="trinketUnlockPercents[page_i]!" :color="color" />
         </span>
         <Table class="max-w-2/3 mx-auto">
             <TableBody>
@@ -34,7 +36,7 @@ import { trinketUnlockPercents } from './calc';
                                 :alt="trinket.title"
                                 class="h-10 w-10"
                             />
-                            <Lock v-else :color="NAVIGATION[3]!.color" class="h-10 w-10" />
+                            <Lock v-else :color="color" class="h-10 w-10" />
                         </Tooltip>
                     </TableCell>
                 </TableRow>

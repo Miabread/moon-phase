@@ -22,3 +22,12 @@ export const DIFFICULTIES = {
         icon: '//static.wikitide.net/rnswiki/a/af/Difficulty_Lunar.png',
     },
 };
+
+export const AREAS = {
+    keep: { color: '#eef0d7' },
+    nest: { color: '#8d45ff' },
+    arsenal: { color: '#555aac' },
+    darkhouse: { color: '#ff4b67' },
+    streets: { color: '#ffe2b3' },
+    lakeside: { color: '#77ffbb' },
+};

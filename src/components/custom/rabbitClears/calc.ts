@@ -4,7 +4,6 @@ import { Percent } from '@/lib/Percent';
 import { computed } from 'vue';
 
 export const rabbitClearPercents = {
-    // TODO have this ignore default unlocked rabbits
     unlocked: computed(() =>
         Percent.object(
             data.rabbits,

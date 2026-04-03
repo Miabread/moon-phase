@@ -7,6 +7,7 @@ import { Rabbit } from 'lucide-vue-next';
 import { rabbitClearPercents } from './calc';
 import PercentProgress from '../PercentProgress.vue';
 import { NAVIGATION } from '@/constants/navigation';
+import Tooltip from '../Tooltip.vue';
 
 type Rabbit = (typeof data)['rabbits'][string];
 
@@ -38,7 +39,7 @@ const rows = [
         icons: [TEMP_ICONS.rabbit],
         progress: rabbitClearPercents.unlocked,
         color: TEMP_COLORS.hard,
-        checkDefaultRabbits: true,
+        tooltip: null,
     },
     {
         title: 'Adept Palette',
@@ -46,6 +47,7 @@ const rows = [
         icons: [TEMP_ICONS.kingdom],
         progress: rabbitClearPercents.palettes.adept,
         color: TEMP_COLORS.hard,
+        tooltip: 'Complete a Kingdom run on Hard',
     },
     {
         title: 'Challenger Palette',
@@ -53,6 +55,7 @@ const rows = [
         icons: [TEMP_ICONS.extra],
         progress: rabbitClearPercents.palettes.challenger,
         color: TEMP_COLORS.hard,
+        tooltip: 'Complete a Extra run on Hard',
     },
     {
         title: 'Master Palette',
@@ -60,6 +63,7 @@ const rows = [
         icons: [TEMP_ICONS.kingdom],
         progress: rabbitClearPercents.palettes.master,
         color: TEMP_COLORS.lunar,
+        tooltip: 'Complete a Kingdom run on Lunar',
     },
     {
         title: 'Spellbound Palette',
@@ -67,6 +71,7 @@ const rows = [
         icons: [TEMP_ICONS.extra],
         progress: rabbitClearPercents.palettes.spellbound,
         color: TEMP_COLORS.lunar,
+        tooltip: 'Complete a Extra run on Lunar',
     },
     {
         title: 'Flower Ring',
@@ -74,6 +79,7 @@ const rows = [
         icons: [TEMP_ICONS.flowerRing],
         progress: rabbitClearPercents.rings.flower,
         color: TEMP_COLORS.normal,
+        tooltip: 'Complete a True Random or Chaotic Random run on Normal',
     },
     {
         title: 'Star Ring',
@@ -81,6 +87,7 @@ const rows = [
         icons: [TEMP_ICONS.starRing],
         progress: rabbitClearPercents.rings.star,
         color: TEMP_COLORS.hard,
+        tooltip: 'Complete a True Random or Chaotic Random run on Hard',
     },
     {
         title: 'Lunar Ring',
@@ -88,6 +95,7 @@ const rows = [
         icons: [TEMP_ICONS.lunarRing],
         progress: rabbitClearPercents.rings.lunar,
         color: TEMP_COLORS.lunar,
+        tooltip: 'Complete a True Random or Chaotic Random run on Lunar',
     },
 ];
 </script>
@@ -103,12 +111,14 @@ const rows = [
                 <!-- And now one for each rabbit -->
                 <TableHead v-for="rabbit of RABBITS" :key="rabbit.key">
                     <div class="flex justify-center items-center">
-                        <img
-                            :src="rabbit.icon"
-                            :alt="rabbit.name"
-                            class="h-10 w-10 rounded-full border"
-                            :style="{ borderColor: NAVIGATION[2]!.color }"
-                        />
+                        <Tooltip :title="`${rabbit.name} Rabbit`">
+                            <img
+                                :src="rabbit.icon"
+                                :alt="rabbit.name"
+                                class="h-10 w-10 rounded-full border"
+                                :style="{ borderColor: NAVIGATION[2]!.color }"
+                            />
+                        </Tooltip>
                     </div>
                 </TableHead>
 
@@ -130,12 +140,14 @@ const rows = [
                 </TableHead>
 
                 <!-- And now one for each rabbit -->
-                <TableCell v-for="rabbit of RABBITS" :key="rabbit.key">
-                    <Lock
-                        :unlocked="row.checked(data.rabbits[rabbit.key]!)"
-                        :always-unlocked="row.checkDefaultRabbits && DEFAULT_RABBITS.includes(rabbit.key)"
-                        :color="NAVIGATION[2]!.color"
-                    />
+                <TableCell v-for="(rabbit, i) of RABBITS" :key="rabbit.key">
+                    <Tooltip :title="`${rabbit.name} Rabbit`" :content="row.tooltip ?? RABBITS[i]!.unlockText">
+                        <Lock
+                            :unlocked="row.checked(data.rabbits[rabbit.key]!)"
+                            :always-unlocked="row.tooltip === null && DEFAULT_RABBITS.includes(rabbit.key)"
+                            :color="NAVIGATION[2]!.color"
+                        />
+                    </Tooltip>
                 </TableCell>
             </TableRow>
         </TableBody>

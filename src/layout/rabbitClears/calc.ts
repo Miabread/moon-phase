@@ -1,4 +1,4 @@
-import { DEFAULT_RABBITS } from '@/constants';
+import { DEFAULT_RABBITS, RABBITS } from '@/constants';
 import { data } from '@/data';
 import { Percent } from '@/lib/Percent';
 import { computed } from 'vue';
@@ -35,4 +35,19 @@ export const rabbitClearPercent = computed(() =>
         rabbitClearPercents.rings.star,
         rabbitClearPercents.rings.lunar,
     ]).labeled('clears'),
+);
+
+export const rabbitClearPercentsByRabbit = computed(() =>
+    RABBITS.map(({ key }) => {
+        const rabbit = data.rabbits[key]!;
+        let current = 0;
+        if (rabbit.unlocked) current++;
+        if (rabbit.palettes.adept) current++;
+        if (rabbit.palettes.challenger) current++;
+        if (rabbit.palettes.master) current++;
+        if (rabbit.rings.flower) current++;
+        if (rabbit.rings.star) current++;
+        if (rabbit.rings.lunar) current++;
+        return new Percent(current, 8);
+    }),
 );

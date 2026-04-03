@@ -6,6 +6,7 @@ import { AREAS, DEFAULT_RABBITS, RABBITS } from '@/constants';
 import PercentProgress from '@/components/custom/PercentProgress.vue';
 import Tooltip from '@/components/custom/Tooltip.vue';
 import { ROWS } from './constants';
+import { rabbitClearPercentsByRabbit } from './calc';
 
 const color = AREAS.arsenal.color;
 </script>
@@ -19,9 +20,12 @@ const color = AREAS.arsenal.color;
                 <TableHead />
 
                 <!-- And now one for each rabbit -->
-                <TableHead v-for="rabbit of RABBITS" :key="rabbit.key">
+                <TableHead v-for="(rabbit, i) of RABBITS" :key="rabbit.key">
                     <div class="flex justify-center items-center">
-                        <Tooltip :title="`${rabbit.name} Rabbit`">
+                        <Tooltip
+                            :title="`${rabbit.name} Rabbit`"
+                            :content="`${rabbitClearPercentsByRabbit[i]!.current} / ${rabbitClearPercentsByRabbit[i]!.total} clears`"
+                        >
                             <img
                                 :src="rabbit.icon"
                                 :alt="rabbit.name"
@@ -51,10 +55,10 @@ const color = AREAS.arsenal.color;
 
                 <!-- And now one for each rabbit -->
                 <TableCell v-for="(rabbit, i) of RABBITS" :key="rabbit.key">
-                    <Tooltip :title="`${rabbit.name} Rabbit`" :content="row.tooltip ?? RABBITS[i]!.unlockText">
+                    <Tooltip :title="`${rabbit.name} ${row.title}`" :content="row.condition ?? RABBITS[i]!.unlockText">
                         <Lock
                             :unlocked="row.checked(data.rabbits[rabbit.key]!)"
-                            :always-unlocked="row.tooltip === null && DEFAULT_RABBITS.includes(rabbit.key)"
+                            :always-unlocked="row.condition === null && DEFAULT_RABBITS.includes(rabbit.key)"
                             :color="color"
                         />
                     </Tooltip>

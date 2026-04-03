@@ -18,12 +18,12 @@ const TEMP_ICONS = {
 
 export const ROWS = [
     {
-        title: 'Class Unlocked',
+        title: 'Unlocked',
         checked: (r: Rabbit) => r.unlocked,
         icon: TEMP_ICONS.rabbit,
         progress: rabbitClearPercents.unlocked,
         color: DIFFICULTIES.hard.color,
-        tooltip: null,
+        condition: null,
     },
     {
         title: 'Adept Palette',
@@ -31,7 +31,7 @@ export const ROWS = [
         icon: TEMP_ICONS.kingdom,
         progress: rabbitClearPercents.palettes.adept,
         color: DIFFICULTIES.hard.color,
-        tooltip: 'Complete a Kingdom run on Hard.',
+        condition: 'Complete a Kingdom run on Hard.',
     },
     {
         title: 'Challenger Palette',
@@ -39,7 +39,7 @@ export const ROWS = [
         icon: TEMP_ICONS.extra,
         progress: rabbitClearPercents.palettes.challenger,
         color: DIFFICULTIES.hard.color,
-        tooltip: 'Complete a Extra run on Hard.',
+        condition: 'Complete a Extra run on Hard.',
     },
     {
         title: 'Master Palette',
@@ -47,7 +47,7 @@ export const ROWS = [
         icon: TEMP_ICONS.kingdom,
         progress: rabbitClearPercents.palettes.master,
         color: DIFFICULTIES.lunar.color,
-        tooltip: 'Complete a Kingdom run on Lunar.',
+        condition: 'Complete a Kingdom run on Lunar.',
     },
     {
         title: 'Spellbound Palette',
@@ -55,7 +55,7 @@ export const ROWS = [
         icon: TEMP_ICONS.extra,
         progress: rabbitClearPercents.palettes.spellbound,
         color: DIFFICULTIES.lunar.color,
-        tooltip: 'Complete a Extra run on Lunar.',
+        condition: 'Complete a Extra run on Lunar.',
     },
     {
         title: 'Flower Ring',
@@ -63,7 +63,7 @@ export const ROWS = [
         icon: TEMP_ICONS.flowerRing,
         progress: rabbitClearPercents.rings.flower,
         color: DIFFICULTIES.normal.color,
-        tooltip: 'Complete a True Random or Chaotic Random run on Normal.',
+        condition: 'Complete a True Random or Chaotic Random run on Normal.',
     },
     {
         title: 'Star Ring',
@@ -71,7 +71,7 @@ export const ROWS = [
         icon: TEMP_ICONS.starRing,
         progress: rabbitClearPercents.rings.star,
         color: DIFFICULTIES.hard.color,
-        tooltip: 'Complete a True Random or Chaotic Random run on Hard.',
+        condition: 'Complete a True Random or Chaotic Random run on Hard.',
     },
     {
         title: 'Lunar Ring',
@@ -79,6 +79,6 @@ export const ROWS = [
         icon: TEMP_ICONS.lunarRing,
         progress: rabbitClearPercents.rings.lunar,
         color: DIFFICULTIES.lunar.color,
-        tooltip: 'Complete a True Random or Chaotic Random run on Lunar.',
+        condition: 'Complete a True Random or Chaotic Random run on Lunar.',
     },
 ];

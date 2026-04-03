@@ -11,6 +11,7 @@ import {
 import SidebarFooter from '@/components/shadcn/sidebar/SidebarFooter.vue';
 import { resetData } from '@/data';
 import { VERSION } from '@/constants';
+import Changelog from '../meta/Changelog.vue';
 </script>
 
 <template>
@@ -21,12 +22,13 @@ import { VERSION } from '@/constants';
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton as-child>
-                            <a @click="resetData">
+                            <a @click="resetData" href="#">
                                 <Trash2 />
                                 <span>Reset Data</span>
                             </a>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
+                    <Changelog />
                     <SidebarMenuItem>
                         <SidebarMenuButton as-child>
                             <a href="https://github.com/Miabread/moon-phase">

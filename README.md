@@ -6,7 +6,7 @@ Online completion tracker for the game [Rabbit & Steel](https://store.steampower
 
 Use the button on the top of the sidebar to upload your `savefile.ini` and `unlockdata.ini` files. These can be located at `C:\Users\$USER\AppData\Local\RabbitSteel\SaveFile` on your computer. All data is stored purely local and is not sent anywhere. You can also reset this data by using the button on the bottom of the sidebar.
 
-You can now see your progress for achievements, rabbits clears, trinket unlocks, loot clears, and music unlocks.
+You can now see your progress for achievements, rabbits clears, trinket unlocks, loot clears, and music unlocks. Some of these are still a work in progress.
 
 ## Development Setup
 

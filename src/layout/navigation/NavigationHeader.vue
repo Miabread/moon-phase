@@ -7,6 +7,7 @@ import { parseINI } from 'confbox';
 import { BUNDLES, DIFFICULTIES } from '@/constants';
 import { formatDate, readFileAsText } from '@/lib/utils';
 import { reactive } from 'vue';
+import Tutorial from '@/layout/meta/Tutorial.vue';
 
 const fresh = reactive(Object.fromEntries(BUNDLES.map((bundle) => [bundle, false])));
 
@@ -67,6 +68,7 @@ const fileUpload = async (e: Event) => {
                     </div>
                 </SidebarMenuButton>
             </SidebarMenuItem>
+            <Tutorial />
         </SidebarMenu>
     </SidebarHeader>
 </template>

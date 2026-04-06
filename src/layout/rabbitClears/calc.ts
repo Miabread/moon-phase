@@ -37,17 +37,19 @@ export const rabbitClearPercent = computed(() =>
     ]).labeled('clears'),
 );
 
+// Don't include unlock runs because they're not with "runs with that rabbit"
 export const rabbitClearPercentsByRabbit = computed(() =>
     RABBITS.map(({ key }) => {
         const rabbit = data.rabbits[key]!;
         let current = 0;
-        if (rabbit.unlocked) current++;
+
         if (rabbit.palettes.adept) current++;
         if (rabbit.palettes.challenger) current++;
         if (rabbit.palettes.master) current++;
         if (rabbit.rings.flower) current++;
         if (rabbit.rings.star) current++;
         if (rabbit.rings.lunar) current++;
-        return new Percent(current, 8);
+
+        return new Percent(current, 7);
     }),
 );

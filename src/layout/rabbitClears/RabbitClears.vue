@@ -24,7 +24,7 @@ const color = AREAS.arsenal.color;
                     <div class="flex justify-center items-center">
                         <Tooltip
                             :title="`${rabbit.name} Rabbit`"
-                            :content="`${rabbitClearPercentsByRabbit[i]!.current} / ${rabbitClearPercentsByRabbit[i]!.total} clears`"
+                            :content="`${rabbitClearPercentsByRabbit[i]!.current} / ${rabbitClearPercentsByRabbit[i]!.total} ${rabbit.name} clears`"
                         >
                             <img
                                 :src="rabbit.icon"

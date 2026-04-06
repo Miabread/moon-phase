@@ -2,11 +2,10 @@ import { type ComputedRef } from 'vue';
 import { resolve } from './utils';
 
 export class Percent {
-    public label = '';
-
     constructor(
         public current: number,
         public total: number,
+        public label = '',
     ) {}
 
     /**
@@ -67,14 +66,11 @@ export class Percent {
     }
 
     weighted(weight: number): Percent {
-        this.current *= weight;
-        this.total *= weight;
-        return this;
+        return new Percent(this.current * weight, this.total * weight);
     }
 
     labeled(label: string): Percent {
-        this.label = label;
-        return this;
+        return new Percent(this.current, this.total, label);
     }
 
     get percent(): number {

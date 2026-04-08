@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Table, TableRow, TableBody, TableCell } from '@/components/shadcn/table';
-import { MUSIC } from '@/layout/musicUnlocks/music';
+import { MUSIC } from '@/sections/music/music';
 import Lock from '@/components/custom/Lock.vue';
 import { data } from '@/data';
 import { computed } from 'vue';

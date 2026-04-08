@@ -2,7 +2,7 @@
 import Lock from '@/components/custom/Lock.vue';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/shadcn/table';
 import { data } from '@/data';
-import { DEFAULT_RABBITS, RABBITS } from '@/layout/rabbitClears/rabbits';
+import { DEFAULT_RABBITS, RABBITS } from '@/sections/rabbits/rabbits';
 import PercentProgress from '@/components/custom/PercentProgress.vue';
 import Tooltip from '@/components/custom/Tooltip.vue';
 import { ROWS } from './constants';

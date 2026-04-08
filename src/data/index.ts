@@ -1,8 +1,8 @@
 import { reactive, watchEffect } from 'vue';
 import { BUNDLES } from '@/data/constants';
-import { MUSIC } from '@/layout/musicUnlocks/music';
-import { TRINKETS_LIST } from '@/layout/trinketUnlocks/trinkets';
-import { RABBITS } from '@/layout/rabbitClears/rabbits';
+import { MUSIC } from '@/sections/music/music';
+import { TRINKETS_LIST } from '@/sections/trinkets/trinkets';
+import { RABBITS } from '@/sections/rabbits/rabbits';
 
 export { loadSavedata } from './loadSavedata';
 export { loadUnlockdata } from './loadUnlockdata';

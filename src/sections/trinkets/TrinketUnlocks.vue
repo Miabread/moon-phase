@@ -6,7 +6,7 @@ import Table from '@/components/shadcn/table/Table.vue';
 import TableBody from '@/components/shadcn/table/TableBody.vue';
 import TableCell from '@/components/shadcn/table/TableCell.vue';
 import TableRow from '@/components/shadcn/table/TableRow.vue';
-import { TRINKETS_PAGES } from '@/layout/trinketUnlocks/trinkets';
+import { TRINKETS_PAGES } from '@/sections/trinkets/trinkets';
 import { data } from '@/data';
 import { trinketUnlockPercents } from './calc';
 import { AREAS } from '@/data/constants';

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { totalCompletion } from './calc';
+import { totalCompletion } from './percent';
 import { Archive, Crown, Handbag, Swords } from 'lucide-vue-next';
 import { Card } from '@/components/shadcn/card';
 import PercentProgress from '@/components/custom/PercentProgress.vue';

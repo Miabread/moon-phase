@@ -5,8 +5,8 @@ import { data } from '@/data';
 import { DEFAULT_RABBITS, RABBITS } from '@/sections/rabbits/rabbits';
 import PercentProgress from '@/components/custom/PercentProgress.vue';
 import Tooltip from '@/components/custom/Tooltip.vue';
-import { ROWS } from './constants';
-import { rabbitClearPercentsByRabbit } from './calc';
+import { ROWS } from './table';
+import { rabbitClearPercentsByRabbit } from './percent';
 import { AREAS } from '@/data/constants';
 
 const color = AREAS.arsenal.color;

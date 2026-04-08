@@ -1,18 +1,18 @@
-import { totalCompletion } from '@/sections/completion/calc';
+import { totalCompletion } from '@/sections/completion/percent';
 import Completion from '@/sections/completion/Completion.vue';
 import EasterEgg from '@/components/custom/EasterEgg.vue';
-import { musicUnlockPercent } from '@/sections/music/calc';
+import { musicUnlockPercent } from '@/sections/music/percent';
 import MusicUnlocks from '@/sections/music/MusicUnlocks.vue';
-import { rabbitClearPercent } from '@/sections/rabbits/calc';
+import { rabbitClearPercent } from '@/sections/rabbits/percent';
 import RabbitClears from '@/sections/rabbits/RabbitClears.vue';
 import { Moon, Music, ScanHeart, Swords, Trophy } from 'lucide-vue-next';
 import TrinketUnlocks from '@/sections/trinkets/TrinketUnlocks.vue';
-import { trinketUnlockPercent } from '@/sections/trinkets/calc';
+import { trinketUnlockPercent } from '@/sections/trinkets/percent';
 import { AREAS } from '@/data/constants';
 import Achievements from '@/sections/achievements/Achievements.vue';
 import LootClears from '@/sections/loot/LootClears.vue';
-import { achievementsPercent } from '@/sections/achievements/calc';
-import { lootClearPercent } from '@/sections/loot/calc';
+import { achievementsPercent } from '@/sections/achievements/percent';
+import { lootClearPercent } from '@/sections/loot/percent';
 
 export const NAVIGATION = [
     {

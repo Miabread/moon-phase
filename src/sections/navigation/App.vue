@@ -2,7 +2,7 @@
 import { SidebarProvider } from '@/components/shadcn/sidebar';
 import Navigation from '@/sections/navigation/Navigation.vue';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/shadcn/card';
-import { NAVIGATION } from '@/sections/navigation/constants';
+import { NAVIGATION } from '@/sections/navigation/navigation';
 import SpecialProgress from '@/sections//completion/SpecialProgress.vue';
 import PercentProgress from '@/components/custom/PercentProgress.vue';
 </script>

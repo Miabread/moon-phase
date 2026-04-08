@@ -1,10 +1,10 @@
-import { rabbitClearPercent } from '../rabbits/calc';
-import { musicUnlockPercent } from '../music/calc';
+import { rabbitClearPercent } from '../rabbits/percent';
+import { musicUnlockPercent } from '../music/percent';
 import { Percent } from '@/lib/Percent';
 import { computed } from 'vue';
-import { trinketUnlockPercent } from '../trinkets/calc';
-import { achievementsPercent } from '../achievements/calc';
-import { lootClearPercent } from '../loot/calc';
+import { trinketUnlockPercent } from '../trinkets/percent';
+import { achievementsPercent } from '../achievements/percent';
+import { lootClearPercent } from '../loot/percent';
 
 export const totalCompletion = computed(() =>
     Percent.compound([

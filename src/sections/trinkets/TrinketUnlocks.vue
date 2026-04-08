@@ -8,7 +8,7 @@ import TableCell from '@/components/shadcn/table/TableCell.vue';
 import TableRow from '@/components/shadcn/table/TableRow.vue';
 import { TRINKETS_PAGES } from '@/sections/trinkets/trinkets';
 import { data } from '@/data';
-import { trinketUnlockPercents } from './calc';
+import { trinketUnlockPercents } from './percent';
 import { AREAS } from '@/data/constants';
 
 const color = AREAS.nest.color;

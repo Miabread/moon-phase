@@ -10,7 +10,7 @@ import {
     SidebarMenuItem,
 } from '@/components/shadcn/sidebar';
 import NavigationHeader from './NavigationHeader.vue';
-import { NAVIGATION } from '@/sections/navigation/constants';
+import { NAVIGATION } from '@/sections/navigation/navigation';
 import PercentProgress from '@/components/custom/PercentProgress.vue';
 import NavigationFooter from './NavigationFooter.vue';
 </script>

@@ -553,3 +553,10 @@ export const TRINKETS_PAGES = [
 export const TRINKETS_LIST = TRINKETS_PAGES.slice(0, 2)
     .flat(2)
     .filter((t) => t !== null);
+
+export const TRINKET_QUICK = {
+    smallRabbit: TRINKETS_PAGES[0][3][5],
+    flowerRing: TRINKETS_PAGES[2][0][2],
+    starRing: TRINKETS_PAGES[2][0][3],
+    lunarRing: TRINKETS_PAGES[2][0][4],
+};

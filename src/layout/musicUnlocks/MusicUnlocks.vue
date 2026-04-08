@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { Table, TableRow, TableBody, TableCell } from '@/components/shadcn/table';
-import { MUSIC } from '@/constants/music';
+import { MUSIC } from '@/layout/musicUnlocks/music';
 import Lock from '@/components/custom/Lock.vue';
 import { data } from '@/data';
 import { computed } from 'vue';
-import { AREAS } from '@/constants';
+import { AREAS } from '@/data/constants';
 
 const sortedMUSIC = computed(() =>
     MUSIC.sort((a, b) => Number(data.music[a.key]!.unlocked) - Number(data.music[b.key]!.unlocked)),

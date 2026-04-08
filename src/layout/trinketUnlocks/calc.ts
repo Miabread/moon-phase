@@ -1,4 +1,4 @@
-import { TRINKETS_PAGES } from '@/constants/trinkets';
+import { TRINKETS_PAGES } from '@/layout/trinketUnlocks/trinkets';
 import { data } from '@/data';
 import { Percent } from '@/lib/Percent';
 import { computed } from 'vue';

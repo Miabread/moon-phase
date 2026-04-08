@@ -1,8 +1,8 @@
 import { data } from '@/data';
-import { AREAS, DIFFICULTIES } from '@/constants';
+import { AREAS, DIFFICULTIES } from '@/data/constants';
 import { Rabbit } from 'lucide-vue-next';
 import { rabbitClearPercents } from './calc';
-import { TRINKET_QUICK } from '@/constants/trinkets';
+import { TRINKET_QUICK } from '@/layout/trinketUnlocks/trinkets';
 
 type Rabbit = (typeof data)['rabbits'][string];
 

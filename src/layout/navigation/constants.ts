@@ -8,7 +8,7 @@ import RabbitClears from '@/layout/rabbitClears/RabbitClears.vue';
 import { Moon, Music, ScanHeart, Swords, Trophy } from 'lucide-vue-next';
 import TrinketUnlocks from '@/layout/trinketUnlocks/TrinketUnlocks.vue';
 import { trinketUnlockPercent } from '@/layout/trinketUnlocks/calc';
-import { AREAS } from '@/constants';
+import { AREAS } from '@/data/constants';
 import Achievements from '@/layout/achievements/Achievements.vue';
 import LootClears from '@/layout/lootClears/LootClears.vue';
 import { achievementsPercent } from '@/layout/achievements/calc';

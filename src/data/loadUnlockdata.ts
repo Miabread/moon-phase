@@ -1,8 +1,8 @@
 import { uppercaseFirstLetter } from '@/lib/utils';
 import { data } from '.';
-import { DEFAULT_RABBITS, RABBITS } from '../constants';
-import { MUSIC } from '@/constants/music';
-import { TRINKETS_LIST } from '@/constants/trinkets';
+import { DEFAULT_RABBITS, RABBITS } from '@/layout/rabbitClears/rabbits';
+import { MUSIC } from '@/layout/musicUnlocks/music';
+import { TRINKETS_LIST } from '@/layout/trinketUnlocks/trinkets';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const loadUnlockdata = (raw: any) => {

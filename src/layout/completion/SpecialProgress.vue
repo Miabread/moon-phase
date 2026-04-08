@@ -3,7 +3,7 @@ import { totalCompletion } from './calc';
 import { Archive, Crown, Handbag, Swords } from 'lucide-vue-next';
 import { Card } from '@/components/shadcn/card';
 import PercentProgress from '@/components/custom/PercentProgress.vue';
-import { AREAS } from '@/constants';
+import { AREAS } from '@/data/constants';
 import Tooltip from '@/components/custom/Tooltip.vue';
 
 const icons = [Handbag, Swords, Swords, Swords, Archive, Crown];

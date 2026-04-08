@@ -1,5 +1,5 @@
 import { data } from '.';
-import { RABBITS } from '../constants';
+import { RABBITS } from '@/layout/rabbitClears/rabbits';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const loadSavedata = (raw: any) => {

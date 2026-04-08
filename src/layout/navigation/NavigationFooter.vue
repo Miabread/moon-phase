@@ -10,7 +10,7 @@ import {
 } from '@/components/shadcn/sidebar';
 import SidebarFooter from '@/components/shadcn/sidebar/SidebarFooter.vue';
 import { resetData } from '@/data';
-import { VERSION } from '@/constants';
+import { VERSION } from '@/data/constants';
 import Changelog from '../meta/Changelog.vue';
 import Tutorial from '../meta/Tutorial.vue';
 </script>

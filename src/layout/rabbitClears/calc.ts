@@ -1,4 +1,4 @@
-import { DEFAULT_RABBITS, RABBITS } from '@/constants';
+import { DEFAULT_RABBITS, RABBITS } from '@/layout/rabbitClears/rabbits';
 import { data } from '@/data';
 import { Percent } from '@/lib/Percent';
 import { computed } from 'vue';

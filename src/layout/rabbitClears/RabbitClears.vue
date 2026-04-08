@@ -2,11 +2,12 @@
 import Lock from '@/components/custom/Lock.vue';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/shadcn/table';
 import { data } from '@/data';
-import { AREAS, DEFAULT_RABBITS, RABBITS } from '@/constants';
+import { DEFAULT_RABBITS, RABBITS } from '@/layout/rabbitClears/rabbits';
 import PercentProgress from '@/components/custom/PercentProgress.vue';
 import Tooltip from '@/components/custom/Tooltip.vue';
 import { ROWS } from './constants';
 import { rabbitClearPercentsByRabbit } from './calc';
+import { AREAS } from '@/data/constants';
 
 const color = AREAS.arsenal.color;
 </script>

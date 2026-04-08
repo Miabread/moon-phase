@@ -4,7 +4,7 @@ import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader } from '
 import { Input } from '@/components/shadcn/input';
 import { data, loadSavedata, loadUnlockdata } from '@/data';
 import { parseINI } from 'confbox';
-import { BUNDLES, DIFFICULTIES } from '@/constants';
+import { BUNDLES, DIFFICULTIES } from '@/data/constants';
 import { formatDate, readFileAsText } from '@/lib/utils';
 import { reactive } from 'vue';
 import { Button } from '@/components/shadcn/button';

@@ -8,11 +8,18 @@ import Tooltip from '@/components/custom/Tooltip.vue';
 import { ROWS } from './table';
 import { rabbitClearPercentsByRabbit } from './percent';
 import { AREAS } from '@/data/constants';
+import Achievement from '@/sections/achievements/Achievement.vue';
+import { ACHIEVEMENTS } from '@/sections/achievements/achievements';
 
 const color = AREAS.arsenal.color;
 </script>
 
 <template>
+    <div class="flex justify-around">
+        <Achievement v-for="ach in ACHIEVEMENTS.hardPalettes" :key="ach.title" :data="ach" :color="color" />
+        <Achievement v-for="ach in ACHIEVEMENTS.lunarPalettes" :key="ach.title" :data="ach" :color="color" />
+    </div>
+    <hr />
     <Table>
         <TableHeader>
             <TableRow>

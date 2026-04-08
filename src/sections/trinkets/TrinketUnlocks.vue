@@ -10,12 +10,19 @@ import { TRINKETS_PAGES } from '@/sections/trinkets/trinkets';
 import { data } from '@/data';
 import { trinketUnlockPercents } from './percent';
 import { AREAS } from '@/data/constants';
+import { ACHIEVEMENTS } from '@/sections/achievements/achievements';
+import Achievement from '@/sections/achievements/Achievement.vue';
 
 const color = AREAS.nest.color;
 </script>
 
 <template>
+    <div class="flex justify-around">
+        <Achievement v-for="ach in ACHIEVEMENTS.trinkets" :key="ach.title" :data="ach" :color="color" />
+    </div>
+
     <section v-for="(page, page_i) in TRINKETS_PAGES.slice(0, 2)" :key="page_i" class="mt-5">
+        <hr />
         <span class="flex flex-row items-center gap-5 text-nowrap text-xl">
             <h2>Page {{ page_i + 1 }}</h2>
             <PercentProgress :percent="trinketUnlockPercents[page_i]!" :color="color" />

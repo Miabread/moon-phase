@@ -5,6 +5,8 @@ import Lock from '@/components/custom/Lock.vue';
 import { data } from '@/data';
 import { computed } from 'vue';
 import { AREAS } from '@/data/constants';
+import { ACHIEVEMENTS } from '@/sections/achievements/achievements';
+import Achievement from '@/sections/achievements/Achievement.vue';
 
 const sortedMUSIC = computed(() =>
     MUSIC.sort((a, b) => Number(data.music[a.key]!.unlocked) - Number(data.music[b.key]!.unlocked)),
@@ -14,6 +16,10 @@ const color = AREAS.lakeside.color;
 </script>
 
 <template>
+    <div class="flex justify-around">
+        <Achievement v-for="ach in ACHIEVEMENTS.music" :key="ach.title" :data="ach" :color="color" />
+    </div>
+    <hr />
     <Table>
         <TableBody>
             <TableRow v-for="music in sortedMUSIC" :key="music.key">

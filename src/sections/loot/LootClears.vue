@@ -9,6 +9,10 @@ import { computed, ref } from 'vue';
 import { lootFuse } from './percent';
 import { Input } from '@/components/shadcn/input';
 import { refDebounced } from '@vueuse/core';
+import { Card, CardContent } from '@/components/shadcn/card';
+import CardHeader from '@/components/shadcn/card/CardHeader.vue';
+import CardTitle from '@/components/shadcn/card/CardTitle.vue';
+import { Search, TableOfContents } from 'lucide-vue-next';
 
 const color = AREAS.streets.color;
 
@@ -44,47 +48,63 @@ const isSetSearched = (setTitle: string) =>
 </script>
 
 <template>
-    <Input type="text" v-model="searchInput" />
-    <Table>
-        <TableBody>
-            <TableRow v-for="lootSet in sortedLOOT" :key="lootSet.title">
-                <template v-if="isSetSearched(lootSet.title)">
-                    <TableHead>
-                        <h3
-                            class="h-10 rounded-xl flex justify-center items-center"
-                            :style="{
-                                backgroundColor: lootSet.score >= 8 ? '' : `color-mix(in srgb, ${color}, black 60%)`,
-                            }"
-                        >
-                            {{ lootSet.title }}
-                        </h3>
-                    </TableHead>
-                    <TableCell v-for="loot in lootSet.loot" :key="loot.title">
-                        <Tooltip :title="loot.title" class="flex justify-center items-center">
-                            <div
-                                class="flex justify-center items-center h-10 w-10 rounded-xl"
-                                :style="{
-                                    backgroundColor:
-                                        isLootSearched(loot.key) && !isLootCleared(loot.key)
-                                            ? `color-mix(in srgb, ${color}, black 60%)`
-                                            : '',
-                                }"
-                            >
-                                <img
-                                    :src="loot.icon"
-                                    :alt="loot.title"
-                                    :class="
-                                        cn(
-                                            !isLootCleared(loot.key) && 'grayscale',
-                                            !isLootSearched(loot.key) && 'hidden',
-                                        )
-                                    "
-                                />
-                            </div>
-                        </Tooltip>
-                    </TableCell>
-                </template>
-            </TableRow>
-        </TableBody>
-    </Table>
+    <Card>
+        <CardHeader>
+            <span class="flex flex-row items-center gap-5 text-nowrap text-xl">
+                <Search :style="{ color }" />
+                <h2 class="font-normal text-lg">Uncleared Loot</h2>
+                <Input type="text" v-model="searchInput" placeholder="Search..." />
+            </span>
+        </CardHeader>
+        <CardContent> </CardContent>
+    </Card>
+    <Card>
+        <CardHeader>
+            <CardTitle>
+                <span class="flex flex-row items-center gap-5 text-nowrap text-xl">
+                    <TableOfContents :style="{ color }" />
+                    <h2 class="font-normal text-lg">All Loot</h2>
+                </span>
+            </CardTitle>
+        </CardHeader>
+        <CardContent>
+            <Table>
+                <TableBody>
+                    <TableRow v-for="lootSet in sortedLOOT" :key="lootSet.title">
+                        <template v-if="isSetSearched(lootSet.title)">
+                            <TableHead>
+                                <h3 class="h-10 rounded-xl flex justify-center items-center">
+                                    {{ lootSet.title }}
+                                </h3>
+                            </TableHead>
+                            <TableCell v-for="loot in lootSet.loot" :key="loot.title">
+                                <Tooltip :title="loot.title" class="flex justify-center items-center">
+                                    <div
+                                        class="flex justify-center items-center h-10 w-10 rounded-xl"
+                                        :style="{
+                                            backgroundColor:
+                                                isLootSearched(loot.key) && !isLootCleared(loot.key)
+                                                    ? `color-mix(in srgb, ${color}, black 60%)`
+                                                    : '',
+                                        }"
+                                    >
+                                        <img
+                                            :src="loot.icon"
+                                            :alt="loot.title"
+                                            :class="
+                                                cn(
+                                                    !isLootCleared(loot.key) && 'grayscale',
+                                                    !isLootSearched(loot.key) && 'hidden',
+                                                )
+                                            "
+                                        />
+                                    </div>
+                                </Tooltip>
+                            </TableCell>
+                        </template>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </CardContent>
+    </Card>
 </template>

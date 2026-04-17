@@ -22,7 +22,7 @@ import PercentProgress from '@/components/custom/PercentProgress.vue';
                         </span>
                     </CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent class="flex flex-col gap-4">
                     <component :is="item.card" />
                 </CardContent>
             </Card>

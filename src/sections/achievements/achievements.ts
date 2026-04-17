@@ -17,37 +17,7 @@ const trinketAchievement = (n: number, icon: string): Achievement => ({
 });
 
 export const ACHIEVEMENTS = {
-    trinkets: [
-        trinketAchievement(
-            10,
-            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/a30d161ca4d8d3cca2359ff077287055f7c9bded.jpg',
-        ),
-        trinketAchievement(
-            20,
-            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/f9ebec08d312ade1ac1e4b1d8f0095ae4d81d2a9.jpg',
-        ),
-        trinketAchievement(
-            30,
-            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/4296ee411f4d036a977bb0e33daf3fd98315a90a.jpg',
-        ),
-        trinketAchievement(
-            40,
-            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/d6f9dd8ae8bd4dabfea80e98c4d0fa764c19c349.jpg',
-        ),
-        trinketAchievement(
-            50,
-            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/b04771e831f9ee3a4d6617732f232a29edd6a3f3.jpg',
-        ),
-        trinketAchievement(
-            60,
-            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/cca89d947c1072786022999f9157f69fc62f24b8.jpg',
-        ),
-        trinketAchievement(
-            70,
-            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/bff52bd191255e69c8de7d985663b06d93edbf91.jpg',
-        ),
-    ],
-    hardPalettes: [
+    rabbits: [
         {
             title: 'Seeing Red',
             description: 'Unlock 10 Adept/Challenger Palettes',
@@ -81,8 +51,6 @@ export const ACHIEVEMENTS = {
                     28,
             ),
         },
-    ],
-    lunarPalettes: [
         {
             title: 'Rabbit Rabbit Rabbit',
             description: 'Unlock 10 Master/Spellbreaker Palettes',
@@ -116,6 +84,36 @@ export const ACHIEVEMENTS = {
                     28,
             ),
         },
+    ],
+    trinkets: [
+        trinketAchievement(
+            10,
+            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/a30d161ca4d8d3cca2359ff077287055f7c9bded.jpg',
+        ),
+        trinketAchievement(
+            20,
+            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/f9ebec08d312ade1ac1e4b1d8f0095ae4d81d2a9.jpg',
+        ),
+        trinketAchievement(
+            30,
+            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/4296ee411f4d036a977bb0e33daf3fd98315a90a.jpg',
+        ),
+        trinketAchievement(
+            40,
+            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/d6f9dd8ae8bd4dabfea80e98c4d0fa764c19c349.jpg',
+        ),
+        trinketAchievement(
+            50,
+            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/b04771e831f9ee3a4d6617732f232a29edd6a3f3.jpg',
+        ),
+        trinketAchievement(
+            60,
+            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/cca89d947c1072786022999f9157f69fc62f24b8.jpg',
+        ),
+        trinketAchievement(
+            70,
+            '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/bff52bd191255e69c8de7d985663b06d93edbf91.jpg',
+        ),
     ],
     music: [
         {

@@ -7,6 +7,8 @@ import { computed } from 'vue';
 import { AREAS } from '@/data/constants';
 import { ACHIEVEMENTS } from '@/sections/achievements/achievements';
 import Achievement from '@/sections/achievements/Achievement.vue';
+import { CardContent, CardHeader, CardTitle, Card } from '@/components/shadcn/card';
+import { TableOfContents, Trophy } from 'lucide-vue-next';
 
 const sortedMUSIC = computed(() =>
     MUSIC.toSorted((a, b) => Number(data.music[a.key]!.unlocked) - Number(data.music[b.key]!.unlocked)),
@@ -16,22 +18,46 @@ const color = AREAS.lakeside.color;
 </script>
 
 <template>
-    <div class="flex justify-around">
-        <Achievement v-for="ach in ACHIEVEMENTS.music" :key="ach.title" :data="ach" :color="color" />
-    </div>
-    <hr />
-    <Table>
-        <TableBody>
-            <TableRow v-for="music in sortedMUSIC" :key="music.key">
-                <TableCell>
-                    <div class="flex justify-center items-center">
-                        <img :src="music.icon" class="h-10 w-10" />
-                    </div>
-                </TableCell>
-                <TableCell>{{ music.title }}</TableCell>
-                <TableCell><Lock :unlocked="data.music[music.key]!.unlocked" :color="color" /></TableCell>
-                <TableCell>{{ music.condition }}</TableCell>
-            </TableRow>
-        </TableBody>
-    </Table>
+    <Card>
+        <CardHeader>
+            <CardTitle>
+                <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
+                    <Trophy :style="{ color }" />
+                    <h2>Achievements</h2>
+                </span>
+            </CardTitle>
+        </CardHeader>
+        <CardContent>
+            <div class="flex justify-around">
+                <Achievement v-for="ach in ACHIEVEMENTS.music" :key="ach.title" :data="ach" :color="color" />
+            </div>
+        </CardContent>
+    </Card>
+
+    <Card>
+        <CardHeader>
+            <CardTitle>
+                <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
+                    <TableOfContents :style="{ color }" />
+                    <h2>Breakdown</h2>
+                </span>
+            </CardTitle>
+        </CardHeader>
+        <CardContent>
+            <Table>
+                <TableBody>
+                    <TableRow v-for="music in sortedMUSIC" :key="music.key">
+                        <TableCell>
+                            <div class="flex justify-center items-center">
+                                <img :src="music.icon" class="h-10 w-10" />
+                            </div>
+                        </TableCell>
+                        <TableCell>{{ music.title }}</TableCell>
+                        <TableCell><Lock :unlocked="data.music[music.key]!.unlocked" :color="color" /></TableCell>
+                        <TableCell>{{ music.condition }}</TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </CardContent>
+    </Card>
 </template>

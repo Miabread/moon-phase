@@ -50,20 +50,22 @@ const isSetSearched = (setTitle: string) =>
 <template>
     <Card>
         <CardHeader>
-            <span class="flex flex-row items-center gap-5 text-nowrap text-xl">
-                <Search :style="{ color }" />
-                <h2 class="font-normal text-lg">Uncleared Loot</h2>
-                <Input type="text" v-model="searchInput" placeholder="Search..." />
-            </span>
+            <CardTitle>
+                <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
+                    <Search :style="{ color }" />
+                    <h2>Uncleared Loot</h2>
+                    <Input type="text" v-model="searchInput" placeholder="Search..." />
+                </span>
+            </CardTitle>
         </CardHeader>
         <CardContent> </CardContent>
     </Card>
     <Card>
         <CardHeader>
             <CardTitle>
-                <span class="flex flex-row items-center gap-5 text-nowrap text-xl">
+                <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
                     <TableOfContents :style="{ color }" />
-                    <h2 class="font-normal text-lg">All Loot</h2>
+                    <h2>All Loot</h2>
                 </span>
             </CardTitle>
         </CardHeader>

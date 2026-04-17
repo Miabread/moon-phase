@@ -11,7 +11,7 @@ export const totalCompletion = computed(() =>
         achievementsPercent,
         rabbitClearPercent,
         trinketUnlockPercent,
-        lootClearPercent.value.weighted(0.5),
+        lootClearPercent,
         musicUnlockPercent,
     ]).labeled('estimated runs'),
 );

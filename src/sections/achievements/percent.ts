@@ -10,8 +10,14 @@ export const achievementsPercents = Object.fromEntries(
     }),
 ) as Record<keyof typeof ACHIEVEMENTS, Percent>;
 
+const specialWipAchievementsPercent = computed(() =>
+    Percent.compound(Object.values(achievementsPercents)).labeled('achievements'),
+);
+
+export const unaccountedForAchievements = computed(
+    () => ACTUAL_TOTAL_ACHIEVEMENTS - specialWipAchievementsPercent.value.total,
+);
+
 export const achievementsPercent = computed(() => {
-    const percent = Percent.compound(Object.values(achievementsPercents));
-    percent.total = ACTUAL_TOTAL_ACHIEVEMENTS;
-    return percent.labeled('achievements');
+    return new Percent(specialWipAchievementsPercent.value.current, ACTUAL_TOTAL_ACHIEVEMENTS).labeled('achievements');
 });

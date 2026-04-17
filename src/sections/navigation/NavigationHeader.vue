@@ -4,7 +4,7 @@ import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader } from '
 import { Input } from '@/components/shadcn/input';
 import { data, loadSavedata, loadUnlockdata } from '@/data';
 import { parseINI } from 'confbox';
-import { BUNDLES, DIFFICULTIES } from '@/data/constants';
+import { AREAS, BUNDLES } from '@/data/constants';
 import { formatDate, readFileAsText } from '@/lib/utils';
 import { reactive } from 'vue';
 import { Button } from '@/components/shadcn/button';
@@ -45,21 +45,21 @@ const fileUpload = async (e: Event) => {
                     <div
                         v-if="data.bundles[bundle]!.lastUploaded === 0"
                         class="flex aspect-square size-8 items-center justify-center rounded-lg text-background"
-                        :style="{ backgroundColor: DIFFICULTIES.hard.color }"
+                        :style="{ backgroundColor: AREAS.darkhouse.color }"
                     >
                         <X class="size-4" />
                     </div>
                     <div
                         v-else-if="fresh[bundle]"
                         class="flex aspect-square size-8 items-center justify-center rounded-lg text-background"
-                        :style="{ backgroundColor: DIFFICULTIES.cute.color }"
+                        :style="{ backgroundColor: AREAS.lakeside.color }"
                     >
                         <Check class="size-4" />
                     </div>
                     <div
                         v-else
                         class="flex aspect-square size-8 items-center justify-center rounded-lg text-background"
-                        :style="{ backgroundColor: DIFFICULTIES.normal.color }"
+                        :style="{ backgroundColor: AREAS.streets.color }"
                     >
                         <History class="size-4" />
                     </div>

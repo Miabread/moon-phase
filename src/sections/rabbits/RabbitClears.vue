@@ -60,6 +60,7 @@ const color = AREAS.arsenal.color;
                                     :content="`${rabbitClearPercentsByRabbit[i]!.current} / ${rabbitClearPercentsByRabbit[i]!.total} ${rabbit.name} clears`"
                                 >
                                     <img
+                                        loading="lazy"
                                         :src="rabbit.icon"
                                         :alt="rabbit.name"
                                         class="h-10 w-10 rounded-full border"
@@ -77,7 +78,7 @@ const color = AREAS.arsenal.color;
                         <!-- The following three cells have no header -->
                         <TableCell>
                             <div class="flex flex-col justify-center items-center">
-                                <img :src="row.icon" class="h-10 w-10" />
+                                <img loading="lazy" :src="row.icon" class="h-10 w-10" />
                                 <PercentProgress :percent="row.progress" :color="row.color" />
                             </div>
                         </TableCell>

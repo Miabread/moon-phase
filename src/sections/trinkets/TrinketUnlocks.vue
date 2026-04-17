@@ -60,6 +60,7 @@ const pageIcons = [Dice1, Dice2, Dice3];
                                 class="flex justify-center items-center"
                             >
                                 <img
+                                    loading="lazy"
                                     v-if="data.trinkets[trinket.key]!.unlocked"
                                     :src="trinket.icon"
                                     :alt="trinket.title"

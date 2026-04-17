@@ -91,6 +91,7 @@ const isSetSearched = (setTitle: string) =>
                                         "
                                     >
                                         <img
+                                            loading="lazy"
                                             v-if="isLootCleared(loot.key)"
                                             :src="loot.icon"
                                             :alt="loot.title"

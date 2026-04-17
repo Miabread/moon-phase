@@ -52,7 +52,7 @@ const color = AREAS.lakeside.color;
                     <TableRow v-for="music in sortedMUSIC" :key="music.key">
                         <TableCell>
                             <div class="flex justify-center items-center">
-                                <img :src="music.icon" class="h-10 w-10" />
+                                <img loading="lazy" :src="music.icon" class="h-10 w-10" />
                             </div>
                         </TableCell>
                         <TableCell>{{ music.title }}</TableCell>

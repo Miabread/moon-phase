@@ -12,6 +12,7 @@ const props = defineProps<{
 <template>
     <Tooltip :title="props.data.title" :content="props.data.description">
         <img
+            loading="lazy"
             :src="props.data.icon"
             :class="cn('h-10 w-10 border', { grayscale: !props.data.unlocked?.value })"
             :style="{ borderColor: props.color }"

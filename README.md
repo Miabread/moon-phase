@@ -8,6 +8,18 @@ Use the button on the top of the sidebar to upload your `savefile.ini` and `unlo
 
 You can now see your progress for achievements, rabbits clears, trinket unlocks, loot clears, and music unlocks. Some of these are still a work in progress.
 
+## Todo Before Release
+
+- [ ] Completion -> Fancy overview
+- [ ] Achievements -> Tracking for area clears
+- [ ] Achievements -> Tracking for story clears
+- [ ] Achievements -> All other tracking
+- [ ] Rabbit Clears -> Subcard for Alt Levitation Ring
+- [ ] Trinket Unlocks -> Subcard for 3rd page
+- [ ] Loot Clears -> Finish subcard for remaining clears
+- [ ] Loot Clears -> Clean up old searching code
+- [ ] Music Unlocks -> Fill in missing icons
+
 ## Development Setup
 
 Implemented using Vue 3 and VSCode.

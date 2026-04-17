@@ -13,6 +13,7 @@ import { Card, CardContent } from '@/components/shadcn/card';
 import CardHeader from '@/components/shadcn/card/CardHeader.vue';
 import CardTitle from '@/components/shadcn/card/CardTitle.vue';
 import { ScrollText, Search } from 'lucide-vue-next';
+import Lock from '@/components/custom/Lock.vue';
 
 const color = AREAS.streets.color;
 
@@ -82,24 +83,20 @@ const isSetSearched = (setTitle: string) =>
                             <TableCell v-for="loot in lootSet.loot" :key="loot.title">
                                 <Tooltip :title="loot.title" class="flex justify-center items-center">
                                     <div
-                                        class="flex justify-center items-center h-10 w-10 rounded-xl"
-                                        :style="{
-                                            backgroundColor:
-                                                isLootSearched(loot.key) && !isLootCleared(loot.key)
-                                                    ? `color-mix(in srgb, ${color}, black 60%)`
-                                                    : '',
-                                        }"
+                                        :class="
+                                            cn(
+                                                'flex justify-center items-center h-10 w-10 rounded-xl',
+                                                !isLootSearched(loot.key) && 'hidden',
+                                            )
+                                        "
                                     >
                                         <img
+                                            v-if="isLootCleared(loot.key)"
                                             :src="loot.icon"
                                             :alt="loot.title"
-                                            :class="
-                                                cn(
-                                                    !isLootCleared(loot.key) && 'grayscale',
-                                                    !isLootSearched(loot.key) && 'hidden',
-                                                )
-                                            "
+                                            class="h-10 w-10"
                                         />
+                                        <Lock v-else :color="color" class="h-10 w-10" />
                                     </div>
                                 </Tooltip>
                             </TableCell>

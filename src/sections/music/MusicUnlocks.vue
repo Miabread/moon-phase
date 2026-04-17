@@ -9,7 +9,7 @@ import { ACHIEVEMENTS } from '@/sections/achievements/achievements';
 import Achievement from '@/sections/achievements/Achievement.vue';
 
 const sortedMUSIC = computed(() =>
-    MUSIC.slice().sort((a, b) => Number(data.music[a.key]!.unlocked) - Number(data.music[b.key]!.unlocked)),
+    MUSIC.toSorted((a, b) => Number(data.music[a.key]!.unlocked) - Number(data.music[b.key]!.unlocked)),
 );
 
 const color = AREAS.lakeside.color;

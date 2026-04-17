@@ -5,16 +5,31 @@ import Tooltip from '@/components/custom/Tooltip.vue';
 import { cn } from '@/lib/utils';
 import { data } from '@/data';
 import { AREAS } from '@/data/constants';
+import { computed } from 'vue';
 
 const color = AREAS.streets.color;
+
+const sortedLOOT = computed(() =>
+    LOOT.map((set) => ({
+        ...set,
+        score: set.loot.filter((loot) => data.loot[loot.key]!.cleared).length,
+    })).toSorted((a, b) => a.score - b.score),
+);
 </script>
 
 <template>
     <Table>
         <TableBody>
-            <TableRow v-for="lootSet in LOOT" :key="lootSet.title">
+            <TableRow v-for="lootSet in sortedLOOT" :key="lootSet.title">
                 <TableHead>
-                    {{ lootSet.title }}
+                    <h3
+                        class="h-10 rounded-xl flex justify-center items-center"
+                        :style="{
+                            backgroundColor: lootSet.score >= 8 ? '' : `color-mix(in srgb, ${color}, black 60%)`,
+                        }"
+                    >
+                        {{ lootSet.title }}
+                    </h3>
                 </TableHead>
                 <TableCell v-for="loot in lootSet.loot" :key="loot.title">
                     <Tooltip :title="loot.title" class="flex justify-center items-center">

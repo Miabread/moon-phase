@@ -16,8 +16,8 @@ You can now see your progress for achievements, rabbits clears, trinket unlocks,
 - [ ] Achievements -> All other tracking
 - [ ] Rabbit Clears -> Subcard for Alt Levitation Ring
 - [ ] Trinket Unlocks -> Subcard for 3rd page
-- [ ] Loot Clears -> Finish subcard for remaining clears
-- [ ] Loot Clears -> Clean up old searching code
+- [x] Loot Clears -> Finish subcard for remaining clears
+- [x] Loot Clears -> Clean up old searching code
 - [ ] Music Unlocks -> Fill in missing icons
 
 ## Development Setup

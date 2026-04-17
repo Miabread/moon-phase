@@ -9,6 +9,12 @@ export function cn(...inputs: ClassValue[]) {
 
 export const uppercaseFirstLetter = (input: string) => input.charAt(0).toUpperCase() + input.slice(1);
 
+export function* chunks<T>(array: T[], n: number): Generator<T[], void> {
+    for (let i = 0; i < array.length; i += n) {
+        yield array.slice(i, i + n);
+    }
+}
+
 const timeFormat = new Intl.RelativeTimeFormat('en', { numeric: 'always' });
 
 const unitCutoffs = [

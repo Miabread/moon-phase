@@ -12,7 +12,7 @@ import { ListMusic, Trophy } from 'lucide-vue-next';
 import { achievementsPercents } from '../achievements/percent';
 import PercentProgress from '@/components/custom/PercentProgress.vue';
 
-const sortedMUSIC = computed(() =>
+const sortedMusic = computed(() =>
     MUSIC.toSorted((a, b) => Number(data.music[a.key]!.unlocked) - Number(data.music[b.key]!.unlocked)),
 );
 
@@ -49,7 +49,7 @@ const color = AREAS.lakeside.color;
         <CardContent>
             <Table>
                 <TableBody>
-                    <TableRow v-for="music in sortedMUSIC" :key="music.key">
+                    <TableRow v-for="music in sortedMusic" :key="music.key">
                         <TableCell>
                             <div class="flex justify-center items-center">
                                 <img loading="lazy" :src="music.icon" class="h-10 w-10" />

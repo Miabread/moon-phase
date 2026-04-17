@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@/components/shadcn/table';
-import { LOOT } from './loot';
+import { LOOT, LOOT_LIST } from './loot';
 import Tooltip from '@/components/custom/Tooltip.vue';
-import { cn } from '@/lib/utils';
+import { chunks, cn } from '@/lib/utils';
 import { data } from '@/data';
 import { AREAS } from '@/data/constants';
 import { computed, ref } from 'vue';
@@ -17,10 +17,12 @@ import Lock from '@/components/custom/Lock.vue';
 
 const color = AREAS.streets.color;
 
-const sortedLOOT = computed(() =>
+const isLootCleared = (lootKey: string) => data.loot[lootKey]!.cleared;
+
+const sortedLootSets = computed(() =>
     LOOT.map((set) => ({
         ...set,
-        score: set.loot.filter((loot) => data.loot[loot.key]!.cleared).length,
+        score: set.loot.filter((loot) => isLootCleared(loot.key)).length,
     })).toSorted((a, b) => a.score - b.score),
 );
 
@@ -41,11 +43,19 @@ const searchResults = computed(() => {
     return { loot, sets };
 });
 
-const isLootCleared = (lootKey: string) => data.loot[lootKey]!.cleared;
 const isLootSearched = (lootKey: string) =>
     searchResults.value.loot.size === 0 || searchResults.value.loot.has(lootKey);
 const isSetSearched = (setTitle: string) =>
     searchResults.value.sets.size === 0 || searchResults.value.sets.has(setTitle);
+
+const remainingLoot = computed(() =>
+    Array.from(
+        chunks(
+            LOOT_LIST.filter((loot) => !isLootCleared(loot.key) && isLootSearched(loot.key)),
+            8,
+        ),
+    ),
+);
 </script>
 
 <template>
@@ -59,7 +69,21 @@ const isSetSearched = (setTitle: string) =>
                 </span>
             </CardTitle>
         </CardHeader>
-        <CardContent> </CardContent>
+        <CardContent>
+            <Table>
+                <TableBody>
+                    <TableRow v-for="(row, row_i) in remainingLoot" :key="row_i">
+                        <TableCell v-for="loot in row" :key="loot.key">
+                            <Tooltip :key="loot.key" :title="loot.title" class="flex justify-center items-center">
+                                <div class="flex justify-center items-center h-10 w-10 rounded-xl">
+                                    <img loading="lazy" :src="loot.icon" :alt="loot.title" class="h-10 w-10" />
+                                </div>
+                            </Tooltip>
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </CardContent>
     </Card>
     <Card>
         <CardHeader>
@@ -73,7 +97,7 @@ const isSetSearched = (setTitle: string) =>
         <CardContent>
             <Table>
                 <TableBody>
-                    <TableRow v-for="lootSet in sortedLOOT" :key="lootSet.title">
+                    <TableRow v-for="lootSet in sortedLootSets" :key="lootSet.title">
                         <template v-if="isSetSearched(lootSet.title)">
                             <TableHead>
                                 <h3 class="h-10 rounded-xl flex justify-center items-center">

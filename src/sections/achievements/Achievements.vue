@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { AREAS } from '@/data/constants';
-import { unaccountedForAchievements } from './percent';
+import { achievementsPercents, areaClearsPercent } from './percent';
 import { CardContent, CardHeader, CardTitle, Card } from '@/components/shadcn/card';
-import { Hammer } from 'lucide-vue-next';
+import { BookHeart, LandPlot } from 'lucide-vue-next';
+import { ACHIEVEMENTS } from './achievements';
+import PercentProgress from '@/components/custom/PercentProgress.vue';
+import Achievement from './Achievement.vue';
 
 const color = AREAS.darkhouse.color;
 </script>
@@ -12,17 +15,30 @@ const color = AREAS.darkhouse.color;
         <CardHeader>
             <CardTitle>
                 <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
-                    <Hammer :style="{ color }" />
-                    <h2>Work In Progress Status</h2>
+                    <BookHeart :style="{ color }" />
+                    <h2>Story</h2>
+                    <PercentProgress :percent="achievementsPercents.story" :color="color" />
                 </span>
             </CardTitle>
         </CardHeader>
         <CardContent>
-            <p class="text-center">
-                There are currently
-                <span :style="{ color }" class="text-lg">{{ unaccountedForAchievements }} Achievements</span> that have
-                not been implemented yet.
-            </p>
+            <div class="flex justify-around">
+                <Achievement v-for="ach in ACHIEVEMENTS.story" :key="ach.title" :data="ach" :color="color" />
+            </div>
+        </CardContent>
+    </Card>
+    <Card>
+        <CardHeader>
+            <CardTitle>
+                <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
+                    <LandPlot :style="{ color }" />
+                    <h2>Area Clears</h2>
+                    <PercentProgress :percent="areaClearsPercent" :color="color" />
+                </span>
+            </CardTitle>
+        </CardHeader>
+        <CardContent>
+            <div class="flex justify-around"></div>
         </CardContent>
     </Card>
 </template>

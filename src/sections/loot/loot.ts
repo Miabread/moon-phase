@@ -1576,4 +1576,4 @@ export const LOOT = [
     },
 ];
 
-export const LOOT_LIST = LOOT.flatMap((set) => set.loot);
+export const LOOT_LIST = LOOT.flatMap((set) => set.loot.map((loot) => ({ ...loot, set: set.title })));

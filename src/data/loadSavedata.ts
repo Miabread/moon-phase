@@ -1,3 +1,4 @@
+import { LOOT_LIST } from '@/sections/loot/loot';
 import { data } from '.';
 import { RABBITS } from '@/sections/rabbits/rabbits';
 
@@ -13,5 +14,10 @@ export const loadSavedata = (raw: any) => {
         rings.flower = ((1 << index) & flowerRing) !== 0;
         rings.star = ((1 << index) & starRing) !== 0;
         rings.lunar = ((1 << index) & lunarRing) !== 0;
+    }
+
+    // Collect loot data
+    for (const loot of LOOT_LIST) {
+        data.loot[loot.key]!.cleared = (parseFloat(raw?.ItemDiscovery?.[loot.key] ?? '0') & 0b111100) > 0;
     }
 };

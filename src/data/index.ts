@@ -3,11 +3,12 @@ import { BUNDLES } from '@/data/constants';
 import { MUSIC } from '@/sections/music/music';
 import { TRINKETS_LIST } from '@/sections/trinkets/trinkets';
 import { RABBITS } from '@/sections/rabbits/rabbits';
+import { LOOT_LIST } from '@/sections/loot/loot';
 
 export { loadSavedata } from './loadSavedata';
 export { loadUnlockdata } from './loadUnlockdata';
 
-const INCREMENT_EVERY_TIME_DEFAULT_DATA_CHANGES = 0;
+const INCREMENT_EVERY_TIME_DEFAULT_DATA_CHANGES = 2;
 
 const LOCAL_STORAGE_KEY = 'data-cache';
 
@@ -56,6 +57,15 @@ const defaultData = () => ({
             trinket.key,
             {
                 unlocked: false,
+            },
+        ]),
+    ),
+
+    loot: Object.fromEntries(
+        LOOT_LIST.map((loot) => [
+            loot.key,
+            {
+                cleared: false,
             },
         ]),
     ),

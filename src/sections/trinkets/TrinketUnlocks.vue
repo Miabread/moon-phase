@@ -14,6 +14,7 @@ import { ACHIEVEMENTS } from '@/sections/achievements/achievements';
 import Achievement from '@/sections/achievements/Achievement.vue';
 import { Dice1, Dice2, Dice3, Trophy } from 'lucide-vue-next';
 import { CardContent, CardHeader, CardTitle, Card } from '@/components/shadcn/card';
+import { achievementsPercents } from '../achievements/percent';
 
 const color = AREAS.nest.color;
 
@@ -27,6 +28,7 @@ const pageIcons = [Dice1, Dice2, Dice3];
                 <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
                     <Trophy :style="{ color }" />
                     <h2>Achievements</h2>
+                    <PercentProgress :percent="achievementsPercents.trinkets" :color="color" />
                 </span>
             </CardTitle>
         </CardHeader>

@@ -6,7 +6,7 @@ export interface Achievement {
     title: string;
     description: string;
     icon: string;
-    unlocked?: ComputedRef<boolean>;
+    unlocked: ComputedRef<boolean>;
 }
 
 const trinketAchievement = (n: number, icon: string): Achievement => ({
@@ -131,4 +131,4 @@ export const ACHIEVEMENTS = {
             unlocked: computed(() => false),
         },
     ],
-} as const;
+};

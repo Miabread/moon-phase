@@ -12,7 +12,7 @@ import { refDebounced } from '@vueuse/core';
 import { Card, CardContent } from '@/components/shadcn/card';
 import CardHeader from '@/components/shadcn/card/CardHeader.vue';
 import CardTitle from '@/components/shadcn/card/CardTitle.vue';
-import { Search, TableOfContents } from 'lucide-vue-next';
+import { ScrollText, Search } from 'lucide-vue-next';
 
 const color = AREAS.streets.color;
 
@@ -53,7 +53,7 @@ const isSetSearched = (setTitle: string) =>
             <CardTitle>
                 <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
                     <Search :style="{ color }" />
-                    <h2>Uncleared Loot</h2>
+                    <h2>Remaining Clears</h2>
                     <Input type="text" v-model="searchInput" placeholder="Search..." />
                 </span>
             </CardTitle>
@@ -64,8 +64,8 @@ const isSetSearched = (setTitle: string) =>
         <CardHeader>
             <CardTitle>
                 <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
-                    <TableOfContents :style="{ color }" />
-                    <h2>All Loot</h2>
+                    <ScrollText :style="{ color }" />
+                    <h2>By Loot Set</h2>
                 </span>
             </CardTitle>
         </CardHeader>

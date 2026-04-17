@@ -11,7 +11,9 @@ import { AREAS } from '@/data/constants';
 import Achievement from '@/sections/achievements/Achievement.vue';
 import { ACHIEVEMENTS } from '@/sections/achievements/achievements';
 import { CardContent, CardHeader, CardTitle, Card } from '@/components/shadcn/card';
-import { TableOfContents, Trophy } from 'lucide-vue-next';
+import { Table2, Trophy } from 'lucide-vue-next';
+import { achievementsPercents } from '../achievements/percent';
+import { Percent } from '@/lib/Percent';
 
 const color = AREAS.arsenal.color;
 </script>
@@ -23,6 +25,12 @@ const color = AREAS.arsenal.color;
                 <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
                     <Trophy :style="{ color }" />
                     <h2>Achievements</h2>
+                    <PercentProgress
+                        :percent="
+                            Percent.compound([achievementsPercents.hardPalettes, achievementsPercents.lunarPalettes])
+                        "
+                        :color="color"
+                    />
                 </span>
             </CardTitle>
         </CardHeader>
@@ -38,8 +46,8 @@ const color = AREAS.arsenal.color;
         <CardHeader>
             <CardTitle>
                 <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
-                    <TableOfContents :style="{ color }" />
-                    <h2>Breakdown</h2>
+                    <Table2 :style="{ color }" />
+                    <h2>By Class</h2>
                 </span>
             </CardTitle>
         </CardHeader>

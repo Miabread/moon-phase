@@ -8,7 +8,9 @@ import { AREAS } from '@/data/constants';
 import { ACHIEVEMENTS } from '@/sections/achievements/achievements';
 import Achievement from '@/sections/achievements/Achievement.vue';
 import { CardContent, CardHeader, CardTitle, Card } from '@/components/shadcn/card';
-import { TableOfContents, Trophy } from 'lucide-vue-next';
+import { ListMusic, Trophy } from 'lucide-vue-next';
+import { achievementsPercents } from '../achievements/percent';
+import PercentProgress from '@/components/custom/PercentProgress.vue';
 
 const sortedMUSIC = computed(() =>
     MUSIC.toSorted((a, b) => Number(data.music[a.key]!.unlocked) - Number(data.music[b.key]!.unlocked)),
@@ -24,6 +26,7 @@ const color = AREAS.lakeside.color;
                 <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
                     <Trophy :style="{ color }" />
                     <h2>Achievements</h2>
+                    <PercentProgress :percent="achievementsPercents.music" :color="color" />
                 </span>
             </CardTitle>
         </CardHeader>
@@ -38,8 +41,8 @@ const color = AREAS.lakeside.color;
         <CardHeader>
             <CardTitle>
                 <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
-                    <TableOfContents :style="{ color }" />
-                    <h2>Breakdown</h2>
+                    <ListMusic :style="{ color }" />
+                    <h2>By Track</h2>
                 </span>
             </CardTitle>
         </CardHeader>

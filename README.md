@@ -8,18 +8,24 @@ Use the button on the top of the sidebar to upload your `savefile.ini` and `unlo
 
 You can now see your progress for achievements, rabbits clears, trinket unlocks, loot clears, and music unlocks. Some of these are still a work in progress.
 
-## Todo Before Release
+## Todo List
 
+### v1.0
+
+- [x] Loot Clears -> Finish subcard for remaining clears
+- [x] Loot Clears -> Clean up old searching code
+- [x] Music Unlocks -> Fill in missing icons
 - [x] Completion -> Fancy overview
 - [ ] Completion -> Silly encouragement
 - [ ] Achievements -> Tracking for area clears
 - [ ] Achievements -> Tracking for story clears
 - [ ] Achievements -> All other tracking
-- [ ] Rabbit Clears -> Subcard for Alt Levitation Ring
-- [ ] Trinket Unlocks -> Subcard for 3rd page
-- [x] Loot Clears -> Finish subcard for remaining clears
-- [x] Loot Clears -> Clean up old searching code
-- [x] Music Unlocks -> Fill in missing icons
+
+
+### v1.1
+
+- [ ] Subcard for Alt Levitation Ring
+- [ ] Subcard for 3rd trinket page
 
 ## Development Setup
 

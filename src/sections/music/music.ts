@@ -144,7 +144,7 @@ export const MUSIC = [
         key: 'musicReflection',
         title: "Overture for the Witch's Heart",
         condition: 'See your adventure through to its resolution',
-        icon: '',
+        icon: '//static.wikitide.net/rnswiki/1/18/Area_Reflecting_Pool.png',
     },
     {
         album: 'extra',

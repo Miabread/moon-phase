@@ -12,6 +12,10 @@ export const achievementsPercent = computed(() =>
     Percent.compound(Object.values(achievementsPercents)).labeled('achievements'),
 );
 
+export const otherSectionsAchievementPercent = computed(() =>
+    Percent.compound([achievementsPercents.rabbits, achievementsPercents.trinkets, achievementsPercents.music]),
+);
+
 export const areaClearsPercent = computed(() =>
     Percent.compound([
         achievementsPercents.areasNormal,

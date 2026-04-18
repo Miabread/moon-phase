@@ -10,7 +10,7 @@ import PercentProgress from '@/components/custom/PercentProgress.vue';
 <template>
     <SidebarProvider open default-open>
         <Navigation />
-        <main class="mt-2 flex flex-1 flex-col gap-4 p-4 pt-0 pb-2">
+        <main class="mt-2 flex flex-1 flex-col gap-5 p-4 pt-0 pb-2">
             <Card v-for="item in NAVIGATION" :key="item.title" :id="item.url" class="w-full">
                 <CardHeader>
                     <CardTitle>

@@ -10,7 +10,8 @@ You can now see your progress for achievements, rabbits clears, trinket unlocks,
 
 ## Todo Before Release
 
-- [ ] Completion -> Fancy overview
+- [x] Completion -> Fancy overview
+- [x] Completion -> Silly encouragement
 - [ ] Achievements -> Tracking for area clears
 - [ ] Achievements -> Tracking for story clears
 - [ ] Achievements -> All other tracking

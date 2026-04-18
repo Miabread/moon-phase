@@ -75,7 +75,7 @@ const remainingLoot = computed(() =>
                     <TableRow v-for="(row, row_i) in remainingLoot" :key="row_i">
                         <TableCell v-for="loot in row" :key="loot.key">
                             <Tooltip :key="loot.key" :title="loot.title" class="flex justify-center items-center">
-                                <div class="flex justify-center items-center h-10 w-10 rounded-xl">
+                                <div class="flex justify-center items-center h-10 rounded-xl w-full">
                                     <img loading="lazy" :src="loot.icon" :alt="loot.title" class="h-10 w-10" />
                                 </div>
                             </Tooltip>

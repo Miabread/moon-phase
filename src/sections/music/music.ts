@@ -130,7 +130,7 @@ export const MUSIC = [
         key: 'musicBossOwl',
         title: "Rondo for the Witch's Messenger",
         condition: 'Collect 5 kinds of floofball',
-        icon: '',
+        icon: '//static.wikitide.net/rnswiki/2/20/Spr_item_painters_0.png',
     },
     {
         album: 'extra',
@@ -151,7 +151,7 @@ export const MUSIC = [
         key: 'musicReflection2',
         title: 'Woven Into a Spell',
         condition: 'Get all Adept/Challenger palettes',
-        icon: '',
+        icon: '//static.wikitide.net/rnswiki/9/98/Spr_item_memory_5.png',
     },
     {
         album: 'kingdom',
@@ -172,6 +172,6 @@ export const MUSIC = [
         key: 'musicReflection2OffVocal',
         title: 'Woven into a Spell (Off Vocal)',
         condition: 'Win a run with every loot item at least once',
-        icon: '',
+        icon: '//static.wikitide.net/rnswiki/c/c7/Spr_item_memory_0.png',
     },
 ];

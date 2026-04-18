@@ -19,7 +19,7 @@ You can now see your progress for achievements, rabbits clears, trinket unlocks,
 - [ ] Trinket Unlocks -> Subcard for 3rd page
 - [x] Loot Clears -> Finish subcard for remaining clears
 - [x] Loot Clears -> Clean up old searching code
-- [ ] Music Unlocks -> Fill in missing icons
+- [x] Music Unlocks -> Fill in missing icons
 
 ## Development Setup
 

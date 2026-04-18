@@ -24,26 +24,22 @@ const color = AREAS.darkhouse.color;
                 </CardTitle>
             </CardHeader>
             <CardContent class="flex items-center justify-around flex-wrap w-full h-full">
-                <Achievement v-for="ach in ACHIEVEMENTS.story" :key="ach.title" :data="ach" :color="color" />
+                Work in Progress
+                <!-- <Achievement v-for="ach in ACHIEVEMENTS.story" :key="ach.title" :data="ach" :color="color" /> -->
             </CardContent>
         </Card>
         <Card class="w-1/2">
             <CardHeader>
                 <CardTitle>
                     <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
-                        <EasterEgg :style="{ color: AREAS.arsenal.color }" />
+                        <EasterEgg :style="{ color }" />
                         <h2>Rabbit Clears</h2>
-                        <PercentProgress :percent="achievementsPercents.rabbits" :color="AREAS.arsenal.color" />
+                        <PercentProgress :percent="achievementsPercents.rabbits" :color="color" />
                     </span>
                 </CardTitle>
             </CardHeader>
             <CardContent class="flex items-center justify-around flex-wrap w-full h-full">
-                <Achievement
-                    v-for="ach in ACHIEVEMENTS.rabbits"
-                    :key="ach.title"
-                    :data="ach"
-                    :color="AREAS.arsenal.color"
-                />
+                <Achievement v-for="ach in ACHIEVEMENTS.rabbits" :key="ach.title" :data="ach" :color="color" />
             </CardContent>
         </Card>
     </div>
@@ -52,38 +48,28 @@ const color = AREAS.darkhouse.color;
             <CardHeader>
                 <CardTitle>
                     <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
-                        <ScanHeart :style="{ color: AREAS.nest.color }" />
+                        <ScanHeart :style="{ color }" />
                         <h2>Trinket Unlocks</h2>
-                        <PercentProgress :percent="achievementsPercents.trinkets" :color="AREAS.nest.color" />
+                        <PercentProgress :percent="achievementsPercents.trinkets" :color="color" />
                     </span>
                 </CardTitle>
             </CardHeader>
             <CardContent class="flex items-center justify-around flex-wrap w-full h-full">
-                <Achievement
-                    v-for="ach in ACHIEVEMENTS.trinkets"
-                    :key="ach.title"
-                    :data="ach"
-                    :color="AREAS.nest.color"
-                />
+                <Achievement v-for="ach in ACHIEVEMENTS.trinkets" :key="ach.title" :data="ach" :color="color" />
             </CardContent>
         </Card>
         <Card class="w-1/2">
             <CardHeader>
                 <CardTitle>
                     <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
-                        <Music :style="{ color: AREAS.lakeside.color }" />
+                        <Music :style="{ color }" />
                         <h2>Music Unlocks</h2>
-                        <PercentProgress :percent="achievementsPercents.music" :color="AREAS.lakeside.color" />
+                        <PercentProgress :percent="achievementsPercents.music" :color="color" />
                     </span>
                 </CardTitle>
             </CardHeader>
             <CardContent class="flex items-center justify-around flex-wrap w-full h-full">
-                <Achievement
-                    v-for="ach in ACHIEVEMENTS.music"
-                    :key="ach.title"
-                    :data="ach"
-                    :color="AREAS.lakeside.color"
-                />
+                <Achievement v-for="ach in ACHIEVEMENTS.music" :key="ach.title" :data="ach" :color="color" />
             </CardContent>
         </Card>
     </div>
@@ -97,8 +83,6 @@ const color = AREAS.darkhouse.color;
                 </span>
             </CardTitle>
         </CardHeader>
-        <CardContent>
-            <div class="flex justify-around"></div>
-        </CardContent>
+        <CardContent class="flex items-center justify-around"> Work in Progress </CardContent>
     </Card>
 </template>

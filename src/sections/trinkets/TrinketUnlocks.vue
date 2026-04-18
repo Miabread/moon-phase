@@ -30,24 +30,21 @@ const pageIcons = [Dice1, Dice2, Dice3];
             </CardTitle>
         </CardHeader>
         <CardContent class="flex flex-col gap-4">
-            <Table class="max-w-2/3 mx-auto">
+            <Table>
                 <TableBody>
                     <TableRow v-for="(row, row_i) in page" :key="row_i">
                         <TableCell v-for="(trinket, col_i) in row" :key="col_i">
-                            <Tooltip
-                                v-if="trinket"
-                                :title="trinket.title"
-                                :content="trinket.condition"
-                                class="flex justify-center items-center"
-                            >
-                                <img
-                                    loading="lazy"
-                                    v-if="data.trinkets[trinket.key]!.unlocked"
-                                    :src="trinket.icon"
-                                    :alt="trinket.title"
-                                    class="h-10 w-10"
-                                />
-                                <Lock v-else :color="color" class="h-10 w-10" />
+                            <Tooltip v-if="trinket" :title="trinket.title" :content="trinket.condition">
+                                <div class="flex justify-center items-center w-full">
+                                    <img
+                                        loading="lazy"
+                                        v-if="data.trinkets[trinket.key]!.unlocked"
+                                        :src="trinket.icon"
+                                        :alt="trinket.title"
+                                        class="h-10 w-10"
+                                    />
+                                    <Lock v-else :color="color" class="h-10 w-10" />
+                                </div>
                             </Tooltip>
                         </TableCell>
                     </TableRow>

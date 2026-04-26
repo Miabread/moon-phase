@@ -44,8 +44,8 @@ import { CircleQuestionMark } from 'lucide-vue-next';
                         the button on the bottom of the sidebar.
                     </p>
                     <p>
-                        You can now see your progress for achievements, rabbits clears, trinket unlocks, loot clears,
-                        and music unlocks. Some of these are still a work in progress.
+                        You can now see your progress breakdown for trinket unlocks, rabbit clears, achievements, loot
+                        clears, and music unlocks.
                     </p>
                 </DialogDescription>
             </DialogHeader>

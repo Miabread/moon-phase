@@ -4,18 +4,22 @@ export const BUNDLES = ['savedata', 'unlockdata'] as const;
 
 export const DIFFICULTIES = {
     cute: {
+        title: 'Cute',
         color: '#94cdff',
         icon: '//static.wikitide.net/rnswiki/c/c6/Difficulty_Cute.png',
     },
     normal: {
+        title: 'Normal',
         color: '#fddfa9',
         icon: '//static.wikitide.net/rnswiki/b/b2/Difficulty_Normal.png',
     },
     hard: {
+        title: 'Hard',
         color: '#ff6576',
         icon: '//static.wikitide.net/rnswiki/a/a2/Difficulty_Hard.png',
     },
     lunar: {
+        title: 'Lunar',
         color: '#a372f1',
         icon: '//static.wikitide.net/rnswiki/a/af/Difficulty_Lunar.png',
     },

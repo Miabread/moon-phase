@@ -35,6 +35,6 @@ export const loadSavedata = (raw: any) => {
 
     // Collect story data
     for (const story of STORY) {
-        data.story[story.key]!.flag = parseFloat(raw?.StoryFlag?.[story.flagKey] ?? '0');
+        data.story[story.key]!.flag = parseFloat(raw?.[story.flagCategory]?.[story.flagKey] ?? '0');
     }
 };

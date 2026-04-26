@@ -32,7 +32,7 @@ const color = AREAS.darkhouse.color;
                 <CardTitle>
                     <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
                         <Music :style="{ color }" />
-                        <h2 class="italic">Work in Progress</h2>
+                        <h2>Music Unlocks</h2>
                         <PercentProgress :percent="achievementsPercents.music" :color="color" />
                     </span>
                 </CardTitle>

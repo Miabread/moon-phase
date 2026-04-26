@@ -1,11 +1,19 @@
 import { data } from '@/data';
 import { Percent } from '@/lib/Percent';
 import { computed } from 'vue';
+import { MUSIC_OBJECT } from './music';
 
-// TODO
 export const musicUnlockPercents = {
-    kingdom: computed(() => Percent.object(data.music, (m) => m.unlocked).labeled('tracks')),
-    extra: computed(() => Percent.object(data.music, (m) => m.unlocked).labeled('tracks')),
+    kingdom: computed(() =>
+        Percent.object(data.music, (m, key) => (MUSIC_OBJECT[key]!.album === 'kingdom' ? m.unlocked : null)).labeled(
+            'tracks',
+        ),
+    ),
+    extra: computed(() =>
+        Percent.object(data.music, (m, key) => (MUSIC_OBJECT[key]!.album === 'extra' ? m.unlocked : null)).labeled(
+            'tracks',
+        ),
+    ),
 };
 
 export const musicUnlockPercent = computed(() =>

@@ -175,3 +175,5 @@ export const MUSIC = [
         icon: '//static.wikitide.net/rnswiki/c/c7/Spr_item_memory_0.png',
     },
 ];
+
+export const MUSIC_OBJECT = Object.fromEntries(MUSIC.map((m) => [m.key, m]));

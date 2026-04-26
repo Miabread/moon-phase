@@ -2,6 +2,7 @@ import { computed, type ComputedRef } from 'vue';
 import { trinketUnlockPercent } from '../trinkets/percent';
 import { rabbitClearPercents } from '../rabbits/percent';
 import { uppercaseFirstLetter } from '@/lib/utils';
+import { musicUnlockPercents } from '../music/percent';
 
 export interface Achievement {
     title: string;
@@ -262,13 +263,13 @@ export const ACHIEVEMENTS = {
             title: 'Moonlit Melodies',
             description: 'Unlock all of the Kingdom music tracks',
             icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/1015cd6644311a617f3a4699779386dc28f7fe9b.jpg',
-            unlocked: computed(() => false),
+            unlocked: computed(() => musicUnlockPercents.kingdom.value.percent >= 100),
         },
         {
             title: 'Music For the Heart',
             description: 'Unlock all of the Extra music tracks',
             icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/c2e976861d629f3bae2cb0f0cf18e12d231641a0.jpg',
-            unlocked: computed(() => false),
+            unlocked: computed(() => musicUnlockPercents.extra.value.percent >= 100),
         },
     ],
 };

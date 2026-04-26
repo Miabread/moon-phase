@@ -21,7 +21,7 @@ export const ROWS = [
         icon: AREAS.keep.icon,
         progress: rabbitClearPercents.palettes.adept,
         color: DIFFICULTIES.hard.color,
-        condition: 'Complete a Kingdom run on Hard.',
+        condition: 'Complete a Kingdom run on Hard',
     },
     {
         title: 'Challenger Palette',
@@ -29,7 +29,7 @@ export const ROWS = [
         icon: AREAS.hallway.icon,
         progress: rabbitClearPercents.palettes.challenger,
         color: DIFFICULTIES.hard.color,
-        condition: 'Complete a Extra run on Hard.',
+        condition: 'Complete a Extra run on Hard',
     },
     {
         title: 'Master Palette',
@@ -37,7 +37,7 @@ export const ROWS = [
         icon: AREAS.pinnacle.icon,
         progress: rabbitClearPercents.palettes.master,
         color: DIFFICULTIES.lunar.color,
-        condition: 'Complete a Kingdom run on Lunar.',
+        condition: 'Complete a Kingdom run on Lunar',
     },
     {
         title: 'Spellbound Palette',
@@ -45,7 +45,7 @@ export const ROWS = [
         icon: AREAS.pool.icon,
         progress: rabbitClearPercents.palettes.spellbound,
         color: DIFFICULTIES.lunar.color,
-        condition: 'Complete a Extra run on Lunar.',
+        condition: 'Complete a Extra run on Lunar',
     },
     {
         title: 'Flower Ring',
@@ -53,7 +53,7 @@ export const ROWS = [
         icon: TRINKET_QUICK.flowerRing.icon,
         progress: rabbitClearPercents.rings.flower,
         color: DIFFICULTIES.normal.color,
-        condition: 'Complete a True Random or Chaotic Random run on Normal.',
+        condition: 'Complete a True Random or Chaotic Random run on Normal',
     },
     {
         title: 'Star Ring',
@@ -61,7 +61,7 @@ export const ROWS = [
         icon: TRINKET_QUICK.starRing.icon,
         progress: rabbitClearPercents.rings.star,
         color: DIFFICULTIES.hard.color,
-        condition: 'Complete a True Random or Chaotic Random run on Hard.',
+        condition: 'Complete a True Random or Chaotic Random run on Hard',
     },
     {
         title: 'Lunar Ring',
@@ -69,6 +69,6 @@ export const ROWS = [
         icon: TRINKET_QUICK.lunarRing.icon,
         progress: rabbitClearPercents.rings.lunar,
         color: DIFFICULTIES.lunar.color,
-        condition: 'Complete a True Random or Chaotic Random run on Lunar.',
+        condition: 'Complete a True Random or Chaotic Random run on Lunar',
     },
 ];

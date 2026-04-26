@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { AREAS, DIFFICULTIES } from '@/data/constants';
-import { areaClearsPercent } from './percent';
+import { achievementsPercents, areaClearsPercent } from './percent';
 import { CardContent, CardHeader, CardTitle, Card } from '@/components/shadcn/card';
 import { LandPlot } from 'lucide-vue-next';
 import { ACHIEVEMENTS } from './achievements';
@@ -10,6 +10,24 @@ import { Table, TableBody, TableHeader, TableRow, TableHead, TableCell } from '@
 import Tooltip from '@/components/custom/Tooltip.vue';
 
 const color = AREAS.darkhouse.color;
+
+const areaClearsTable = [
+    {
+        difficulty: DIFFICULTIES.normal,
+        achievements: ACHIEVEMENTS.areasNormal,
+        progress: achievementsPercents.areasNormal,
+    },
+    {
+        difficulty: DIFFICULTIES.hard,
+        achievements: ACHIEVEMENTS.areasHard,
+        progress: achievementsPercents.areasHard,
+    },
+    {
+        difficulty: DIFFICULTIES.lunar,
+        achievements: ACHIEVEMENTS.areasLunar,
+        progress: achievementsPercents.areasLunar,
+    },
+];
 </script>
 
 <template>
@@ -30,10 +48,10 @@ const color = AREAS.darkhouse.color;
                         <!-- Empty cell for corner -->
                         <TableHead />
 
-                        <template v-for="(area, i) of AREAS" :key="i">
+                        <template v-for="area of AREAS" :key="area.title">
                             <TableHead v-if="area.hasAchivements">
                                 <div class="flex justify-center items-center">
-                                    <Tooltip :title="area.title">
+                                    <Tooltip :title="area.title" :content="`TODO clears`">
                                         <img loading="lazy" :src="area.icon" :alt="area.title" class="h-10 w-10" />
                                     </Tooltip>
                                 </div>
@@ -42,43 +60,23 @@ const color = AREAS.darkhouse.color;
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    <TableRow>
+                    <TableRow v-for="row in areaClearsTable" :key="row.difficulty.title">
                         <TableHead>
                             <div class="flex justify-center items-center">
-                                <Tooltip title="Normal">
-                                    <img loading="lazy" :src="DIFFICULTIES.normal.icon" alt="Normal" class="h-5 w-5" />
+                                <Tooltip
+                                    :title="row.difficulty.title"
+                                    :content="`${row.progress.value.current} / ${row.progress.value.total} clears`"
+                                >
+                                    <img
+                                        loading="lazy"
+                                        :src="row.difficulty.icon"
+                                        :alt="row.difficulty.title"
+                                        class="h-7 w-7"
+                                    />
                                 </Tooltip>
                             </div>
                         </TableHead>
-                        <TableCell v-for="ach in ACHIEVEMENTS.areasNormal" :key="ach.title">
-                            <div class="flex justify-center items-center">
-                                <Achievement :data="ach" :color="color" />
-                            </div>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableHead>
-                            <div class="flex justify-center items-center">
-                                <Tooltip title="Hard">
-                                    <img loading="lazy" :src="DIFFICULTIES.hard.icon" alt="Hard" class="h-5 w-5" />
-                                </Tooltip>
-                            </div>
-                        </TableHead>
-                        <TableCell v-for="ach in ACHIEVEMENTS.areasHard" :key="ach.title">
-                            <div class="flex justify-center items-center">
-                                <Achievement :data="ach" :color="color" />
-                            </div>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableHead>
-                            <div class="flex justify-center items-center">
-                                <Tooltip title="Lunar">
-                                    <img loading="lazy" :src="DIFFICULTIES.lunar.icon" alt="Lunar" class="h-5 w-5" />
-                                </Tooltip>
-                            </div>
-                        </TableHead>
-                        <TableCell v-for="ach in ACHIEVEMENTS.areasLunar" :key="ach.title">
+                        <TableCell v-for="ach in row.achievements" :key="ach.title">
                             <div class="flex justify-center items-center">
                                 <Achievement :data="ach" :color="color" />
                             </div>

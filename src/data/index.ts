@@ -4,11 +4,12 @@ import { MUSIC } from '@/sections/music/music';
 import { TRINKETS_LIST } from '@/sections/trinkets/trinkets';
 import { RABBITS } from '@/sections/rabbits/rabbits';
 import { LOOT_LIST } from '@/sections/loot/loot';
+import { STORY } from '@/sections/achievements/achievements';
 
 export { loadSavedata } from './loadSavedata';
 export { loadUnlockdata } from './loadUnlockdata';
 
-const INCREMENT_EVERY_TIME_DEFAULT_DATA_CHANGES = 3;
+const INCREMENT_EVERY_TIME_DEFAULT_DATA_CHANGES = 4;
 
 const LOCAL_STORAGE_KEY = 'data-cache';
 
@@ -31,6 +32,8 @@ const defaultData = () => ({
             },
         ]),
     ),
+
+    story: Object.fromEntries(STORY.map((story) => [story.key, { flag: 0 }])),
 
     areas: Object.fromEntries(
         Object.keys(AREAS).map((key) => [

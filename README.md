@@ -18,8 +18,8 @@ You can now see your progress for achievements, rabbits clears, trinket unlocks,
 - [x] Completion -> Fancy overview
 - [ ] Completion -> Silly encouragement
 - [x] Achievements -> Tracking for area clears
-- [ ] Achievements -> Tracking for story clears
-- [ ] Achievements -> All other tracking
+- [x] Achievements -> Tracking for story clears
+- [x] Achievements -> All other tracking
 
 ### v1.1
 

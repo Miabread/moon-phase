@@ -3,6 +3,7 @@ import { data } from '.';
 import { RABBITS } from '@/sections/rabbits/rabbits';
 import { AREAS } from './constants';
 import { uppercaseFirstLetter } from '@/lib/utils';
+import { STORY } from '@/sections/achievements/achievements';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const loadSavedata = (raw: any) => {
@@ -30,5 +31,10 @@ export const loadSavedata = (raw: any) => {
         data.areas[key]!.normalClear = parseFloat(raw?.SaveInfo?.[`mapWin${capKey}N`] ?? '0') > 0;
         data.areas[key]!.hardClear = parseFloat(raw?.SaveInfo?.[`mapWin${capKey}H`] ?? '0') > 0;
         data.areas[key]!.lunarClear = parseFloat(raw?.SaveInfo?.[`mapWin${capKey}L`] ?? '0') > 0;
+    }
+
+    // Collect story data
+    for (const story of STORY) {
+        data.story[story.key]!.flag = parseFloat(raw?.StoryFlag?.[story.flagKey] ?? '0');
     }
 };

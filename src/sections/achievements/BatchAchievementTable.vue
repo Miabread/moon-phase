@@ -48,7 +48,7 @@ const color = AREAS.darkhouse.color;
                 <CardTitle>
                     <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
                         <BookHeart :style="{ color }" />
-                        <h2 class="italic">Work in Progress</h2>
+                        <h2>Story Clears</h2>
                         <PercentProgress :percent="achievementsPercents.story" :color="color" />
                     </span>
                 </CardTitle>

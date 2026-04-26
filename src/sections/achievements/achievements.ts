@@ -111,51 +111,70 @@ const ACHIEVEMENT_AREAS = [
     },
 ];
 
+export const STORY = [
+    {
+        key: 'bird',
+        title: 'Sisterly Love',
+        description: 'Help break the Spell on the Crows',
+        icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/14671a167e0ce025ca11b8e707253901ce140163.jpg',
+        flagKey: 'birdFlag_v2',
+        completeValue: 11,
+    },
+    {
+        key: 'wolf',
+        title: 'A Pack of Equals',
+        description: 'Help break the Spell on the Wolves',
+        icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/340a31fc08150ca1d5c0d9222cf32b04c014c1d0.jpg',
+        flagKey: 'wolfFlag_v2',
+        completeValue: 11,
+    },
+    {
+        key: 'dragon',
+        title: 'Regret',
+        description: 'Help break the Spell on the Dragons',
+        icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/36cd8f12fc6b3970a56c2d0b4aa112bb9522e1c2.jpg',
+        flagKey: 'dragonFlag_v2',
+        completeValue: 11,
+    },
+    {
+        key: 'mice',
+        title: 'The Strongest Mouse I Know',
+        description: 'Help break the Spell on the Mice',
+        icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/502238693af47d39668ab024eb4b8c313b322d7a.jpg',
+        flagKey: 'miceFlag_v2',
+        completeValue: 11,
+    },
+    {
+        key: 'frog',
+        title: 'A Wonderful Collab',
+        description: 'Help break the Spell on the Frogs',
+        icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/0b4582f32667100a1d5144b9b19d99b9f8db5a33.jpg',
+        flagKey: 'frogFlag_v2',
+        completeValue: 11,
+    },
+    {
+        key: 'heart',
+        title: 'Forget This Ambition',
+        description: 'Free Shira from the Spell',
+        icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/d76983ae5581eab272b7cc3241dcc97008a077fe.jpg',
+        flagKey: 'heartFlag_v2',
+        completeValue: 7,
+    },
+    {
+        key: 'spell',
+        title: 'I Hope You Found a Friend',
+        description: 'End the Spell once and for all, and return home',
+        icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/2684995e006a806e4eb1c3d5edee0affd738bd3e.jpg',
+        flagKey: 'spellFlag',
+        completeValue: 0, // TODO
+    },
+];
+
 export const ACHIEVEMENTS = {
-    story: [
-        {
-            title: 'Sisterly Love',
-            description: 'Help break the Spell on the Crows',
-            icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/14671a167e0ce025ca11b8e707253901ce140163.jpg',
-            unlocked: computed(() => false),
-        },
-        {
-            title: 'A Pack of Equals',
-            description: 'Help break the Spell on the Wolves',
-            icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/340a31fc08150ca1d5c0d9222cf32b04c014c1d0.jpg',
-            unlocked: computed(() => false),
-        },
-        {
-            title: 'Regret',
-            description: 'Help break the Spell on the Dragons',
-            icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/36cd8f12fc6b3970a56c2d0b4aa112bb9522e1c2.jpg',
-            unlocked: computed(() => false),
-        },
-        {
-            title: 'The Strongest Mouse I Know',
-            description: 'Help break the Spell on the Mice',
-            icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/502238693af47d39668ab024eb4b8c313b322d7a.jpg',
-            unlocked: computed(() => false),
-        },
-        {
-            title: 'A Wonderful Collab',
-            description: 'Help break the Spell on the Frogs',
-            icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/0b4582f32667100a1d5144b9b19d99b9f8db5a33.jpg',
-            unlocked: computed(() => false),
-        },
-        {
-            title: 'Forget This Ambition',
-            description: 'Free Shira from the Spell',
-            icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/d76983ae5581eab272b7cc3241dcc97008a077fe.jpg',
-            unlocked: computed(() => false),
-        },
-        {
-            title: 'I Hope You Found a Friend',
-            description: 'End the Spell once and for all, and return home',
-            icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/2684995e006a806e4eb1c3d5edee0affd738bd3e.jpg',
-            unlocked: computed(() => false),
-        },
-    ],
+    story: STORY.map((story) => ({
+        ...story,
+        unlocked: computed(() => data.story[story.key]!.flag === story.completeValue),
+    })),
     areasNormal: ACHIEVEMENT_AREAS.map((area) => areaClearAchievement(area, 'normal')),
     areasHard: ACHIEVEMENT_AREAS.map((area) => areaClearAchievement(area, 'hard')),
     areasLunar: ACHIEVEMENT_AREAS.map((area) => areaClearAchievement(area, 'lunar')),

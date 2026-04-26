@@ -11,7 +11,7 @@ const COMPLETION_COMMENT_ZERO = 'No progress yet? Make sure to import your save 
 
 const COMPLETION_COMMENTS = [
     'The beginning of a journey...', // 0%
-    'First enemy coming up. Forge ahead!', // 10%
+    'First enemy coming up. To forge ahead!', // 10%
     'How was your first fight? Plenty more where that came from.', // 20% (first boss on bar)
     'Phew, making good progress.', // 30%
     "Second enemy down, it looks like you've got this.", // 40% (second boss on bar)

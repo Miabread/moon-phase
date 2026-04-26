@@ -28,9 +28,9 @@ const areaClearAchievement = (
                 ? `${displayDifficulty} Clear`
                 : area.title === 'Reflecting Pool'
                   ? `${displayDifficulty} Clear (Extra)`
-                  : `The ${area} (${displayDifficulty})`,
+                  : `The ${area.title} (${displayDifficulty})`,
 
-        description: `Beat the ${area} on ${displayDifficulty} Mode`,
+        description: `Beat the ${area.title} on ${displayDifficulty} Mode`,
         icon: area[difficulty],
         unlocked: computed(() => false),
     };

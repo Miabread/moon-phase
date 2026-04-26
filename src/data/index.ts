@@ -1,5 +1,5 @@
 import { reactive, watchEffect } from 'vue';
-import { BUNDLES } from '@/data/constants';
+import { AREAS, BUNDLES } from '@/data/constants';
 import { MUSIC } from '@/sections/music/music';
 import { TRINKETS_LIST } from '@/sections/trinkets/trinkets';
 import { RABBITS } from '@/sections/rabbits/rabbits';
@@ -8,7 +8,7 @@ import { LOOT_LIST } from '@/sections/loot/loot';
 export { loadSavedata } from './loadSavedata';
 export { loadUnlockdata } from './loadUnlockdata';
 
-const INCREMENT_EVERY_TIME_DEFAULT_DATA_CHANGES = 2;
+const INCREMENT_EVERY_TIME_DEFAULT_DATA_CHANGES = 3;
 
 const LOCAL_STORAGE_KEY = 'data-cache';
 
@@ -29,6 +29,13 @@ const defaultData = () => ({
             {
                 lastUploaded: 0,
             },
+        ]),
+    ),
+
+    areas: Object.fromEntries(
+        Object.keys(AREAS).map((key) => [
+            key,
+            { cuteClear: false, normalClear: false, hardClear: false, lunarClear: false },
         ]),
     ),
 

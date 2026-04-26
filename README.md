@@ -17,15 +17,15 @@ You can now see your progress for achievements, rabbits clears, trinket unlocks,
 - [x] Music Unlocks -> Fill in missing icons
 - [x] Completion -> Fancy overview
 - [ ] Completion -> Silly encouragement
-- [ ] Achievements -> Tracking for area clears
+- [x] Achievements -> Tracking for area clears
 - [ ] Achievements -> Tracking for story clears
 - [ ] Achievements -> All other tracking
-
 
 ### v1.1
 
 - [ ] Subcard for Alt Levitation Ring
 - [ ] Subcard for 3rd trinket page
+- [ ] Refactor constants
 
 ## Development Setup
 

@@ -1,6 +1,8 @@
 import { LOOT_LIST } from '@/sections/loot/loot';
 import { data } from '.';
 import { RABBITS } from '@/sections/rabbits/rabbits';
+import { AREAS } from './constants';
+import { uppercaseFirstLetter } from '@/lib/utils';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const loadSavedata = (raw: any) => {
@@ -19,5 +21,14 @@ export const loadSavedata = (raw: any) => {
     // Collect loot data
     for (const loot of LOOT_LIST) {
         data.loot[loot.key]!.cleared = (parseFloat(raw?.ItemDiscovery?.[loot.key] ?? '0') & 0b111100) > 0;
+    }
+
+    // Collect area data
+    for (const [key, area] of Object.entries(AREAS)) {
+        const capKey = uppercaseFirstLetter(area.saveKeyOverride ?? key);
+        data.areas[key]!.cuteClear = parseFloat(raw?.SaveInfo?.[`mapWin${capKey}C`] ?? '0') > 0;
+        data.areas[key]!.normalClear = parseFloat(raw?.SaveInfo?.[`mapWin${capKey}N`] ?? '0') > 0;
+        data.areas[key]!.hardClear = parseFloat(raw?.SaveInfo?.[`mapWin${capKey}H`] ?? '0') > 0;
+        data.areas[key]!.lunarClear = parseFloat(raw?.SaveInfo?.[`mapWin${capKey}L`] ?? '0') > 0;
     }
 };

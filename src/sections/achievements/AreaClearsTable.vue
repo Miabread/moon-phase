@@ -36,7 +36,7 @@ const areaClearsTable = [
             <CardTitle>
                 <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
                     <LandPlot :style="{ color }" />
-                    <h2 class="italic">Work in Progress</h2>
+                    <h2>Area Clears</h2>
                     <PercentProgress :percent="areaClearsPercent" :color="color" />
                 </span>
             </CardTitle>
@@ -51,7 +51,8 @@ const areaClearsTable = [
                         <template v-for="area of AREAS" :key="area.title">
                             <TableHead v-if="area.hasAchivements">
                                 <div class="flex justify-center items-center">
-                                    <Tooltip :title="area.title" :content="`TODO clears`">
+                                    <!-- TODO -->
+                                    <Tooltip :title="area.title" :content="`0 / 3 clears`">
                                         <img loading="lazy" :src="area.icon" :alt="area.title" class="h-10 w-10" />
                                     </Tooltip>
                                 </div>

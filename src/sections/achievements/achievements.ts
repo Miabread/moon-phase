@@ -3,6 +3,7 @@ import { trinketUnlockPercent } from '../trinkets/percent';
 import { rabbitClearPercents } from '../rabbits/percent';
 import { uppercaseFirstLetter } from '@/lib/utils';
 import { musicUnlockPercents } from '../music/percent';
+import { data } from '@/data';
 
 export interface Achievement {
     title: string;
@@ -33,66 +34,76 @@ const areaClearAchievement = (
 
         description: `Beat the ${area.title} on ${displayDifficulty} Mode`,
         icon: area[difficulty],
-        unlocked: computed(() => false),
+        unlocked: computed(() => data.areas[area.key]![`${difficulty}Clear`]),
     };
 };
 
 const ACHIEVEMENT_AREAS = [
     {
+        key: 'nest',
         title: "Scholar's Nest",
         normal: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/566d8083f1b30a1a4cd51a825d331e089ed28e16.jpg',
         hard: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/a512d4c9d94eaf14bc073541aafed44d828f0e64.jpg',
         lunar: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/933815e705b5a2025496448eaaf50ba884eec0f2.jpg',
     },
     {
+        key: 'arsenal',
         title: "King's Arsenal",
         normal: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/98473a85626ca3200c744f7d7eaaffdb4a690e99.jpg',
         hard: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/0b384d206e6b7f25044ba73ae1b60199acca89cd.jpg',
         lunar: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/5d717ee758421b0d1fbc332ba3792907a8e80496.jpg',
     },
     {
+        key: 'darkhouse',
         title: 'Red Darkhouse',
         normal: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/e3c03370e70ec2fb7d1740f7c7a843a0ab48fb08.jpg',
         hard: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/c64eae412ce0521ce5601248accb9dd3dd7e3f0f.jpg',
         lunar: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/fc75fccbe618a9b7123ca9dcb5ff754269392a86.jpg',
     },
     {
+        key: 'streets',
         title: 'Churchmouse Streets',
         normal: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/66084ca42a6102e19c4787fec758d41da93ce311.jpg',
         hard: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/78d433fa1c0dcbddce998c3a7b755a0161d121c5.jpg',
         lunar: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/126b18206d28eb8d9df11c4fac66b6a42631d1f1.jpg',
     },
     {
+        key: 'lakeside',
         title: 'Emerald Lakeside',
         normal: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/29fb5f3ebca8359e066f190482ea6ebd35403f9d.jpg',
         hard: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/24a81f7c5311df2e2560f43d03fed5186ae2df8f.jpg',
         lunar: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/2203300503b931744229f97e5a83209bc5a9eb2d.jpg',
     },
     {
+        key: 'pinnacle',
         title: 'Moonlit Pinnacle',
         normal: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/8aeae00d0222ffc5ed4439a5053d9b4a43774c93.jpg',
         hard: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/eb3e9a4f28c68a3f2c0665866b21e17cd7fd6c1c.jpg',
         lunar: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/b853f34f6722b0d13d5d46dc19e667ae06b5a7cc.jpg',
     },
     {
+        key: 'depths',
         title: 'Darkhouse Depths',
         normal: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/33860af89084e71f2d4b3acdf8ca9b74cc28e571.jpg',
         hard: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/9ff7aea157378ef38b267974b421ac2ac4d12109.jpg',
         lunar: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/d9fee0af875b83eaf2f0b87f1e5a69c93eb5a427.jpg',
     },
     {
+        key: 'atelier',
         title: 'Atelier Aurum',
         normal: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/186e5bd846155c8b97a6f23ec7202262848ea033.jpg',
         hard: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/5202a73fd719d897401750532c6d4aac7ff063ca.jpg',
         lunar: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/c814352a8c9c9ab813dc386bd94baaca62ec7d7a.jpg',
     },
     {
+        key: 'sanctum',
         title: 'Subterra Sanctum',
         normal: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/f448977dd8c88f676914b371a926e20f292a4f14.jpg',
         hard: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/e2a3ad049f8c007355575bfef5646d81e41f8bb4.jpg',
         lunar: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/665056e1e4af4aa673cc59a291da7ca03973e620.jpg',
     },
     {
+        key: 'pool',
         title: 'Reflecting Pool',
         normal: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/5af97ca85b4c10c949a8ab0bbc5e4a379e1b2cc8.jpg',
         hard: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/740db77d70a91afa32b30697919dc784c7da9227.jpg',

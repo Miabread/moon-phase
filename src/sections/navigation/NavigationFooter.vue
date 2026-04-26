@@ -23,7 +23,7 @@ import Tutorial from './Tutorial.vue';
                     <Tutorial />
                     <SidebarMenuItem>
                         <SidebarMenuButton as-child>
-                            <a @click="resetData" href="#">
+                            <a @click="resetData" href="">
                                 <Trash2 />
                                 <span>Reset Data</span>
                             </a>

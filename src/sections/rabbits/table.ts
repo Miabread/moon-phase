@@ -34,7 +34,7 @@ export const ROWS = [
     {
         title: 'Master Palette',
         checked: (r: Rabbit) => r.palettes.master,
-        icon: AREAS.keep.icon,
+        icon: AREAS.pinnacle.icon,
         progress: rabbitClearPercents.palettes.master,
         color: DIFFICULTIES.lunar.color,
         condition: 'Complete a Kingdom run on Lunar.',
@@ -42,7 +42,7 @@ export const ROWS = [
     {
         title: 'Spellbound Palette',
         checked: (r: Rabbit) => r.palettes.spellbound,
-        icon: AREAS.hallway.icon,
+        icon: AREAS.pool.icon,
         progress: rabbitClearPercents.palettes.spellbound,
         color: DIFFICULTIES.lunar.color,
         condition: 'Complete a Extra run on Lunar.',

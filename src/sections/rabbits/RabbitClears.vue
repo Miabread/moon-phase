@@ -3,7 +3,6 @@ import Lock from '@/components/custom/Lock.vue';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/shadcn/table';
 import { data } from '@/data';
 import { DEFAULT_RABBITS, RABBITS } from '@/sections/rabbits/rabbits';
-import PercentProgress from '@/components/custom/PercentProgress.vue';
 import Tooltip from '@/components/custom/Tooltip.vue';
 import { ROWS } from './table';
 import { rabbitClearPercentsByRabbit } from './percent';
@@ -16,43 +15,32 @@ const color = AREAS.arsenal.color;
     <Table>
         <TableHeader>
             <TableRow>
-                <!-- Three empty rows for the icon and title -->
-                <TableHead />
+                <!-- Empty cell for corner -->
                 <TableHead />
 
-                <!-- And now one for each rabbit -->
                 <TableHead v-for="(rabbit, i) of RABBITS" :key="rabbit.key">
                     <div class="flex justify-center items-center">
                         <Tooltip
                             :title="`${rabbit.name} Rabbit`"
                             :content="`${rabbitClearPercentsByRabbit[i]!.current} / ${rabbitClearPercentsByRabbit[i]!.total} ${rabbit.name} clears`"
                         >
-                            <img
-                                loading="lazy"
-                                :src="rabbit.icon"
-                                :alt="rabbit.name"
-                                class="h-10 w-10 rounded-full border"
-                                :style="{ borderColor: color }"
-                            />
+                            <img loading="lazy" :src="rabbit.icon" :alt="rabbit.name" class="h-10 w-10" />
                         </Tooltip>
                     </div>
                 </TableHead>
-
-                <TableHead />
             </TableRow>
         </TableHeader>
         <TableBody>
             <TableRow v-for="row of ROWS" :key="row.title">
-                <!-- The following three cells have no header -->
-                <TableCell>
-                    <div class="flex flex-col justify-center items-center">
-                        <img loading="lazy" :src="row.icon" class="h-10 w-10" />
-                        <PercentProgress :percent="row.progress" :color="row.color" />
-                    </div>
-                </TableCell>
-
                 <TableHead>
-                    {{ row.title }}
+                    <div class="flex justify-center items-center">
+                        <Tooltip
+                            :title="row.title"
+                            :content="`${row.progress.value.current} / ${row.progress.value.total} clears`"
+                        >
+                            <img loading="lazy" :src="row.icon" :alt="row.title" class="h-10 w-10" />
+                        </Tooltip>
+                    </div>
                 </TableHead>
 
                 <!-- And now one for each rabbit -->

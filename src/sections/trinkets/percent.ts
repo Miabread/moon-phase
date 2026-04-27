@@ -13,3 +13,7 @@ export const trinketUnlockPercents = TRINKETS_PAGES.map((page) =>
 );
 
 export const trinketUnlockPercent = computed(() => Percent.compound(trinketUnlockPercents).labeled('trinkets'));
+
+export const altLevitationRingPercent = computed(() =>
+    Percent.array(data.altLevitationRing, (flag) => flag).labeled('runs'),
+);

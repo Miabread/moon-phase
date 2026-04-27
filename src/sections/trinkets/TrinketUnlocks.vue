@@ -1,60 +1,57 @@
 <script setup lang="ts">
-import Lock from '@/components/custom/Lock.vue';
-import PercentProgress from '@/components/custom/PercentProgress.vue';
-import Tooltip from '@/components/custom/Tooltip.vue';
-import Table from '@/components/shadcn/table/Table.vue';
-import TableBody from '@/components/shadcn/table/TableBody.vue';
-import TableCell from '@/components/shadcn/table/TableCell.vue';
-import TableRow from '@/components/shadcn/table/TableRow.vue';
-import { TRINKETS_PAGES } from '@/sections/trinkets/trinkets';
-import { data } from '@/data';
-import { trinketUnlockPercents } from './percent';
 import { AREAS } from '@/data/constants';
-import { Dice1, Dice2, Dice3 } from 'lucide-vue-next';
-import { CardContent, CardHeader, CardTitle, Card } from '@/components/shadcn/card';
+import TrinketPage from './TrinketPage.vue';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/shadcn/card';
+import { Star } from 'lucide-vue-next';
+import { altLevitationRingPercent } from './percent';
+import PercentProgress from '@/components/custom/PercentProgress.vue';
+import Lock from '@/components/custom/Lock.vue';
+import { data } from '@/data';
+import { Table, TableBody, TableCell, TableRow } from '@/components/shadcn/table';
+import Tooltip from '@/components/custom/Tooltip.vue';
 
 const color = AREAS.nest.color;
 
-const pageIcons = [Dice1, Dice2, Dice3];
+const magiLockTable = [
+    { name: 'Dodeca', color: AREAS.darkhouse.color },
+    { name: 'Octa', color: AREAS.arsenal.color },
+    { name: 'Hexa', color: AREAS.nest.color },
+    { name: 'Tetra', color: AREAS.streets.color },
+    { name: 'Icosa', color: AREAS.lakeside.color },
+];
 </script>
 
 <template>
-    <Card v-for="(page, page_i) in TRINKETS_PAGES" :key="page_i" class="mt-5">
-        <CardHeader>
-            <CardTitle>
-                <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
-                    <component :is="pageIcons[page_i]" :style="{ color }" />
-                    <h2>Page {{ page_i + 1 }}</h2>
-                    <PercentProgress :percent="trinketUnlockPercents[page_i]!" :color="color" />
-                </span>
-            </CardTitle>
-        </CardHeader>
-        <CardContent class="flex flex-col gap-4">
-            <Table>
-                <TableBody>
-                    <TableRow v-for="(row, row_i) in page" :key="row_i">
-                        <TableCell v-for="(trinket, col_i) in row" :key="col_i">
-                            <Tooltip v-if="trinket" :title="trinket.title" :content="trinket.condition">
-                                <div class="flex justify-center items-center w-full">
-                                    <Lock
-                                        v-if="trinket.key === 'nothing'"
-                                        :color="color"
-                                        class="h-10 w-10"
-                                        always-unlocked
-                                    />
-                                    <div
-                                        class="flex justify-center items-center h-10 w-10"
-                                        v-else-if="data.trinkets[trinket.key]!.unlocked"
-                                    >
-                                        <img loading="lazy" :src="trinket.icon" :alt="trinket.title" class="w-full" />
-                                    </div>
-                                    <Lock v-else :color="color" class="h-10 w-10" />
-                                </div>
-                            </Tooltip>
-                        </TableCell>
-                    </TableRow>
-                </TableBody>
-            </Table>
-        </CardContent>
-    </Card>
+    <TrinketPage :page_i="0" />
+    <TrinketPage :page_i="1" />
+    <div class="gap-4 grid grid-cols-2">
+        <TrinketPage :page_i="2" />
+        <Card>
+            <CardHeader>
+                <CardTitle>
+                    <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
+                        <Star :style="{ color }" />
+                        <h2>Alt Levitation Ring</h2>
+                        <PercentProgress :percent="altLevitationRingPercent" :color="color" />
+                    </span>
+                </CardTitle>
+            </CardHeader>
+            <CardContent class="flex justify-center items-center w-full">
+                <Table>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell v-for="(lock, i) in magiLockTable" :key="i">
+                                <Tooltip
+                                    :title="`Magilock ${lock.name} Clear`"
+                                    :content="`Win a True Random or Chaotic Random run while having Magilock ${lock.name} equipped.`"
+                                >
+                                    <Lock :unlocked="data.altLevitationRing[i]" :color="lock.color" />
+                                </Tooltip>
+                            </TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
+            </CardContent>
+        </Card>
+    </div>
 </template>

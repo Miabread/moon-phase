@@ -36,13 +36,12 @@ const pageIcons = [Dice1, Dice2, Dice3];
                         <TableCell v-for="(trinket, col_i) in row" :key="col_i">
                             <Tooltip v-if="trinket" :title="trinket.title" :content="trinket.condition">
                                 <div class="flex justify-center items-center w-full">
-                                    <img
-                                        loading="lazy"
-                                        v-if="data.trinkets[trinket.key]!.unlocked"
-                                        :src="trinket.icon"
-                                        :alt="trinket.title"
-                                        class="h-10 w-10"
-                                    />
+                                    <div
+                                        class="flex justify-center items-center h-10 w-10"
+                                        v-if="data.trinkets[trinket!.key]!.unlocked"
+                                    >
+                                        <img loading="lazy" :src="trinket.icon" :alt="trinket.title" class="w-full" />
+                                    </div>
                                     <Lock v-else :color="color" class="h-10 w-10" />
                                 </div>
                             </Tooltip>

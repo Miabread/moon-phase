@@ -556,6 +556,11 @@ export const TRINKETS_LIST = TRINKETS_PAGES.slice(0, 2)
 
 export const TRINKET_QUICK = {
     smallRabbit: TRINKETS_PAGES[0][3][5],
+
+    moonlightFloof: TRINKETS_PAGES[1][0][3],
+    spellboundFloof: TRINKETS_PAGES[1][0][6],
+
+    altRing: TRINKETS_PAGES[2][0][1],
     flowerRing: TRINKETS_PAGES[2][0][2],
     starRing: TRINKETS_PAGES[2][0][3],
     lunarRing: TRINKETS_PAGES[2][0][4],

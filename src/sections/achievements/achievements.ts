@@ -4,6 +4,7 @@ import { rabbitClearPercents } from '../rabbits/percent';
 import { uppercaseFirstLetter } from '@/lib/utils';
 import { musicUnlockPercents } from '../music/percent';
 import { data } from '@/data';
+import { TRINKET_QUICK } from '../trinkets/trinkets';
 
 export interface Achievement {
     title: string;
@@ -286,13 +287,13 @@ export const ACHIEVEMENTS = {
             title: 'The Moonlight Floofball',
             description: 'Collect the Moonlight Floofball',
             icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/7cc3dac3512142cd25901b8676f14603e65769a4.jpg',
-            unlocked: computed(() => false),
+            unlocked: computed(() => data.trinkets[TRINKET_QUICK.moonlightFloof.key]!.unlocked),
         },
         {
             title: 'The Spellbound Floofball',
             description: ' Collect the Spellbound Floofball',
             icon: '//shared.fastly.steamstatic.com/community_assets/images/apps/2132850/dcc8ab1f6adf183890024888d5bce7d2b165daea.jpg',
-            unlocked: computed(() => false),
+            unlocked: computed(() => data.trinkets[TRINKET_QUICK.spellboundFloof.key]!.unlocked),
         },
     ],
     music: [

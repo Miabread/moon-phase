@@ -46,6 +46,7 @@ export const rabbitClearPercentsByRabbit = computed(() =>
         if (rabbit.palettes.adept) current++;
         if (rabbit.palettes.challenger) current++;
         if (rabbit.palettes.master) current++;
+        if (rabbit.palettes.spellbound) current++;
         if (rabbit.rings.flower) current++;
         if (rabbit.rings.star) current++;
         if (rabbit.rings.lunar) current++;

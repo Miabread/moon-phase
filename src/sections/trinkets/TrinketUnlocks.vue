@@ -19,7 +19,7 @@ const pageIcons = [Dice1, Dice2, Dice3];
 </script>
 
 <template>
-    <Card v-for="(page, page_i) in TRINKETS_PAGES.slice(0, 2)" :key="page_i" class="mt-5">
+    <Card v-for="(page, page_i) in TRINKETS_PAGES" :key="page_i" class="mt-5">
         <CardHeader>
             <CardTitle>
                 <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
@@ -36,9 +36,15 @@ const pageIcons = [Dice1, Dice2, Dice3];
                         <TableCell v-for="(trinket, col_i) in row" :key="col_i">
                             <Tooltip v-if="trinket" :title="trinket.title" :content="trinket.condition">
                                 <div class="flex justify-center items-center w-full">
+                                    <Lock
+                                        v-if="trinket.key === 'nothing'"
+                                        :color="color"
+                                        class="h-10 w-10"
+                                        always-unlocked
+                                    />
                                     <div
                                         class="flex justify-center items-center h-10 w-10"
-                                        v-if="data.trinkets[trinket!.key]!.unlocked"
+                                        v-else-if="data.trinkets[trinket.key]!.unlocked"
                                     >
                                         <img loading="lazy" :src="trinket.icon" :alt="trinket.title" class="w-full" />
                                     </div>

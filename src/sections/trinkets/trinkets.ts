@@ -1,7 +1,12 @@
 export const TRINKETS_PAGES = [
     [
         [
-            null,
+            {
+                key: 'nothing',
+                condition: 'Unlocked by default',
+                title: 'Nothing',
+                icon: 'meow meow',
+            },
             {
                 key: 'bronze_crown',
                 condition: 'Win a Kingdom run on Normal difficulty or above.',
@@ -520,7 +525,12 @@ export const TRINKETS_PAGES = [
     ],
     [
         [
-            null,
+            {
+                key: 'normal_ring',
+                condition: 'Unlock condition unknown?',
+                title: 'Simple Levitation Ring',
+                icon: '//static.wikitide.net/rnswiki/a/a0/Spr_trinket_magic_circle_b_0.png',
+            },
             {
                 key: 'magic_ring',
                 condition: 'Win a True Random or Chaotic Random run on Hard difficulty or above with every Magicklock.',
@@ -550,9 +560,7 @@ export const TRINKETS_PAGES = [
 ] as const;
 
 // Ignore 3rd page for now
-export const TRINKETS_LIST = TRINKETS_PAGES.slice(0, 2)
-    .flat(2)
-    .filter((t) => t !== null);
+export const TRINKETS_LIST = TRINKETS_PAGES.flat(2).filter((t) => t !== null);
 
 export const TRINKET_QUICK = {
     smallRabbit: TRINKETS_PAGES[0][3][5],

@@ -12,11 +12,14 @@ You can now see your progress breakdown for trinket unlocks, rabbit clears, achi
 
 ## Todo List
 
+### v1.2
+
+- [ ] Refactor constants?
+
 ### v1.1
 
-- [ ] Subcard for Alt Levitation Ring
-- [ ] Subcard for 3rd trinket page
-- [ ] Refactor constants
+- [x] Subcard for Alt Levitation Ring
+- [x] Subcard for 3rd trinket page
 
 ### v1.0
 

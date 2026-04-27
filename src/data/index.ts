@@ -9,7 +9,7 @@ import { STORY } from '@/sections/achievements/achievements';
 export { loadSavedata } from './loadSavedata';
 export { loadUnlockdata } from './loadUnlockdata';
 
-const INCREMENT_EVERY_TIME_DEFAULT_DATA_CHANGES = 6;
+const INCREMENT_EVERY_TIME_DEFAULT_DATA_CHANGES = 7;
 
 const LOCAL_STORAGE_KEY = 'data-cache';
 
@@ -70,6 +70,8 @@ const defaultData = () => ({
             },
         ]),
     ),
+
+    altLevitationRing: [false, false, false, false, false],
 
     loot: Object.fromEntries(
         LOOT_LIST.map((loot) => [

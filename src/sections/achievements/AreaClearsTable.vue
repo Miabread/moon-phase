@@ -50,7 +50,7 @@ const areaClearsTable = [
 
                         <template v-for="(area, i) of Object.values(AREAS)" :key="area.title">
                             <TableHead v-if="area.hasAchievements">
-                                <div class="flex justify-center items-center">
+                                <div class="flex justify-center items-center w-full">
                                     <Tooltip
                                         :title="area.title"
                                         :content="`${areaClearsPercentsByArea[i]!.current} / ${areaClearsPercentsByArea[i]!.total} clears`"
@@ -65,7 +65,7 @@ const areaClearsTable = [
                 <TableBody>
                     <TableRow v-for="row in areaClearsTable" :key="row.difficulty.title">
                         <TableHead>
-                            <div class="flex justify-center items-center">
+                            <div class="flex justify-center items-center w-full">
                                 <Tooltip
                                     :title="row.difficulty.title"
                                     :content="`${row.progress.value.current} / ${row.progress.value.total} clears`"
@@ -80,7 +80,7 @@ const areaClearsTable = [
                             </div>
                         </TableHead>
                         <TableCell v-for="ach in row.achievements" :key="ach.title">
-                            <div class="flex justify-center items-center">
+                            <div class="flex justify-center items-center w-full">
                                 <Achievement :data="ach" :color="color" />
                             </div>
                         </TableCell>

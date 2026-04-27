@@ -19,7 +19,7 @@ const color = AREAS.arsenal.color;
                 <TableHead />
 
                 <TableHead v-for="(rabbit, i) of RABBITS" :key="rabbit.key">
-                    <div class="flex justify-center items-center">
+                    <div class="flex justify-center items-center w-full">
                         <Tooltip
                             :title="`${rabbit.name} Rabbit`"
                             :content="`${rabbitClearPercentsByRabbit[i]!.current} / ${rabbitClearPercentsByRabbit[i]!.total} ${rabbit.name} clears`"
@@ -33,7 +33,7 @@ const color = AREAS.arsenal.color;
         <TableBody>
             <TableRow v-for="row of ROWS" :key="row.title">
                 <TableHead>
-                    <div class="flex justify-center items-center">
+                    <div class="flex justify-center items-center w-full">
                         <Tooltip
                             :title="row.title"
                             :content="`${row.progress.value.current} / ${row.progress.value.total} clears`"
@@ -46,11 +46,13 @@ const color = AREAS.arsenal.color;
                 <!-- And now one for each rabbit -->
                 <TableCell v-for="(rabbit, i) of RABBITS" :key="rabbit.key">
                     <Tooltip :title="`${rabbit.name} ${row.title}`" :content="row.condition ?? RABBITS[i]!.unlockText">
-                        <Lock
-                            :unlocked="row.checked(data.rabbits[rabbit.key]!)"
-                            :always-unlocked="row.condition === null && DEFAULT_RABBITS.includes(rabbit.key)"
-                            :color="color"
-                        />
+                        <div class="flex justify-center items-center w-full">
+                            <Lock
+                                :unlocked="row.checked(data.rabbits[rabbit.key]!)"
+                                :always-unlocked="row.condition === null && DEFAULT_RABBITS.includes(rabbit.key)"
+                                :color="color"
+                            />
+                        </div>
                     </Tooltip>
                 </TableCell>
             </TableRow>

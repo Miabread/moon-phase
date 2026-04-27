@@ -7,6 +7,7 @@ import { ACHIEVEMENTS } from './achievements';
 import PercentProgress from '@/components/custom/PercentProgress.vue';
 import Achievement from './Achievement.vue';
 import EasterEgg from '@/components/custom/EasterEgg.vue';
+import { Table, TableBody, TableCell, TableRow } from '@/components/shadcn/table';
 
 const color = AREAS.darkhouse.color;
 </script>
@@ -24,7 +25,17 @@ const color = AREAS.darkhouse.color;
                 </CardTitle>
             </CardHeader>
             <CardContent class="flex items-center justify-around flex-wrap w-full h-full">
-                <Achievement v-for="ach in ACHIEVEMENTS.trinkets" :key="ach.title" :data="ach" :color="color" />
+                <Table>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell v-for="ach in ACHIEVEMENTS.trinkets" :key="ach.title">
+                                <div class="flex justify-center items-center w-full">
+                                    <Achievement :data="ach" :color="color" />
+                                </div>
+                            </TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
             </CardContent>
         </Card>
         <Card class="w-1/2">
@@ -38,7 +49,17 @@ const color = AREAS.darkhouse.color;
                 </CardTitle>
             </CardHeader>
             <CardContent class="flex items-center justify-around flex-wrap w-full h-full">
-                <Achievement v-for="ach in ACHIEVEMENTS.music" :key="ach.title" :data="ach" :color="color" />
+                <Table>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell v-for="ach in ACHIEVEMENTS.music" :key="ach.title">
+                                <div class="flex justify-center items-center w-full">
+                                    <Achievement :data="ach" :color="color" />
+                                </div>
+                            </TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
             </CardContent>
         </Card>
     </div>
@@ -54,7 +75,17 @@ const color = AREAS.darkhouse.color;
                 </CardTitle>
             </CardHeader>
             <CardContent class="flex items-center justify-around flex-wrap w-full h-full">
-                <Achievement v-for="ach in ACHIEVEMENTS.story" :key="ach.title" :data="ach" :color="color" />
+                <Table>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell v-for="ach in ACHIEVEMENTS.story" :key="ach.title">
+                                <div class="flex justify-center items-center w-full">
+                                    <Achievement :data="ach" :color="color" />
+                                </div>
+                            </TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
             </CardContent>
         </Card>
         <Card class="w-1/2">
@@ -68,7 +99,17 @@ const color = AREAS.darkhouse.color;
                 </CardTitle>
             </CardHeader>
             <CardContent class="flex items-center justify-around flex-wrap w-full h-full">
-                <Achievement v-for="ach in ACHIEVEMENTS.rabbits" :key="ach.title" :data="ach" :color="color" />
+                <Table>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell v-for="ach in ACHIEVEMENTS.rabbits" :key="ach.title">
+                                <div class="flex justify-center items-center w-full">
+                                    <Achievement :data="ach" :color="color" />
+                                </div>
+                            </TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
             </CardContent>
         </Card>
     </div>

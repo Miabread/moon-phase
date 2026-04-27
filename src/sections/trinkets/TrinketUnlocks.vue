@@ -41,12 +41,14 @@ const magiLockTable = [
                     <TableBody>
                         <TableRow>
                             <TableCell v-for="(lock, i) in magiLockTable" :key="i">
-                                <Tooltip
-                                    :title="`Magilock ${lock.name} Clear`"
-                                    :content="`Win a True Random or Chaotic Random run while having Magilock ${lock.name} equipped.`"
-                                >
-                                    <Lock :unlocked="data.altLevitationRing[i]" :color="lock.color" />
-                                </Tooltip>
+                                <div class="flex justify-center items-center w-full">
+                                    <Tooltip
+                                        :title="`Magilock ${lock.name} Clear`"
+                                        :content="`Win a True Random or Chaotic Random run while having Magilock ${lock.name} equipped.`"
+                                    >
+                                        <Lock :unlocked="data.altLevitationRing[i]" :color="lock.color" />
+                                    </Tooltip>
+                                </div>
                             </TableCell>
                         </TableRow>
                     </TableBody>

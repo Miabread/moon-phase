@@ -14,7 +14,7 @@ const props = defineProps<{
         <img
             loading="lazy"
             :src="props.data.icon"
-            :class="cn('h-10 w-10 border', { grayscale: !props.data.unlocked?.value })"
+            :class="cn('border', props.data.unlocked?.value ? 'h-10 w-10 ' : 'h-8 w-8 grayscale')"
             :style="{ borderColor: props.color }"
         />
     </Tooltip>

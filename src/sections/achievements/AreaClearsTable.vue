@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { AREAS, DIFFICULTIES } from '@/data/constants';
-import { achievementsPercents, areaClearsPercent } from './percent';
+import { achievementsPercents, areaClearsPercent, areaClearsPercentsByArea } from './percent';
 import { CardContent, CardHeader, CardTitle, Card } from '@/components/shadcn/card';
 import { LandPlot } from 'lucide-vue-next';
 import { ACHIEVEMENTS } from './achievements';
@@ -48,11 +48,13 @@ const areaClearsTable = [
                         <!-- Empty cell for corner -->
                         <TableHead />
 
-                        <template v-for="area of AREAS" :key="area.title">
-                            <TableHead v-if="area.hasAchivements">
+                        <template v-for="(area, i) of Object.values(AREAS)" :key="area.title">
+                            <TableHead v-if="area.hasAchievements">
                                 <div class="flex justify-center items-center">
-                                    <!-- TODO -->
-                                    <Tooltip :title="area.title" :content="`0 / 3 clears`">
+                                    <Tooltip
+                                        :title="area.title"
+                                        :content="`${areaClearsPercentsByArea[i]!.current} / ${areaClearsPercentsByArea[i]!.total} clears`"
+                                    >
                                         <img loading="lazy" :src="area.icon" :alt="area.title" class="h-10 w-10" />
                                     </Tooltip>
                                 </div>

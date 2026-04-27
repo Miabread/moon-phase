@@ -1,6 +1,8 @@
 import { Percent } from '@/lib/Percent';
 import { computed, type ComputedRef } from 'vue';
 import { ACHIEVEMENTS } from './achievements';
+import { data } from '@/data';
+import { AREAS } from '@/data/constants';
 
 export const achievementsPercents = Object.fromEntries(
     Object.entries(ACHIEVEMENTS).map(([name, section]) => {
@@ -22,4 +24,18 @@ export const areaClearsPercent = computed(() =>
         achievementsPercents.areasHard,
         achievementsPercents.areasLunar,
     ]),
+);
+
+export const areaClearsPercentsByArea = computed(() =>
+    Object.keys(AREAS).map((key) => {
+        const area = data.areas[key]!;
+        let current = 0;
+
+        // TODO Don't include cute mode for now
+        if (area.normalClear) current++;
+        if (area.hardClear) current++;
+        if (area.lunarClear) current++;
+
+        return new Percent(current, 3);
+    }),
 );

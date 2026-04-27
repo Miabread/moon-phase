@@ -19,6 +19,12 @@ export const loadSavedata = (raw: any) => {
         rings.lunar = ((1 << index) & lunarRing) !== 0;
     }
 
+    const altRing = parseFloat(raw?.SaveInfo?.trinketLockWin ?? '0');
+
+    for (let index = 0; index < 5; index++) {
+        data.altLevitationRing[index] = (altRing & (2 ** index)) !== 0;
+    }
+
     // Collect loot data
     for (const loot of LOOT_LIST) {
         data.loot[loot.key]!.cleared = (parseFloat(raw?.ItemDiscovery?.[loot.key] ?? '0') & 0b111100) > 0;

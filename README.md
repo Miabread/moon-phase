@@ -10,27 +10,37 @@ All data is stored purely local and is not sent anywhere. You can also reset thi
 
 You can now see your progress breakdown for trinket unlocks, rabbit clears, achievements, loot clears, and music unlocks.
 
-## Todo List
+## Changelog
 
-### v1.2
+### Future
 
-- [ ] Refactor constants?
+- [ ] _Backend_ | Refactor constants
+- [ ] _Loot Clears_ | Optimize searching routines
+- [ ] _Loot Clears_ | Improve loot sets (include their unlock status, conditions, and boss pity amounts)
+- [ ] _Completion_ | Add section for global boss pity tracking
 
-### v1.1
+### v1.2 (2026-05-05)
 
-- [x] Subcard for Alt Levitation Ring
-- [x] Subcard for 3rd trinket page
+- [x] _Meta_ | Improve changelog
+- [x] _Loot Clears_ | Add treasure sphere color filter for loot sets
+- [x] _Music Unlocks_ | Add boss pity amounts for music unlocks
+- [x] _Rabbit Clears_ | Add boss pity amounts for rabbit unlocks
 
-### v1.0
+### v1.1 (2026-04-27)
 
-- [x] Loot Clears -> Finish subcard for remaining clears
-- [x] Loot Clears -> Clean up old searching code
-- [x] Music Unlocks -> Fill in missing icons
-- [x] Completion -> Fancy overview
-- [x] Completion -> Silly encouragement
-- [x] Achievements -> Tracking for area clears
-- [x] Achievements -> Tracking for story clears
-- [x] Achievements -> All other tracking
+- [x] _Trinket Unlocks_ | Add section to track Alt Levitation Ring
+- [x] _Trinket Unlocks_ | Add section to track the 3rd trinkets page
+
+### v1.0 (2026-04-26)
+
+- [x] _Loot Clears_ | Add section for loot that hasn't been cleared yet
+- [x] _Loot Clears_ | Redo searching code
+- [x] _Music Unlocks_ | Fill in missing icons
+- [x] _Completion_ | Add section for fancy overview table
+- [x] _Completion_ | Add section for silly encouragement text
+- [x] _Achievements_ | Finish tracking for area clears
+- [x] _Achievements_ | Finish tracking for story clears
+- [x] _Achievements_ | Finish tracking for all other achievements
 
 ## Development Setup
 

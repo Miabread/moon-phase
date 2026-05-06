@@ -31,7 +31,7 @@ const color = AREAS.lakeside.color;
                             music.condition +
                             '. ' +
                             (music.bossPity
-                                ? `Can also be unlocked by beating ${music.bossPity} ${music.album} bosses.`
+                                ? `Can also be unlocked by defeating ${music.bossPity} ${music.album} bosses.`
                                 : 'No boss pity available.')
                         "
                     >

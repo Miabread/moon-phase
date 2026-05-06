@@ -1,10 +1,20 @@
-export const MUSIC = [
+interface Music {
+    album: 'kingdom' | 'extra';
+    key: string;
+    title: string;
+    condition: string;
+    icon: string;
+    bossPity: number | null;
+}
+
+export const MUSIC: Music[] = [
     {
         album: 'kingdom',
         key: 'musicOutskirts',
         title: 'Kingdom Outskirts',
         condition: 'Pass through the Kingdom Outskirts on Lunar without taking damage',
         icon: '//static.wikitide.net/rnswiki/6/6f/Area_Kingdom_Outskirts.png',
+        bossPity: 100,
     },
     {
         album: 'kingdom',
@@ -12,6 +22,7 @@ export const MUSIC = [
         title: 'Red Darkhouse',
         condition: 'Defeat Ranalie, the Mythril Dragon, while she is dashing through the arena',
         icon: '//static.wikitide.net/rnswiki/3/33/Area_Red_Darkhouse.png',
+        bossPity: 160,
     },
     {
         album: 'kingdom',
@@ -19,6 +30,7 @@ export const MUSIC = [
         title: "Scholar's Nest",
         condition: 'Defeat Twili, the Valedictorian Crow, while you are stopped in time',
         icon: '//static.wikitide.net/rnswiki/7/70/Area_Scholar%27s_Nest.png',
+        bossPity: 120,
     },
     {
         album: 'kingdom',
@@ -26,6 +38,7 @@ export const MUSIC = [
         title: "King's Arsenal",
         condition: 'Defeat Merran, the Steeltooth Wolf, while time is slowed',
         icon: '//static.wikitide.net/rnswiki/b/b3/Area_King%27s_Arsenal.png',
+        bossPity: 140,
     },
     {
         album: 'kingdom',
@@ -33,6 +46,7 @@ export const MUSIC = [
         title: 'Churchmouse Streets',
         condition: 'Defeat Matti, the Paladin Mouse, while her guard is up',
         icon: '//static.wikitide.net/rnswiki/9/97/Area_Churchmouse_Streets.png',
+        bossPity: 180,
     },
     {
         album: 'kingdom',
@@ -40,6 +54,7 @@ export const MUSIC = [
         title: 'Emerald Lakeside',
         condition: 'Defeat Avy, the Starry Frog, without standing still for longer than 5 seconds',
         icon: '//static.wikitide.net/rnswiki/0/00/Area_Emerald_Lakeside.png',
+        bossPity: 200,
     },
     {
         album: 'kingdom',
@@ -47,6 +62,7 @@ export const MUSIC = [
         title: 'The Pale Keep',
         condition: 'Pass through the Pale Keep on Lunar without taking damage',
         icon: '//static.wikitide.net/rnswiki/3/35/Spr_item_swiftflight_6.png',
+        bossPity: 220,
     },
     {
         album: 'kingdom',
@@ -54,6 +70,7 @@ export const MUSIC = [
         title: 'A Serious Battle',
         condition: 'Win a run on Normal difficulty or above without opening treasure chests',
         icon: '//static.wikitide.net/rnswiki/5/55/Spr_item_flame_3.png',
+        bossPity: 275,
     },
     {
         album: 'kingdom',
@@ -61,6 +78,7 @@ export const MUSIC = [
         title: 'A Mysterious Battle',
         condition: 'Win a run on Normal difficulty or above without talking to a shopkeeper',
         icon: '//static.wikitide.net/rnswiki/1/18/Spr_item_arcane_4.png',
+        bossPity: 300,
     },
     {
         album: 'kingdom',
@@ -68,6 +86,7 @@ export const MUSIC = [
         title: 'A Valiant Battle',
         condition: 'Win a run on Hard difficulty or above without a destination chosen at the start',
         icon: '//static.wikitide.net/rnswiki/3/32/Spr_item_shrine_0.png',
+        bossPity: 240,
     },
     {
         album: 'kingdom',
@@ -75,6 +94,7 @@ export const MUSIC = [
         title: 'The Moonlit Pinnacle',
         condition: 'Win a run on Normal difficulty or above without taking damage',
         icon: '//static.wikitide.net/rnswiki/9/9b/Area_Moonlit_Pinnacle.png',
+        bossPity: 325,
     },
     {
         album: 'kingdom',
@@ -82,6 +102,7 @@ export const MUSIC = [
         title: 'A Bittersweet End',
         condition: 'Save Shira from the Spell',
         icon: '//static.wikitide.net/rnswiki/2/2d/Spr_item_life_0.png',
+        bossPity: 350,
     },
     {
         album: 'extra',
@@ -89,6 +110,7 @@ export const MUSIC = [
         title: 'Crack in the Geode',
         condition: 'Pass through the Crack in the Geode on Lunar without taking damage',
         icon: '//static.wikitide.net/rnswiki/a/a0/Area_Crack_In_The_Geode.png',
+        bossPity: 85,
     },
     {
         album: 'extra',
@@ -96,6 +118,7 @@ export const MUSIC = [
         title: 'Darkhouse Depths',
         condition: 'Defeat Farrah, the Witch\'s Hound, while standing in her "Deathwall"',
         icon: '//static.wikitide.net/rnswiki/b/bb/Area_Darkhouse_Depths.png',
+        bossPity: 120,
     },
     {
         album: 'extra',
@@ -103,6 +126,7 @@ export const MUSIC = [
         title: 'Subterra Sanctum',
         condition: 'On Normal difficulty or above, defeat every butterfly spawned by Eternal Bloom',
         icon: '//static.wikitide.net/rnswiki/3/31/Area_Subterra_Sanctum.png',
+        bossPity: 140,
     },
     {
         album: 'extra',
@@ -110,6 +134,7 @@ export const MUSIC = [
         title: 'Atelier Aurum',
         condition: 'On Normal difficulty or above, defeat Asha without anyone spending any gold previously in the run',
         icon: '//static.wikitide.net/rnswiki/4/48/Area_Atelier_Aurum.png',
+        bossPity: 180,
     },
     {
         album: 'extra',
@@ -117,6 +142,7 @@ export const MUSIC = [
         title: 'Looping Hallway',
         condition: 'On Normal difficulty or above, defeat a Spelllock enemy in less than 10 seconds.',
         icon: '//static.wikitide.net/rnswiki/7/76/Area_Looping_Hallway.png',
+        bossPity: 180,
     },
     {
         album: 'extra',
@@ -124,6 +150,7 @@ export const MUSIC = [
         title: "Fantasia for the Witch's Hound",
         condition: 'Collect 8 kinds of small creature trinkets',
         icon: '//static.wikitide.net/rnswiki/d/d4/Spr_item_sharpedge_7.png',
+        bossPity: 200,
     },
     {
         album: 'extra',
@@ -131,6 +158,7 @@ export const MUSIC = [
         title: "Rondo for the Witch's Messenger",
         condition: 'Collect 5 kinds of floofball',
         icon: '//static.wikitide.net/rnswiki/2/20/Spr_item_painters_0.png',
+        bossPity: 220,
     },
     {
         album: 'extra',
@@ -138,6 +166,7 @@ export const MUSIC = [
         title: "Etude for the Witch's Familiar",
         condition: 'Collect 50 trinkets',
         icon: '//static.wikitide.net/rnswiki/7/7e/Spr_item_performers_1.png',
+        bossPity: 240,
     },
     {
         album: 'extra',
@@ -145,6 +174,7 @@ export const MUSIC = [
         title: "Overture for the Witch's Heart",
         condition: 'See your adventure through to its resolution',
         icon: '//static.wikitide.net/rnswiki/1/18/Area_Reflecting_Pool.png',
+        bossPity: 260,
     },
     {
         album: 'extra',
@@ -152,6 +182,7 @@ export const MUSIC = [
         title: 'Woven Into a Spell',
         condition: 'Get all Adept/Challenger palettes',
         icon: '//static.wikitide.net/rnswiki/9/98/Spr_item_memory_5.png',
+        bossPity: 300,
     },
     {
         album: 'kingdom',
@@ -159,6 +190,7 @@ export const MUSIC = [
         title: 'Emerald Lakeside (Off Vocal)',
         condition: 'Win a run on Normal difficulty or above in less than 30 minutes',
         icon: '//static.wikitide.net/rnswiki/e/e9/Spr_item_ruins_7.png',
+        bossPity: null,
     },
     {
         album: 'extra',
@@ -166,6 +198,7 @@ export const MUSIC = [
         title: 'Subterra Sanctum (Off Vocal)',
         condition: 'Unlock every item set',
         icon: '//static.wikitide.net/rnswiki/a/ab/Spr_item_teaparty_5.png',
+        bossPity: null,
     },
     {
         album: 'extra',
@@ -173,6 +206,7 @@ export const MUSIC = [
         title: 'Woven into a Spell (Off Vocal)',
         condition: 'Win a run with every loot item at least once',
         icon: '//static.wikitide.net/rnswiki/c/c7/Spr_item_memory_0.png',
+        bossPity: null,
     },
 ];
 

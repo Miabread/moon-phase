@@ -5,6 +5,7 @@ import Lock from '@/components/custom/Lock.vue';
 import { data } from '@/data';
 import { computed } from 'vue';
 import { AREAS } from '@/data/constants';
+import Tooltip from '@/components/custom/Tooltip.vue';
 
 const sortedMusic = computed(() =>
     MUSIC.toSorted((a, b) => Number(data.music[a.key]!.unlocked) - Number(data.music[b.key]!.unlocked)),
@@ -23,8 +24,22 @@ const color = AREAS.lakeside.color;
                     </div>
                 </TableCell>
                 <TableCell>{{ music.title }}</TableCell>
-                <TableCell><Lock :unlocked="data.music[music.key]!.unlocked" :color="color" /></TableCell>
+                <TableCell>
+                    <Tooltip
+                        :title="music.title"
+                        :content="
+                            music.condition +
+                            '. ' +
+                            (music.bossPity
+                                ? `Can also be unlocked by beating ${music.bossPity} ${music.album} bosses.`
+                                : 'No boss pity available.')
+                        "
+                    >
+                        <Lock :unlocked="data.music[music.key]!.unlocked" :color="color" />
+                    </Tooltip>
+                </TableCell>
                 <TableCell>{{ music.condition }}</TableCell>
+                <TableCell>{{ music.bossPity ? ` ${music.bossPity} ${music.album} bosses` : 'none' }}</TableCell>
             </TableRow>
         </TableBody>
     </Table>

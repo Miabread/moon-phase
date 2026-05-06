@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Github, Trash2 } from 'lucide-vue-next';
+import { FileCog, Github, Trash2 } from 'lucide-vue-next';
 import {
     SidebarGroup,
     SidebarGroupContent,
@@ -26,6 +26,14 @@ import Tutorial from './Tutorial.vue';
                             <a @click="resetData" href="">
                                 <Trash2 />
                                 <span>Reset Data</span>
+                            </a>
+                        </SidebarMenuButton>
+                    </SidebarMenuItem>
+                    <SidebarMenuItem>
+                        <SidebarMenuButton as-child>
+                            <a href="https://github.com/Miabread/moon-phase#changelog">
+                                <FileCog />
+                                <span>Changelog</span>
                             </a>
                         </SidebarMenuButton>
                     </SidebarMenuItem>

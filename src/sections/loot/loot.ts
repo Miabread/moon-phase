@@ -1,6 +1,30 @@
-export const LOOT = [
+import { AREAS } from '@/data/constants';
+
+export const lootColors = {
+    all: { color: AREAS.keep.color },
+    opal: { color: AREAS.nest.color },
+    sapphire: { color: AREAS.arsenal.color },
+    ruby: { color: AREAS.darkhouse.color },
+    garnet: { color: AREAS.streets.color },
+    emerald: { color: AREAS.lakeside.color },
+};
+
+interface LootSet {
+    title: string;
+    color: {
+        [K in keyof Omit<typeof lootColors, 'all'>]?: boolean;
+    };
+    loot: {
+        title: string;
+        icon: string;
+        key: string;
+    }[];
+}
+
+export const LOOT: LootSet[] = [
     {
         title: 'Arcane Set',
+        color: { opal: true },
         loot: [
             {
                 title: 'Raven Grimoire',
@@ -46,6 +70,7 @@ export const LOOT = [
     },
     {
         title: 'Night Set',
+        color: { opal: true },
         loot: [
             {
                 title: 'Sleeping Greatbow',
@@ -91,6 +116,7 @@ export const LOOT = [
     },
     {
         title: 'Timespace Set',
+        color: { opal: true },
         loot: [
             {
                 title: 'Eternity Flute',
@@ -136,6 +162,7 @@ export const LOOT = [
     },
     {
         title: 'Wind Set',
+        color: { sapphire: true },
         loot: [
             {
                 title: 'Hawkfeather Fan',
@@ -181,6 +208,7 @@ export const LOOT = [
     },
     {
         title: 'Bloodwolf Set',
+        color: { sapphire: true },
         loot: [
             {
                 title: 'Vampiric Dagger',
@@ -226,6 +254,7 @@ export const LOOT = [
     },
     {
         title: 'Assassin Set',
+        color: { sapphire: true },
         loot: [
             {
                 title: 'Black Wakizashi',
@@ -271,6 +300,7 @@ export const LOOT = [
     },
     {
         title: 'Rockdragon Set',
+        color: { ruby: true },
         loot: [
             {
                 title: 'Dragonhead Spear',
@@ -316,6 +346,7 @@ export const LOOT = [
     },
     {
         title: 'Flame Set',
+        color: { ruby: true },
         loot: [
             {
                 title: 'Volcano Spear',
@@ -361,6 +392,7 @@ export const LOOT = [
     },
     {
         title: 'Gem Set',
+        color: { ruby: true },
         loot: [
             {
                 title: 'Diamond Shield',
@@ -406,6 +438,7 @@ export const LOOT = [
     },
     {
         title: 'Lightning Set',
+        color: { garnet: true },
         loot: [
             {
                 title: 'Brightstorm Spear',
@@ -451,6 +484,7 @@ export const LOOT = [
     },
     {
         title: 'Shrine Set',
+        color: { garnet: true },
         loot: [
             {
                 title: 'Holy Greatsword',
@@ -496,6 +530,7 @@ export const LOOT = [
     },
     {
         title: 'Lucky Set',
+        color: { garnet: true },
         loot: [
             {
                 title: 'Book of Cheats',
@@ -541,6 +576,7 @@ export const LOOT = [
     },
     {
         title: 'Life Set',
+        color: { emerald: true },
         loot: [
             {
                 title: 'Butterfly Ocarina',
@@ -586,6 +622,7 @@ export const LOOT = [
     },
     {
         title: 'Poison Set',
+        color: { emerald: true },
         loot: [
             {
                 title: 'Snakefang Dagger',
@@ -631,6 +668,7 @@ export const LOOT = [
     },
     {
         title: 'Depth Set',
+        color: { emerald: true },
         loot: [
             {
                 title: 'Seashell Shield',
@@ -676,6 +714,7 @@ export const LOOT = [
     },
     {
         title: 'Darkbite Set',
+        color: { opal: true, sapphire: true },
         loot: [
             {
                 title: 'Sawtooth Cleaver',
@@ -721,6 +760,7 @@ export const LOOT = [
     },
     {
         title: 'Timegem Set',
+        color: { opal: true, ruby: true },
         loot: [
             {
                 title: 'Obsidian Rod',
@@ -766,6 +806,7 @@ export const LOOT = [
     },
     {
         title: 'Youkai Set',
+        color: { opal: true, garnet: true },
         loot: [
             {
                 title: 'Kyou No Omikuji',
@@ -811,6 +852,7 @@ export const LOOT = [
     },
     {
         title: 'Haunted Set',
+        color: { opal: true, emerald: true },
         loot: [
             {
                 title: 'Ghost Spear',
@@ -856,6 +898,7 @@ export const LOOT = [
     },
     {
         title: 'Gladiator Set',
+        color: { sapphire: true, ruby: true },
         loot: [
             {
                 title: 'Grandmaster Spear',
@@ -901,6 +944,7 @@ export const LOOT = [
     },
     {
         title: 'Sparkblade Set',
+        color: { sapphire: true, garnet: true },
         loot: [
             {
                 title: 'Bluebolt Staff',
@@ -946,6 +990,7 @@ export const LOOT = [
     },
     {
         title: 'Swiftflight Set',
+        color: { sapphire: true, emerald: true },
         loot: [
             {
                 title: 'Crane Katana',
@@ -991,6 +1036,7 @@ export const LOOT = [
     },
     {
         title: 'Sacredflame Set',
+        color: { ruby: true, garnet: true },
         loot: [
             {
                 title: 'Sandpriestess Spear',
@@ -1036,6 +1082,7 @@ export const LOOT = [
     },
     {
         title: 'Ruins Set',
+        color: { ruby: true, emerald: true },
         loot: [
             {
                 title: 'Giant Stone Club',
@@ -1081,6 +1128,7 @@ export const LOOT = [
     },
     {
         title: 'Lakeshrine Set',
+        color: { garnet: true, emerald: true },
         loot: [
             {
                 title: 'Waterfall Polearm',
@@ -1126,6 +1174,7 @@ export const LOOT = [
     },
     {
         title: 'Glacier Set',
+        color: { opal: true, sapphire: true },
         loot: [
             {
                 title: 'Glacier Spear',
@@ -1171,6 +1220,7 @@ export const LOOT = [
     },
     {
         title: 'Memory Set',
+        color: { opal: true, ruby: true },
         loot: [
             {
                 title: 'Spear of Remorse',
@@ -1216,6 +1266,7 @@ export const LOOT = [
     },
     {
         title: 'Cultist Set',
+        color: { opal: true, garnet: true },
         loot: [
             {
                 title: 'Righthand Cast',
@@ -1261,6 +1312,7 @@ export const LOOT = [
     },
     {
         title: 'Painters Set',
+        color: { opal: true, emerald: true },
         loot: [
             {
                 title: 'Giant Paintbrush',
@@ -1306,6 +1358,7 @@ export const LOOT = [
     },
     {
         title: 'Daynight Set',
+        color: { sapphire: true, ruby: true },
         loot: [
             {
                 title: 'Daylight Sword',
@@ -1351,6 +1404,7 @@ export const LOOT = [
     },
     {
         title: 'Sharpedge Set',
+        color: { sapphire: true, garnet: true },
         loot: [
             {
                 title: 'Hooked Staff',
@@ -1396,6 +1450,7 @@ export const LOOT = [
     },
     {
         title: 'Oceans Set',
+        color: { sapphire: true, emerald: true },
         loot: [
             {
                 title: 'Rusted Greatsword',
@@ -1441,6 +1496,7 @@ export const LOOT = [
     },
     {
         title: 'Performers Set',
+        color: { ruby: true, garnet: true },
         loot: [
             {
                 title: "Strongman's Bar",
@@ -1486,6 +1542,7 @@ export const LOOT = [
     },
     {
         title: 'Miners Set',
+        color: { ruby: true, emerald: true },
         loot: [
             {
                 title: 'Iron Pickaxe',
@@ -1531,6 +1588,7 @@ export const LOOT = [
     },
     {
         title: 'Teaparty Set',
+        color: { garnet: true, emerald: true },
         loot: [
             {
                 title: 'Tiny Fork',

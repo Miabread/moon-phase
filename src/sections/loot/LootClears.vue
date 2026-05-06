@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@/components/shadcn/table';
-import { LOOT, LOOT_LIST } from './loot';
+import { LOOT, LOOT_LIST, lootColors } from './loot';
 import Tooltip from '@/components/custom/Tooltip.vue';
-import { chunks, cn } from '@/lib/utils';
+import { chunks, cn, uppercaseFirstLetter } from '@/lib/utils';
 import { data } from '@/data';
 import { AREAS } from '@/data/constants';
 import { computed, ref } from 'vue';
@@ -12,10 +12,13 @@ import { refDebounced } from '@vueuse/core';
 import { Card, CardContent } from '@/components/shadcn/card';
 import CardHeader from '@/components/shadcn/card/CardHeader.vue';
 import CardTitle from '@/components/shadcn/card/CardTitle.vue';
-import { ScrollText, Search } from 'lucide-vue-next';
+import { ScrollText, Search, Telescope } from 'lucide-vue-next';
 import Lock from '@/components/custom/Lock.vue';
+import { Button } from '@/components/shadcn/button';
 
 const color = AREAS.streets.color;
+
+const colorInput = ref<keyof typeof lootColors>('all');
 
 const isLootCleared = (lootKey: string) => data.loot[lootKey]!.cleared;
 
@@ -30,15 +33,20 @@ const searchInput = ref('');
 const debouncedSearchInput = refDebounced(searchInput, 500);
 
 const searchResults = computed(() => {
-    if (debouncedSearchInput.value.trim().length === 0) return { loot: new Set(), sets: new Set() };
-
     const sets = new Set();
-    const loot = new Set(
-        lootFuse.search(debouncedSearchInput.value).map((loot) => {
-            sets.add(loot.item.set);
-            return loot.item.key;
-        }),
-    );
+    const loot = new Set();
+
+    lootFuse
+        .search(debouncedSearchInput.value)
+        .filter(({ item }) => {
+            if (colorInput.value === 'all') return true;
+            const set = LOOT.find((set) => set.title === item.set); // TODO This is atrocious, replace with lookup during constant refactor
+            return set?.color[colorInput.value];
+        })
+        .forEach(({ item }) => {
+            sets.add(item.set);
+            loot.add(item.key);
+        });
 
     return { loot, sets };
 });
@@ -64,8 +72,46 @@ const remainingLoot = computed(() =>
             <CardTitle>
                 <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
                     <Search :style="{ color }" />
-                    <h2>Remaining Clears</h2>
-                    <Input type="text" v-model="searchInput" placeholder="Search..." />
+                    <h2>Search</h2>
+                    <Input
+                        type="text"
+                        v-model="searchInput"
+                        placeholder="Enter loot name... (or filter by treasure sphere color below)"
+                    />
+                </span>
+            </CardTitle>
+        </CardHeader>
+        <CardContent>
+            <Table>
+                <TableBody>
+                    <TableRow>
+                        <TableCell v-for="({ color }, title) in lootColors" :key="title">
+                            <div class="flex justify-center items-center h-10 rounded-xl w-full">
+                                <Button
+                                    variant="secondary"
+                                    size="default"
+                                    :class="cn('hover:cursor-pointer hover:brightness-150 border-2 border-secondary')"
+                                    :style="{
+                                        color,
+                                        borderColor: colorInput === title ? color : '',
+                                    }"
+                                    @click="colorInput = title"
+                                >
+                                    {{ uppercaseFirstLetter(title) }}
+                                </Button>
+                            </div>
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </CardContent>
+    </Card>
+    <Card>
+        <CardHeader>
+            <CardTitle>
+                <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
+                    <Telescope :style="{ color }" />
+                    <h2>Missing Loot</h2>
                 </span>
             </CardTitle>
         </CardHeader>
@@ -90,7 +136,7 @@ const remainingLoot = computed(() =>
             <CardTitle>
                 <span class="flex flex-row items-center gap-5 text-nowrap font-normal text-lg">
                     <ScrollText :style="{ color }" />
-                    <h2>By Loot Set</h2>
+                    <h2>Loot Sets</h2>
                 </span>
             </CardTitle>
         </CardHeader>

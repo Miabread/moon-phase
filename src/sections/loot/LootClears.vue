@@ -76,7 +76,7 @@ const remainingLoot = computed(() =>
                     <Input
                         type="text"
                         v-model="searchInput"
-                        placeholder="Enter loot name... (or filter by treasure sphere color below)"
+                        placeholder="Enter loot name... (or filter by Treasuresphere color below)"
                     />
                 </span>
             </CardTitle>

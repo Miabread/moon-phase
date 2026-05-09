@@ -38,15 +38,9 @@ const props = defineProps<{ page_i: number }>();
                         <TableCell v-for="(trinket, col_i) in row" :key="col_i">
                             <Tooltip v-if="trinket" :title="trinket.title" :content="trinket.condition">
                                 <div class="flex justify-center items-center w-full">
-                                    <Lock
-                                        v-if="trinket.key === 'nothing'"
-                                        :color="color"
-                                        class="h-10 w-10"
-                                        always-unlocked
-                                    />
                                     <div
                                         class="flex justify-center items-center h-10 w-10"
-                                        v-else-if="data.trinkets[trinket.key]!.unlocked"
+                                        v-if="data.trinkets[trinket.key]!.unlocked"
                                     >
                                         <img loading="lazy" :src="trinket.icon" :alt="trinket.title" class="w-full" />
                                     </div>

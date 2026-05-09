@@ -9,7 +9,7 @@ import { STORY } from '@/sections/achievements/achievements';
 export { loadSavedata } from './loadSavedata';
 export { loadUnlockdata } from './loadUnlockdata';
 
-const INCREMENT_EVERY_TIME_DEFAULT_DATA_CHANGES = 7;
+const INCREMENT_EVERY_TIME_DEFAULT_DATA_CHANGES = 8;
 
 const LOCAL_STORAGE_KEY = 'data-cache';
 

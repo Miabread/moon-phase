@@ -23,12 +23,12 @@ You can now see your progress breakdown for trinket unlocks, rabbit clears, achi
 
 ### v1.2 (2026-05-05)
 
-|                 |                                                |
-| --------------- | ---------------------------------------------- |
-| _Meta_          | Improve changelog                              |
-| _Loot Clears_   | Add treasure sphere color filter for loot sets |
-| _Music Unlocks_ | Add boss pity amounts for music unlocks        |
-| _Rabbit Clears_ | Add boss pity amounts for rabbit unlocks       |
+|                 |                                               |
+| --------------- | --------------------------------------------- |
+| _Meta_          | Improve changelog                             |
+| _Loot Clears_   | Add Treasuresphere color filter for loot sets |
+| _Music Unlocks_ | Add boss pity amounts for music unlocks       |
+| _Rabbit Clears_ | Add boss pity amounts for rabbit unlocks      |
 
 ### v1.1 (2026-04-27)
 

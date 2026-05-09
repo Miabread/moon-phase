@@ -1,12 +1,7 @@
 export const TRINKETS_PAGES = [
     [
         [
-            {
-                key: 'nothing',
-                condition: 'Unlocked by default',
-                title: 'Nothing',
-                icon: 'meow meow',
-            },
+            null,
             {
                 key: 'bronze_crown',
                 condition: 'Win a Kingdom run on Normal difficulty or above.',

@@ -31,7 +31,11 @@ import Tutorial from './Tutorial.vue';
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                         <SidebarMenuButton as-child>
-                            <a href="https://github.com/Miabread/moon-phase#changelog">
+                            <a
+                                href="https://github.com/Miabread/moon-phase#changelog"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <FileCog />
                                 <span>Changelog</span>
                             </a>
@@ -39,7 +43,7 @@ import Tutorial from './Tutorial.vue';
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                         <SidebarMenuButton as-child>
-                            <a href="https://github.com/Miabread/moon-phase">
+                            <a href="https://github.com/Miabread/moon-phase" target="_blank" rel="noopener noreferrer">
                                 <Github />
                                 <span>Source Code</span>
                             </a>
